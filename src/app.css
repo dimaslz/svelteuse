@@ -2,62 +2,9 @@
 /* @tailwind components; */
 @tailwind utilities;
 
-body, html {
-	@apply h-auto flex min-h-full justify-center;
-}
+html,
+body {
+  @apply text-gray-600 font-sans bg-white flex m-0 p-0 w-full h-auto min-h-full font-normal antialiased;
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('/fonts/Roboto-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
-	font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ropa Sans';
-  src: url('/fonts/RopaSans-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
-	font-display: swap;
-}
-
-.font-ropa-sans {
-	font-family: 'Ropa Sans', sans-serif;
-}
-
-.font-roboto {
-	font-family: 'Roboto', sans-serif;
-}
-
-@keyframes downloadPdf {
-  from {
-    opacity: 1;
-  }
-
-	95% {
-		opacity: 1;
-	}
-
-	96% {
-		opacity: 0.1;
-	}
-
-	97% {
-		opacity: 0.9;
-	}
-
-	98% {
-		opacity: 0.2;
-	}
-
-	99% {
-		opacity: 0.8;
-	}
-
-  to {
-    opacity: 1;
-  }
-}
-
-.download-pdf-animation {
-	animation-duration: 15s;
-	animation-name: downloadPdf;
-	animation-iteration-count: infinite;
+  @apply dark:text-gray-200 dark:bg-gray-900;
 }

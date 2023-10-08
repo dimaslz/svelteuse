@@ -1,8 +1,24 @@
-<main>
-	<div class="flex h-screen w-full justify-center items-center flex-col">
-		<h1 class="text-4xl text-[#ff3e00]">SvelteUse</h1>
-		<h2 class="text-xs">home</h2>
+<script lang="ts">
+	import { Header, Link } from "@/components";
+</script>
 
-		<div class="mt-12"><a href="/about">go to /about</a></div>
-	</div>
-</main>
+<svelte:head>
+	<title>Svelte hook react like - by @dimaslz</title>
+	<meta name="description" content="Dimas López resume - @dimaslz" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</svelte:head>
+
+<div class="flex flex-col h-screen items-center px-4 w-full">
+	<Header />
+
+	<main>
+		<div class="flex h-screen w-full justify-center items-center flex-col">
+			<h1 class="text-4xl text-[#ff3e00]">SvelteUse</h1>
+			<h2 class="text-xs">home</h2>
+
+			<Link href="/guide" class="bg-[#ff3e00] py-2 px-4 rounded-full text-white mt-12"
+				>Get started</Link
+			>
+		</div>
+	</main>
+</div>

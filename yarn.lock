@@ -3854,6 +3854,11 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
+xoid@^1.0.0-beta.10:
+  version "1.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/xoid/-/xoid-1.0.0-beta.10.tgz#7e21ad713bf51eaa666ae11e0290af24062c4ebf"
+  integrity sha512-CoXPeYS6ZFcZL1iHYgZKTtZDlCR78E+KIV+VmJFepMc6Jx4ZS4SCf2u7Ux9B6R4pUmVJzGogWvbeAs4koDGKvw==
+
 yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"

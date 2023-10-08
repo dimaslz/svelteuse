@@ -1,7 +1,5 @@
 <script lang="ts">
 	import "../app.css";
-
-	import { Header } from "@/components";
 </script>
 
 <svelte:head>
@@ -10,10 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<div class="flex flex-col h-full items-center px-4">
-	<Header />
-
-	<main class="h-full">
+<div class="flex flex-col h-screen items-center w-full">
+	<main class="h-full w-full">
 		<slot />
 	</main>
 </div>
