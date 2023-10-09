@@ -17,12 +17,13 @@ List of hooks inspired on [https://usehooks.com](https://usehooks.com), [https:/
 
 This list is orientative, let's try to get all 👨‍💻.
 
-- [x] useState
+- [x] [useState](/src/hooks/useState.ts)
+- [x] [useBoolean](/src/hooks/useBoolean.ts) (https://usehooks-ts.com/react-hook/use-boolean)
+- [x] [useCounter](/src/hooks/useCounter.ts) (https://usehooks.com/usecounter, https://usehooks-ts.com/react-hook/use-counter, https://vueuse.org/shared/useCounter/)
+- [x] [useEventListener](/src/hooks/useEventListener.ts) (https://vueuse.org/core/useEventListener/, https://usehooks.com/useeventlistener, https://usehooks-ts.com/react-hook/use-event-listener)
+- [x] [useDebounce](/src/hooks/useDebounce.ts) (https://usehooks.com/usedebounce, https://usehooks-ts.com/react-hook/use-debounce, https://vueuse.org/shared/useDebounceFn/)
+- [x] [useLocation](/src/hooks/useLocation.ts) (https://vueuse.org/core/useBrowserLocation/)
 - [ ] useClipboard (https://usehooks.com/usecopytoclipboard, https://usehooks-ts.com/react-hook/use-copy-to-clipboard, https://vueuse.org/core/useClipboard/)
-- [ ] useBoolean (https://usehooks-ts.com/react-hook/use-boolean)
-- [ ] useCounter (https://usehooks.com/usecounter, https://usehooks-ts.com/react-hook/use-counter, https://vueuse.org/shared/useCounter/)
-- [ ] useEventListener (https://vueuse.org/core/useEventListener/, https://usehooks.com/useeventlistener, https://usehooks-ts.com/react-hook/use-event-listener)
-- [ ] useDebounce (https://usehooks.com/usedebounce, https://usehooks-ts.com/react-hook/use-debounce, https://vueuse.org/shared/useDebounceFn/)
 - [ ] useDarkMode (https://usehooks-ts.com/react-hook/use-dark-mode, https://vueuse.org/core/useDark/)
 - [ ] usePreferredDark (https://vueuse.org/core/usePreferredDark/)
 - [ ] useCountdown (https://usehooks-ts.com/react-hook/use-countdown, https://usehooks.com/usecountdown)
@@ -102,7 +103,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useParentElement (https://vueuse.org/core/useParentElement/)
 - [ ] useBreakpoints (https://vueuse.org/core/useBreakpoints/)
 - [ ] useBroadcastChannel (https://vueuse.org/core/useBroadcastChannel/)
-- [ ] useLocation (https://vueuse.org/core/useBrowserLocation/)
 - [ ] useColorMode (https://vueuse.org/core/useColorMode/)
 - [ ] useCssVar (https://vueuse.org/core/useCssVar/)
 - [ ] useEyeDropper (https://vueuse.org/core/useEyeDropper/)
