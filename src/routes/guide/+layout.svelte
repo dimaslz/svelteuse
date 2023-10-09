@@ -15,6 +15,9 @@
 		<li>
 			<Link href="/guide/useBoolean" class="text-sm">useBoolean</Link>
 		</li>
+		<li>
+			<Link href="/guide/useCounter" class="text-sm">useCounter</Link>
+		</li>
 	</ul>
 
 	<div class="w-[calc(100%-272px)] h-full p-4 pt-24">
