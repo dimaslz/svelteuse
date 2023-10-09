@@ -7,7 +7,10 @@
 <div class="w-full flex h-full">
 	<ul class="p-4 bg-gray-950 h-full pt-24" id="menu">
 		<li>
-			<Link href="./useState" class="text-sm">useState</Link>
+			<Link href="/guide/useState" class="text-sm">useState</Link>
+		</li>
+		<li>
+			<Link href="/guide/useLocation" class="text-sm">useLocation</Link>
 		</li>
 	</ul>
 

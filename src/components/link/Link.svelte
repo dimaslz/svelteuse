@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { page } from "$app/stores";
+	import { useLocation } from "@/hooks";
 	export let href: string;
 
+	const location = useLocation();
 	// export let activeClassName: string = "";
 	// export let withBackground: boolean = false;
 
@@ -19,16 +20,11 @@
 		.filter(Boolean)
 		.join(" ");
 
-	page.subscribe(({ url }) => {
+	location.subscribe(({ pathname }) => {
 		if (href.startsWith("./")) {
-			href = `${url.pathname}${href.replace("./", "/")}`;
+			href = `${pathname}${href.replace("./", "/")}`;
 		}
 	});
-	// if (window) {
-	// 	if (href.startsWith("./")) {
-	// 		href = `${window?.location?.pathname}${href.replace("./", "/")}`;
-	// 	}
-	// }
 </script>
 
 <a {...$$restProps} class={className} {href}><slot /></a>
