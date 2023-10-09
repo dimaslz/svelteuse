@@ -9,7 +9,5 @@
 </svelte:head>
 
 <div class="flex flex-col h-screen items-center w-full">
-	<main class="h-full w-full">
-		<slot />
-	</main>
+	<slot />
 </div>

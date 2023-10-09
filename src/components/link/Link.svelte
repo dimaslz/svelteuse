@@ -27,4 +27,4 @@
 	});
 </script>
 
-<a {...$$restProps} class={className} {href}><slot /></a>
+<a class={className} {href} {...$$restProps}><slot /></a>

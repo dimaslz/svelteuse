@@ -8,11 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<div class="flex flex-col h-screen items-center px-4 w-full">
+<div class="flex flex-col h-screen items-center w-full">
 	<Header />
 
-	<main>
-		<div class="flex h-screen w-full justify-center items-center flex-col">
+	<main class="h-full w-full">
+		<div class="flex h-full flex-1 flex-grow-0 w-full justify-center items-center flex-col">
 			<h1 class="text-4xl text-[#ff3e00]">SvelteUse</h1>
 			<h2 class="text-xs">home</h2>
 
