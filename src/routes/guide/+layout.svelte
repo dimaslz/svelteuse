@@ -18,6 +18,9 @@
 		<li>
 			<Link href="/guide/useCounter" class="text-sm">useCounter</Link>
 		</li>
+		<li>
+			<Link href="/guide/useEventListener" class="text-sm">useEventListener</Link>
+		</li>
 	</ul>
 
 	<div class="w-[calc(100%-272px)] h-full p-4 pt-24">
