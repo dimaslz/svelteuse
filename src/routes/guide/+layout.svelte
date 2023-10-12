@@ -32,6 +32,9 @@
 				<li>
 					<Link href="/guide/useDebounce">useDebounce</Link>
 				</li>
+				<li>
+					<Link href="/guide/useClipboard">useClipboard</Link>
+				</li>
 			</ul>
 
 			<div class="text-center px-2 py-4 text-xs">👨‍💻 with ♥️ and ☕️ from Barcelona</div>

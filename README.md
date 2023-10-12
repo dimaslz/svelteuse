@@ -23,7 +23,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useEventListener](/src/hooks/useEventListener.ts) (https://vueuse.org/core/useEventListener/, https://usehooks.com/useeventlistener, https://usehooks-ts.com/react-hook/use-event-listener)
 - [x] [useDebounce](/src/hooks/useDebounce.ts) (https://usehooks.com/usedebounce, https://usehooks-ts.com/react-hook/use-debounce, https://vueuse.org/shared/useDebounceFn/)
 - [x] [useLocation](/src/hooks/useLocation.ts) (https://vueuse.org/core/useBrowserLocation/)
-- [ ] useClipboard (https://usehooks.com/usecopytoclipboard, https://usehooks-ts.com/react-hook/use-copy-to-clipboard, https://vueuse.org/core/useClipboard/)
+- [x] useClipboard (https://usehooks.com/usecopytoclipboard, https://usehooks-ts.com/react-hook/use-copy-to-clipboard, https://vueuse.org/core/useClipboard/)
 - [ ] useDarkMode (https://usehooks-ts.com/react-hook/use-dark-mode, https://vueuse.org/core/useDark/)
 - [ ] usePreferredDark (https://vueuse.org/core/usePreferredDark/)
 - [ ] useCountdown (https://usehooks-ts.com/react-hook/use-countdown, https://usehooks.com/usecountdown)
