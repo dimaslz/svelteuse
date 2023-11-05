@@ -1,21 +1,22 @@
 <script lang="ts">
-	import { useLocation } from "@/hooks";
+	import { Browser, DocTpl, H2, Highlight } from "@/components";
 
-	const location = useLocation();
+	// import { useLocation } from "@/hooks";
+	import code from "./code-snippet";
+
+	// const location = useLocation();
 </script>
 
-<div class="w-full">
-	<h1 class="text-4xl">useLocation</h1>
+<DocTpl title="useLocation">
+	<div slot="visual-example">
+		<H2>Visual example</H2>
 
-	<div class="mt-4 space-y-4">
-		<div class="px-4 py-2 bg-gray-950/50 text-xs border-l-4 text-gray-400">
-			<p>Just works with SvelteKit</p>
-		</div>
-
-		<div class="p-4 bg-gray-950/50">
-			<p>
-				Value is <code>{JSON.stringify($location)}</code>
-			</p>
-		</div>
+		<Browser body="p-4 bg-gray-950/50">...</Browser>
 	</div>
-</div>
+
+	<div slot="code-example">
+		<H2>Code example</H2>
+
+		<Highlight {code} />
+	</div>
+</DocTpl>

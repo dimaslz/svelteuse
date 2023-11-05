@@ -1,6 +1,10 @@
 <script lang="ts">
+	import { DocTpl, H2, Highlight } from "@/components";
 	import { Button } from "@/components";
+	import Browser from "@/components/browser/Browser.svelte";
 	import { useState } from "@/hooks";
+
+	import code from "./code-snippet";
 
 	const [state, setState] = useState<number>(0);
 
@@ -13,14 +17,24 @@
 	};
 </script>
 
-<div class="w-full">
-	<h1 class="text-4xl">useState</h1>
+<DocTpl title="useState">
+	<div slot="visual-example">
+		<H2>Visual Example</H2>
 
-	<div class="p-4 bg-gray-950/50 mt-6">
-		<p>
-			Value is <code>{$state}</code>
-		</p>
-		<Button on:click={updateState}>update state</Button>
-		<Button on:click={updateStateByFn}>update by function</Button>
+		<Browser body="p-4 bg-gray-950/50">
+			<div>
+				<p>
+					Value is <code>{$state}</code>
+				</p>
+				<Button on:click={updateState}>update state</Button>
+				<Button on:click={updateStateByFn}>update by function</Button>
+			</div>
+		</Browser>
 	</div>
-</div>
+
+	<div slot="code-example">
+		<H2>Code Example</H2>
+
+		<Highlight {code} />
+	</div>
+</DocTpl>

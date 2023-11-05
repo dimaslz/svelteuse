@@ -5,8 +5,10 @@ type TFn<T> = (f: T) => T;
 type TNewState<T> = TFn<T> | T;
 type UseStateOutput<T> = [SvelteStore<T>, TsetValue<T>];
 
-export const useState = <T>(value: T | null = null): UseStateOutput<T> => {
-	const { subscribe, update } = writable<T>(value as T);
+export const useState = <T>(value: TFn<T> | T | null = null): UseStateOutput<T> => {
+	const { subscribe, update } = writable<T>(
+		typeof value === "function" ? (value as () => T)() : (value as T),
+	);
 
 	const setState = (newState: TNewState<T>): void => {
 		if (newState instanceof Function) {

@@ -13,13 +13,15 @@
 				</li>
 			</ul>
 
-			<ul class="h-full text-sm py-2">
+			<ul
+				class="h-full text-sm py-2 [&>li>a]:flex [&>li>a]:w-full [&>li>a]:items-center [&>li>a]:rounded-md [&>li>a]:p-2 [&>li>a.is-active]:bg-gray-900"
+			>
 				<li>
 					<Link href="/guide/useState">useState</Link>
 				</li>
-				<li>
+				<!-- <li>
 					<Link href="/guide/useLocation">useLocation</Link>
-				</li>
+				</li> -->
 				<li>
 					<Link href="/guide/useBoolean">useBoolean</Link>
 				</li>
@@ -33,7 +35,64 @@
 					<Link href="/guide/useDebounce">useDebounce</Link>
 				</li>
 				<li>
+					<Link href="/guide/useDebounceFn">useDebounceFn</Link>
+				</li>
+				<li>
+					<Link href="/guide/useThrottle">useThrottle</Link>
+				</li>
+				<li>
+					<Link href="/guide/useThrottleFn">useThrottleFn</Link>
+				</li>
+				<li>
 					<Link href="/guide/useClipboard">useClipboard</Link>
+				</li>
+				<li>
+					<Link href="/guide/useLocalStorage">useLocalStorage</Link>
+				</li>
+				<li>
+					<Link href="/guide/useMediaQuery">useMediaQuery</Link>
+				</li>
+				<li>
+					<Link href="/guide/useDarkMode">useDarkMode</Link>
+				</li>
+				<li>
+					<Link href="/guide/useDocumentTitle">useDocumentTitle</Link>
+				</li>
+				<li>
+					<Link href="/guide/useElementSize">useElementSize</Link>
+				</li>
+				<li>
+					<Link href="/guide/useFetch">useFetch</Link>
+				</li>
+				<li>
+					<Link href="/guide/useHover">useHover</Link>
+				</li>
+				<li>
+					<Link href="/guide/useIntervalFn">useIntervalFn</Link>
+				</li>
+				<li>
+					<Link href="/guide/useScreen">useScreen</Link>
+				</li>
+				<li>
+					<Link href="/guide/useScript">useScript</Link>
+				</li>
+				<li>
+					<Link href="/guide/useSessionStorage">useSessionStorage</Link>
+				</li>
+				<li>
+					<Link href="/guide/useTimeoutFn">useTimeoutFn</Link>
+				</li>
+				<li>
+					<Link href="/guide/useToggle">useToggle</Link>
+				</li>
+				<li>
+					<Link href="/guide/useWindowSize">useWindowSize</Link>
+				</li>
+				<li>
+					<Link href="/guide/useImageOnLoad">useImageOnLoad</Link>
+				</li>
+				<li>
+					<Link href="/guide/useMap">useMap</Link>
 				</li>
 			</ul>
 

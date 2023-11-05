@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { get } from "svelte/store";
 
-	import { Button } from "@/components";
+	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
 	import { useBoolean } from "@/hooks";
+
+	import code from "./code-snippet";
 
 	const { value, setValue, setTrue, setFalse, toggle } = useBoolean();
 
@@ -11,25 +13,31 @@
 	};
 </script>
 
-<div class="w-full">
-	<h1 class="text-4xl">useBoolean</h1>
+<DocTpl title="useBoolean">
+	<div slot="description"></div>
 
-	<div class="mt-4 space-y-4">
-		<!-- <div class="px-4 py-2 bg-gray-950/50 text-xs border-l-4 text-gray-400">
-			<p>Just works with SvelteKit</p>
-		</div> -->
+	<div slot="visual-example">
+		<H2>Visual example</H2>
 
-		<div class="p-4 bg-gray-950/50">
-			<p>
-				Value <code>{$value}</code>
-			</p>
-		</div>
+		<Browser body="p-4 bg-gray-950/50">
+			<div>
+				<p>
+					Value <code>{$value}</code>
+				</p>
 
-		<div>
-			<Button on:click={setTrue}>set true</Button>
-			<Button on:click={setFalse}>set false</Button>
-			<Button on:click={toggle}>toggle value</Button>
-			<Button on:click={customToggle}>custom toggle</Button>
-		</div>
+				<div>
+					<Button on:click={setTrue}>set true</Button>
+					<Button on:click={setFalse}>set false</Button>
+					<Button on:click={toggle}>toggle value</Button>
+					<Button on:click={customToggle}>custom toggle</Button>
+				</div>
+			</div>
+		</Browser>
 	</div>
-</div>
+
+	<div slot="code-example">
+		<H2>Code example</H2>
+
+		<Highlight {code} />
+	</div>
+</DocTpl>

@@ -1,14 +1,23 @@
 import { useState } from "@/hooks";
 
-export function useDebounce<T>(value: T, delay?: number): any {
+type Fn<T> = () => T;
+type NewValue<T> = Fn<T> | T;
+
+type Return<T> = (f: Fn<T> | T) => void;
+
+export function useDebounce<T = string>(
+	value: NewValue<T>,
+	delay?: number,
+): [SvelteStore<T>, Return<T>] {
 	const [state, setValue] = useState<T>(value);
 
 	let timeout: NodeJS.Timeout;
 
-	function setDebouncedValue(newValue: T) {
+	function setDebouncedValue(newValue: NewValue<T>): void {
 		clearTimeout(timeout);
+
 		timeout = setTimeout(() => {
-			setValue(newValue);
+			setValue(typeof newValue === "function" ? (newValue as () => T)() : (newValue as T));
 		}, delay);
 	}
 

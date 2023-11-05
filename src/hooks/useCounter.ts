@@ -11,8 +11,8 @@ interface UseCounterOutput {
 export function useCounter(initialValue?: number): UseCounterOutput {
 	const [count, setCount] = useState<number>(initialValue || 0);
 
-	const increment = (n = 1) => setCount((x) => x + n);
-	const decrement = (n = 1) => setCount((x) => x - n);
+	const increment = (n: number = 1) => setCount((x) => x + n);
+	const decrement = (n: number = 1) => setCount((x) => x - n);
 	const reset = () => setCount(initialValue || 0);
 
 	return {

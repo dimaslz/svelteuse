@@ -1,10 +1,14 @@
 <script lang="ts">
-	import { useLocation } from "@/hooks";
+	import { onMount } from "svelte";
+	import { writable } from "svelte/store";
+
+	import { page } from "$app/stores";
 	export let href: string;
 
-	const location = useLocation();
 	// export let activeClassName: string = "";
-	// export let withBackground: boolean = false;
+	// // export let withBackground: boolean = false;
+
+	let isActive = writable(false);
 
 	const className = [
 		$$restProps.class,
@@ -14,17 +18,18 @@
 		// 		: "hover:bg-gray-900 dark:hover:bg-gray-700"
 		// 	: "text-blue-500 hover:text-blue-700 hover:underline",
 		"hover:text-gray-900 dark:hover:text-gray-700",
-		// isActive && (activeClassName || "is-active"),
-		"is-active",
+		// $isActive && (activeClassName || "is-active"),
 	]
 		.filter(Boolean)
 		.join(" ");
 
-	location.subscribe(({ pathname }) => {
-		if (href.startsWith("./")) {
-			href = `${pathname}${href.replace("./", "/")}`;
-		}
+	onMount(() => {
+		page.subscribe((pageUpdate) => {
+			isActive.set(pageUpdate.url.pathname === href);
+		});
 	});
 </script>
 
-<a class={className} {href} {...$$restProps}><slot /></a>
+<a class={[className, $isActive ? "is-active" : ""].join(" ")} {href} {...$$restProps}>
+	<slot />
+</a>
