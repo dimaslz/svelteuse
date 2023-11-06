@@ -28,6 +28,8 @@
 			isActive.set(pageUpdate.url.pathname === href);
 		});
 	});
+
+	delete $$restProps.class;
 </script>
 
 <a class={[className, $isActive ? "is-active" : ""].join(" ")} {href} {...$$restProps}>

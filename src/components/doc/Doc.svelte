@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { H1 } from "@/components";
+
 	export let title: string = "";
 </script>
 
 <div class="w-full">
-	<h1 class="text-4xl">{title}</h1>
+	<H1>{title}</H1>
 
 	<div class="py-6">
 		<slot name="description" />

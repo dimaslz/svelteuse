@@ -1,3 +1,9 @@
-<h1 class="text-4xl border-b border-b-gray-600">Installation</h1>
+<script>
+	import { H1 } from "@/components";
+</script>
 
-<div class="pt-6 text-sm">TBD</div>
+<div class="w-full">
+	<H1>Installation</H1>
+
+	<div class="pt-6 text-sm">TBD</div>
+</div>

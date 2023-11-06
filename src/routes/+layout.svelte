@@ -8,6 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<div class="flex flex-col h-screen items-center w-full">
+<div class="blockflex-col items-center w-full h-full">
 	<slot />
 </div>

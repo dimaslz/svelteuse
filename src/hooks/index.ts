@@ -14,7 +14,6 @@ export * from "./useHover";
 export * from "./useImageOnLoad";
 export * from "./useIntervalFn";
 export * from "./useLocalStorage";
-export * from "./useLocation";
 export * from "./useMap";
 export * from "./useMediaQuery";
 export * from "./useReducer";
