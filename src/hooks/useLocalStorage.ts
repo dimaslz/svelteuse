@@ -1,4 +1,3 @@
-import { onMount } from "svelte";
 import { get } from "svelte/store";
 
 import { useEventListener, useState } from "@/hooks";
@@ -22,7 +21,7 @@ declare global {
 
 type TFn<T> = (f: T) => T;
 type TNewState<T> = TFn<T> | T;
-type UseStateOutput<T> = [SvelteStore<T>, TsetValue<T>];
+type UseStateOutput<T> = [SvelteStore<T>, TsetValue<T>, () => void, () => void];
 
 export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput<T> {
 	const readValue = (): T => {
@@ -33,14 +32,14 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 
 		try {
 			const item = window.localStorage.getItem(key);
-			return item ? (parseJSON(item) as T) : initialValue;
+			return item ? (parseJSON(item || "false") as T) : initialValue;
 		} catch (error) {
 			console.warn(`Error reading localStorage key “${key}”:`, error);
 			return initialValue;
 		}
 	};
 
-	const [storedValue, setStoredValue] = useState<T>(readValue());
+	const [storedValue, setStoredValue] = useState<T>(readValue);
 
 	const setValue = (value: TNewState<T>): void => {
 		// Prevent build error "window is undefined" but keeps working
@@ -60,9 +59,13 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 		}
 	};
 
-	onMount(() => {
-		setStoredValue(readValue());
-	});
+	const reset = () => {
+		setValue("" as T);
+	};
+
+	const clear = () => {
+		window.localStorage.removeItem(key);
+	};
 
 	const handleStorageChange = (event: StorageEvent | CustomEvent) => {
 		if ((event as StorageEvent)?.key && (event as StorageEvent).key !== key) {
@@ -76,5 +79,5 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 
 	useEventListener<StorageEvent | CustomEvent>("local-storage", handleStorageChange);
 
-	return [storedValue, setValue];
+	return [storedValue, setValue, reset, clear];
 }
