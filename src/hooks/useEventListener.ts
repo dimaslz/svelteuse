@@ -2,9 +2,9 @@ import { browser } from "$app/environment";
 
 const eventListeners = new Map();
 
-export function useEventListener(
+export function useEventListener<E extends Event = Event>(
 	eventName: string,
-	handler: (e: Event) => void,
+	handler: (event: E) => void,
 	element: Element | Window | null = browser ? window : null,
 	options: boolean = false,
 ): () => void {
@@ -13,7 +13,7 @@ export function useEventListener(
 	}
 
 	const id = Math.random().toString(36).substr(2, 9);
-	const listener = (event: Event) => handler(event);
+	const listener = (event: E) => handler(event);
 
 	eventListeners.set(id, {
 		eventName,
@@ -22,10 +22,10 @@ export function useEventListener(
 		options,
 	});
 
-	element.addEventListener(eventName, listener, options);
+	element.addEventListener(eventName, listener as EventListener, options);
 
 	return () => {
-		element.removeEventListener(eventName, listener, options);
+		element.removeEventListener(eventName, listener as EventListener, options);
 		eventListeners.delete(id);
 	};
 }
