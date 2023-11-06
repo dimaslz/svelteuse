@@ -4,7 +4,7 @@
 
 	import code from "./code-snippet";
 
-	const { isDarkMode, toggle } = useDarkMode(false);
+	const { isDarkMode, toggle } = useDarkMode();
 </script>
 
 <DocTpl title="useDarkMode">
@@ -17,6 +17,7 @@
 					" ",
 				)}
 			>
+				<div>mode: {$isDarkMode ? "dark" : "light"}</div>
 				<p class="pb-6">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, repellendus optio?
 					Possimus quod velit corrupti, repellendus veritatis, sequi dicta natus necessitatibus

@@ -96,6 +96,9 @@
 				<li>
 					<Link href="/guide/useMap">useMap</Link>
 				</li>
+				<li>
+					<Link href="/guide/useClickAnyWhere">useClickAnyWhere</Link>
+				</li>
 			</ul>
 		</div>
 
