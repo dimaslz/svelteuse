@@ -1,4 +1,3 @@
-import { onMount } from "svelte";
 import { get } from "svelte/store";
 
 import { useLocalStorage } from "@/hooks/useLocalStorage";
@@ -19,15 +18,6 @@ export function useDarkMode(defaultValue?: boolean): UseDarkModeOutput {
 		"dark-mode",
 		defaultValue ?? get(isDarkOS) ?? false,
 	);
-
-	// Update darkMode if os prefers changes
-	onMount(() => {
-		setDarkMode(false);
-
-		isDarkOS.subscribe((value) => {
-			setDarkMode(value);
-		});
-	});
 
 	return {
 		isDarkMode,
