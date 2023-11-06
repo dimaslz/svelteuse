@@ -8,6 +8,7 @@ export * from "./useDebounce";
 export * from "./useDebounceFn";
 export * from "./useDocumentTitle";
 export * from "./useElementSize";
+export * from "./useElementSizeObserver";
 export * from "./useEventListener";
 export * from "./useFetch";
 export * from "./useHover";

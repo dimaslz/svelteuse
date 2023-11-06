@@ -64,6 +64,9 @@
 					<Link href="/guide/useElementSize">useElementSize</Link>
 				</li>
 				<li>
+					<Link href="/guide/useElementSizeObserver">useElementSizeObserver</Link>
+				</li>
+				<li>
 					<Link href="/guide/useFetch">useFetch</Link>
 				</li>
 				<li>
