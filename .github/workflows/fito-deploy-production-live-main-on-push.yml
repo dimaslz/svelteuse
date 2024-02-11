@@ -119,7 +119,7 @@
           run: "currentImageId=`ssh prod \"docker images --format=\\\"{{.Repository}} {{.ID}}\\\" | grep \\\"_svelteuse.dimaslz.dev\\\" || echo \\\"\\\"\"` && currentImageId=`echo $currentImageId | grep -Po \"\\s(.*?$)\" | tr -d \"\\n\" || echo \"\"` && echo \"currentImageId=$currentImageId\" >> $GITHUB_ENV"
         - 
           name: "run"
-          run: "newContainerID=`ssh prod \"docker run --name ${{ env.ATTEMPTS }}_${{ github.sha }}_svelteuse.dimaslz.dev_production_container  -d ${{ env.ATTEMPTS }}_${{ github.sha }}_svelteuse.dimaslz.dev_production_image\"` && echo \"newContainerID=$newContainerID\" >> $GITHUB_ENV"
+          run: "newContainerID=`ssh prod \"docker run --name ${{ env.ATTEMPTS }}_${{ github.sha }}_svelteuse.dimaslz.dev_production_container -d ${{ env.ATTEMPTS }}_${{ github.sha }}_svelteuse.dimaslz.dev_production_image\"` && echo \"newContainerID=$newContainerID\" >> $GITHUB_ENV"
         - 
           name: "get container IP"
           run: "newContainerIP=`ssh prod \"docker inspect -f \\\"{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}\\\" ${{ env.newContainerID }}\"` && echo \"newContainerIP=$newContainerIP\" >> $GITHUB_ENV"
@@ -132,7 +132,13 @@
           run: "echo \"container is not running\" && exit 1"
         - 
           name: "setup nginx config"
-          run: "wget https://statics.dimaslz.dev/fito/nginx/static-config-auth.nginx.tmpl -O nginx.tmpl\n\texport SERVER_NAME=\"svelteuse.dimaslz.dev\"\n\texport SERVER_URL=\"http://${{ env.newContainerIP }}:${{ env.newContainerPort }}\"\n\tenvsubst < nginx.tmpl > svelteuse.dimaslz.dev\n\tscp svelteuse.dimaslz.dev prod:/etc/nginx/sites-enabled/svelteuse.dimaslz.dev\n\tssh prod \"nginx -t && systemctl restart nginx\""
+          run: "wget https://statics.dimaslz.dev/fito/nginx/static-config-auth.nginx-certbot-1-step.tmpl -O nginx.tmpl\n\texport SERVER_NAME=\"svelteuse.dimaslz.dev\"\n\texport SERVER_URL=\"http://${{ env.newContainerIP }}:${{ env.newContainerPort }}\"\n\tenvsubst < nginx.tmpl > svelteuse.dimaslz.dev\n\tscp svelteuse.dimaslz.dev prod:/etc/nginx/sites-enabled/svelteuse.dimaslz.dev\n\tssh prod \"nginx -t && systemctl restart nginx\""
+        - 
+          name: "create certificates"
+          run: "ssh prod \"mkdir -p /usr/share/nginx/html/svelteuse.dimaslz.dev && echo \\\"1\\\" | certbot certonly --webroot -w /usr/share/nginx/html/svelteuse.dimaslz.dev -d svelteuse.dimaslz.dev --email ${{ secrets.FITO_ENV_USER_EMAIL }} --agree-tos --no-eff-email && nginx -t && systemctl restart nginx\""
+        - 
+          name: "setup nginx config"
+          run: "wget https://statics.dimaslz.dev/fito/nginx/static-config-auth.nginx-certbot-2-step.tmpl -O nginx.tmpl\n\texport SERVER_NAME=\"svelteuse.dimaslz.dev\"\n\texport SERVER_URL=\"http://${{ env.newContainerIP }}:${{ env.newContainerPort }}\"\n\tenvsubst < nginx.tmpl > svelteuse.dimaslz.dev\n\tscp svelteuse.dimaslz.dev prod:/etc/nginx/sites-enabled/svelteuse.dimaslz.dev\n\tssh prod \"nginx -t && systemctl restart nginx\""
         - 
           name: "setup .htpasswd authentication"
           run: "ssh prod \"sh -c \\\"echo -n 'svelteuse:' > /etc/nginx/.svelteuse.dimaslz.dev-htpasswd\\\" & sh -c \\\"openssl passwd -apr1 ${{ secrets.FITO_ENV_SVELTEUSE_DIMASLZ_DEV }} >> /etc/nginx/.svelteuse.dimaslz.dev-htpasswd\\\"\""
