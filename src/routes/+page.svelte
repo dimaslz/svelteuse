@@ -79,5 +79,13 @@
 		</div>
 	</main>
 
-	<footer class="text-center px-2 py-4 text-xs">👨‍💻 with ♥️ and ☕️ from Barcelona</footer>
+	<footer class="text-center px-2 py-4 text-base">
+		👨‍💻 with ♥️ and ☕️ from Barcelona - <Link href="https://github.com/dimaslz" target="_blank"
+			>gh</Link
+		> |
+		<Link href="https://www.linkedin.com/in/dimaslopezzurita" target="_blank">in</Link> | <Link
+			href="https://x.com/dimaslz"
+			target="_blank">tw</Link
+		>
+	</footer>
 </div>
