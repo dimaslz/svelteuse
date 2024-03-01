@@ -20,44 +20,56 @@ List of hooks inspired on [https://usehooks.com](https://usehooks.com), [https:/
 
 This list is orientative, let's try to get all 👨‍💻.
 
-- [x] [useState](/src/hooks/useState.ts)
-- [x] [useBoolean](/src/hooks/useBoolean.ts) (https://usehooks-ts.com/react-hook/use-boolean)
-- [x] [useCounter](/src/hooks/useCounter.ts) (https://usehooks.com/usecounter, https://usehooks-ts.com/react-hook/use-counter, https://vueuse.org/shared/useCounter/)
-- [x] [useEventListener](/src/hooks/useEventListener.ts) (https://vueuse.org/core/useEventListener/, https://usehooks.com/useeventlistener, https://usehooks-ts.com/react-hook/use-event-listener)
-- [x] [useDebounce](/src/hooks/useDebounce.ts) (https://usehooks.com/usedebounce, https://usehooks-ts.com/react-hook/use-debounce, https://vueuse.org/shared/useDebounceFn/)
-- [x] [useLocation](/src/hooks/useLocation.ts) (https://vueuse.org/core/useBrowserLocation/)
-- [x] useClipboard (https://usehooks.com/usecopytoclipboard, https://usehooks-ts.com/react-hook/use-copy-to-clipboard, https://vueuse.org/core/useClipboard/)
-- [ ] useDarkMode (https://usehooks-ts.com/react-hook/use-dark-mode, https://vueuse.org/core/useDark/)
+- [x] [useBoolean](/src/hooks/useBoolean): <https://usehooks-ts.com/react-hook/use-boolean>
+- [x] [useClickAnyWhere](/src/hooks/useClickAnyWhere): <https://usehooks-ts.com/react-hook/use-click-any-where>
+- [x] [useClickOutside](/src/hooks/useClickOutside): <https://usehooks.com/useclickaway>, <https://usehooks-ts.com/react-hook/use-on-click-outside>
+- [x] [useClipboard](/src/hooks/useClipboard): <https://usehooks.com/usecopytoclipboard>, <https://usehooks-ts.com/react-hook/use-copy-to-clipboard>, <https://vueuse.org/core/useClipboard/>
+- [x] [useCounter](/src/hooks/useCounter): <https://usehooks.com/usecounter>, <https://usehooks-ts.com/react-hook/use-counter>, <https://vueuse.org/shared/useCounter/>
+- [x] [useDarkMode](/src/hooks/useDarkMode): <https://usehooks-ts.com/react-hook/use-dark-mode>, <https://vueuse.org/core/useDark/>
+- [x] [useDebounce](/src/hooks/useDebounce): <https://usehooks.com/usedebounce>, <https://usehooks-ts.com/react-hook/use-debounce>, <https://vueuse.org/shared/useDebounceFn/>
+- [x] [useDebounceFn](/src/hooks/useDebounce): <https://usehooks.com/usedebounce>, <https://usehooks-ts.com/react-hook/use-debounce>, <https://vueuse.org/shared/useDebounceFn/>
+- [x] [useDocumentTitle](/src/hooks/useDocumentTitle): <https://usehooks-ts.com/react-hook/use-document-title>, <https://vueuse.org/core/useTitle/>, <https://usehooks.com/usedocumenttitle>
+- [x] [useElementSize](/src/hooks/useElementSize): <https://usehooks-ts.com/react-hook/use-element-size>, <https://vueuse.org/core/useElementSize/>
+- [x] [useElementSizeObserver](/src/hooks/useResizeObserver): <https://vueuse.org/core/useResizeObserver/>
+- [x] [useEventCallback](/src/hooks/useEventCallback): <https://usehooks-ts.com/react-hook/use-event-callback>
+- [x] [useEventListener](/src/hooks/useEventListener): <https://vueuse.org/core/useEventListener/>, <https://usehooks.com/useeventlistener>, <https://usehooks-ts.com/react-hook/use-event-listener>
+- [x] [useFetch](/src/hooks/useFetch): <https://vueuse.org/core/useFetch/>, <https://usehooks.com/usefetch>, <https://usehooks-ts.com/react-hook/use-fetch>
+- [x] [useHover](/src/hooks/useHover): <https://usehooks-ts.com/react-hook/use-hover>, <https://usehooks.com/usehover>, <https://vueuse.org/core/useElementHover/>
+- [x] [useImageOnLoad](/src/hooks/useImageOnLoad): <https://usehooks-ts.com/react-hook/use-image-on-load>, <https://vueuse.org/core/useImage/>
+- [x] [useInterval](/src/hooks/useInterval): <https://usehooks-ts.com/react-hook/use-interval>, <https://usehooks.com/useinterval>, <https://vueuse.org/shared/useInterval/>
+- [x] [useIntervalFn](/src/hooks/useIntervalFn): <https://vueuse.org/shared/useIntervalFn/>, <https://usehooks.com/useintervalwhen>
+- [x] [useLocalStorage](/src/hooks/useLocalStorage): <https://usehooks.com/uselocalstorage>, <https://vueuse.org/core/useLocalStorage/>, <https://usehooks-ts.com/react-hook/use-local-storage>
+- [x] [useMap](/src/hooks/useMap): <https://usehooks.com/usemap>, <https://usehooks-ts.com/react-hook/use-map>, <https://vueuse.org/shared/useArrayMap/>
+- [x] [useMediaQuery](/src/hooks/useMediaQuery): <https://usehooks.com/usemediaquery>, <https://usehooks-ts.com/react-hook/use-media-query>, <https://vueuse.org/core/useMediaQuery/>
+- [x] [useReducer](/src/hooks/useReducer)
+- [x] [useScreen](/src/hooks/useScreen): <https://usehooks-ts.com/react-hook/use-screen>
+- [x] [useScript](/src/hooks/useScript): <https://usehooks.com/usescript>, <https://usehooks-ts.com/react-hook/use-script>, <https://vueuse.org/core/useScriptTag/>
+- [x] [useSessionStorage](/src/hooks/useSessionStorage): <https://usehooks.com/usesessionstorage>, <https://usehooks-ts.com/react-hook/use-session-storage>, <https://vueuse.org/core/useSessionStorage/>
+- [x] [useState](/src/hooks/useState)
+- [x] [useThrottle](/src/hooks/useThrottle): <https://usehooks.com/usethrottle>, <https://vueuse.org/shared/useThrottleFn/>
+- [x] [useThrottleFn](/src/hooks/useThrottleFn): <https://usehooks.com/usethrottle>, <https://vueuse.org/shared/useThrottleFn/>
+- [x] [useTimeout](/src/hooks/useTimeout): <https://vueuse.org/shared/useTimeout/>, <https://usehooks.com/usetimeout>, <https://usehooks-ts.com/react-hook/use-timeout>
+- [x] [useTimeoutFn](/src/hooks/useTimeoutFn): <https://vueuse.org/shared/useTimeoutFn/>
+- [x] [useToggle](/src/hooks/useToggle): <https://usehooks-ts.com/react-hook/use-toggle>, <https://usehooks.com/usetoggle>, <https://vueuse.org/shared/useToggle/>
+- [x] [useWindowSize](/src/hooks/useWindowSize): <https://usehooks.com/usewindowsize>, <https://usehooks-ts.com/react-hook/use-window-size>, <https://vueuse.org/core/useWindowSize/>
+
+<!--  -->
+- [x] useLocation (https://vueuse.org/core/useBrowserLocation/)
 - [ ] usePreferredDark (https://vueuse.org/core/usePreferredDark/)
 - [ ] useCountdown (https://usehooks-ts.com/react-hook/use-countdown, https://usehooks.com/usecountdown)
-- [ ] useToggle (https://usehooks-ts.com/react-hook/use-toggle, https://usehooks.com/usetoggle, https://vueuse.org/shared/useToggle/)
-- [ ] useTitle (https://usehooks-ts.com/react-hook/use-document-title, https://vueuse.org/core/useTitle/, https://usehooks.com/usedocumenttitle)
-- [ ] useWindowSize (https://usehooks.com/usewindowsize, https://usehooks-ts.com/react-hook/use-window-size, https://vueuse.org/core/useWindowSize/)
-- [ ] useResizeObserver (https://vueuse.org/core/useResizeObserver/, )
-- [ ] useFetch (https://vueuse.org/core/useFetch/, https://usehooks.com/usefetch, https://usehooks-ts.com/react-hook/use-fetch)
-- [ ] useHover (https://usehooks-ts.com/react-hook/use-hover, https://usehooks.com/usehover, https://vueuse.org/core/useElementHover/)
-- [ ] useImageOnLoad (https://usehooks-ts.com/react-hook/use-image-on-load, https://vueuse.org/core/useImage/)
 - [ ] useIntersectionObserver (https://usehooks-ts.com/react-hook/use-intersection-observer, https://usehooks.com/useintersectionobserver, https://vueuse.org/core/useIntersectionObserver/)
 - [ ] useMouseInElement (https://vueuse.org/core/useMouseInElement/, https://usehooks.com/usemouse)
-- [ ] useInterval (https://usehooks-ts.com/react-hook/use-interval, https://usehooks.com/useinterval, https://vueuse.org/shared/useInterval/)
-- [ ] useIntervalFn (https://vueuse.org/shared/useIntervalFn/, https://usehooks.com/useintervalwhen)
 - [ ] useRandomInterval (https://usehooks.com/userandominterval)
 - [ ] useNow (https://vueuse.org/core/useNow/)
 - [ ] useIsClient (https://usehooks-ts.com/react-hook/use-is-client, https://usehooks.com/useisclient)
-- [ ] useTimeout (https://vueuse.org/shared/useTimeout/, https://usehooks.com/usetimeout, https://usehooks-ts.com/react-hook/use-timeout)
-- [ ] useTimeoutFn (https://vueuse.org/shared/useTimeoutFn/)
 - [ ] useTimestamp (https://vueuse.org/core/useTimestamp/)
 - [ ] useTransition (https://vueuse.org/core/useTransition/)
-- [ ] useLocalStorage (https://usehooks.com/uselocalstorage, https://vueuse.org/core/useLocalStorage/, https://usehooks-ts.com/react-hook/use-local-storage)
 - [ ] usePrevious (https://usehooks.com/useprevious, https://vueuse.org/core/usePrevious/)
 - [ ] useNetwork (https://vueuse.org/core/useNetwork/, https://usehooks.com/usenetworkstate)
-- [ ] useMediaQuery (https://usehooks.com/usemediaquery, https://usehooks-ts.com/react-hook/use-media-query, https://vueuse.org/core/useMediaQuery/)
 - [ ] useOrientation (https://usehooks.com/useorientation, https://vueuse.org/core/useScreenOrientation/)
-- [ ] useSessionStorage (https://usehooks.com/usesessionstorage, https://usehooks-ts.com/react-hook/use-session-storage, https://vueuse.org/core/useSessionStorage/)
 - [ ] usePreferredLanguage (https://usehooks.com/usepreferredlanguage, https://vueuse.org/core/usePreferredLanguages/)
 - [ ] useRetry (https://usehooks.com/usecontinuousretry)
 - [ ] useVisibilityChange (https://usehooks.com/usevisibilitychange, https://vueuse.org/core/useDocumentVisibility/)
-- [ ] useScript (https://usehooks.com/usescript, https://usehooks-ts.com/react-hook/use-script, https://vueuse.org/core/useScriptTag/)
 - [ ] useRenderInfo (https://usehooks.com/userenderinfo)
 - [ ] useRenderCount (https://usehooks.com/userendercount)
 - [ ] useIsFirstRender (https://usehooks-ts.com/react-hook/use-is-first-render, https://usehooks.com/useisfirstrender)
@@ -67,16 +79,12 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useWindowScroll (https://usehooks.com/usewindowscroll, https://vueuse.org/core/useWindowScroll/)
 - [ ] useWindowFocus (https://vueuse.org/core/useWindowFocus/)
 - [ ] useMeasure (https://usehooks.com/usemeasure)
-- [ ] useClickAway (https://usehooks.com/useclickaway, https://usehooks-ts.com/react-hook/use-on-click-outside)
-- [ ] useClickAnyWhere (https://usehooks-ts.com/react-hook/use-click-any-where)
 - [ ] useList (https://usehooks.com/uselist)
 - [ ] useLockBodyScroll (https://usehooks.com/uselockbodyscroll, https://usehooks-ts.com/react-hook/use-locked-body)
 - [ ] useScroll (https://vueuse.org/core/useScroll/)
 - [ ] useScrollLock (https://vueuse.org/core/useScrollLock/)
 - [ ] useQueue (https://usehooks.com/usequeue)
 - [ ] useKeyPress (https://usehooks.com/usekeypress)
-- [ ] useMap (https://usehooks.com/usemap, https://usehooks-ts.com/react-hook/use-map, https://vueuse.org/shared/useArrayMap/)
-- [ ] useThrottle (https://usehooks.com/usethrottle, https://vueuse.org/shared/useThrottleFn/)
 - [ ] useTimeoutPoll (https://vueuse.org/core/useTimeoutPoll/, )
 - [ ] useSet (https://usehooks.com/useset, https://vueuse.org/shared/set/)
 - [ ] useIdle (https://usehooks.com/useidle, https://vueuse.org/core/useIdle/)
@@ -87,7 +95,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] usePageLeave (https://usehooks.com/usepageleave, https://vueuse.org/core/usePageLeave/)
 - [ ] useObjectState (https://usehooks.com/useobjectstate)
 - [ ] isMounted (https://usehooks-ts.com/react-hook/use-is-mounted)
-- [ ] useScreen (https://usehooks-ts.com/react-hook/use-screen, )
 - [ ] useFullScreen (https://vueuse.org/core/useFullscreen/)
 - [ ] useSsr (https://usehooks-ts.com/react-hook/use-ssr)
 - [ ] useStep (https://usehooks-ts.com/react-hook/use-step)
@@ -100,7 +107,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useDraggable (https://vueuse.org/core/useDraggable/)
 - [ ] useDropZone (https://vueuse.org/core/useDropZone/)
 - [ ] useElementBounding (https://vueuse.org/core/useElementBounding/)
-- [ ] useElementSize (https://usehooks-ts.com/react-hook/use-element-size, https://vueuse.org/core/useElementSize/)
 - [ ] useElementVisibility (https://vueuse.org/core/useElementVisibility/)
 - [ ] useMutationObserver (https://vueuse.org/core/useMutationObserver/)
 - [ ] useParentElement (https://vueuse.org/core/useParentElement/)
