@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render } from "@testing-library/svelte";
+import { fireEvent, render } from "@testing-library/svelte";
 
 import UseClickAnyWhere from "./useClickAnyWhere.svelte";
 
@@ -11,7 +11,7 @@ vi.mock("esm-env", async (importOriginal) => {
 	};
 });
 
-describe("useClickAnyWhere", () => {
+describe("Hooks - useClickAnyWhere", () => {
 	test("should excecute the callback", async () => {
 		const onClickFn = vi.fn();
 
