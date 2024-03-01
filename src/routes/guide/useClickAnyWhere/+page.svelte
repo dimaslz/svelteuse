@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	import { Browser, DocTpl, H2, Highlight } from "@/components";
 	import { useClickAnyWhere } from "@/hooks";
 
@@ -8,7 +10,13 @@
 		console.log("click anywhere!");
 	};
 
-	useClickAnyWhere(someCallback);
+	onMount(() => {
+		const eventClickAnyWhere = useClickAnyWhere(someCallback);
+
+		return () => {
+			eventClickAnyWhere();
+		};
+	});
 </script>
 
 <DocTpl title="useCounter">

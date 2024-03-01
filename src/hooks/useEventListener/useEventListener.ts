@@ -6,7 +6,7 @@ export function useEventListener<E extends Event = Event>(
 	eventName: string,
 	handler: (event: E) => void,
 	element: Element | Window | null = BROWSER ? window : null,
-	options: boolean = false,
+	options: boolean = true,
 ): () => void {
 	if (!element) {
 		return () => {};
@@ -24,7 +24,7 @@ export function useEventListener<E extends Event = Event>(
 
 	element.addEventListener(eventName, listener as EventListener, options);
 
-	return () => {
+	return (): void => {
 		element.removeEventListener(eventName, listener as EventListener, options);
 		eventListeners.delete(id);
 	};
