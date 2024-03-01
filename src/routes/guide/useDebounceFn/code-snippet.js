@@ -1,7 +1,7 @@
 export default `
 <!-- javascript -->
 <script lang="ts">
-	import { useDebounceFn } from "@dimaslz/svelteuse";
+	import { useDebounceFn, useState } from "@dimaslz/svelteuse";
 
 	let value: string = "";
 	const [state, updateValue] = useState("");

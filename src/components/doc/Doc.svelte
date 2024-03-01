@@ -7,7 +7,7 @@
 <div class="w-full">
 	<H1>{title}</H1>
 
-	<div class="py-6">
+	<div class="pb-6 text-sm">
 		<slot name="description" />
 	</div>
 

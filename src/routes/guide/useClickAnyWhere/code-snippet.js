@@ -1,22 +1,17 @@
 export default `
 <!-- javascript -->
 <script lang="ts">
-	import { useCounter } from "@dimaslz/svelteuse";
+	import { useClickAnyWhere } from "@dimaslz/svelteuse";
 
-	const { count, increment, decrement, reset, setCount } = useCounter(99);
+	const someCallback = () => {
+		console.log("click anywhere!");
+	};
+
+	useClickAnyWhere(someCallback);
 </script>
 
 <!-- html -->
 <div>
-	<p>
-		Value <code>{$count}</code>
-	</p>
-
-	<div>
-		<button on:click={() => increment()}>increment</button>
-		<button on:click={() => decrement()}>decrement</button>
-		<button on:click={reset}>reset</button>
-		<button on:click={multiplyBy2}>multiply by 2</button>
-	</div>
+	content
 </div>
 `;

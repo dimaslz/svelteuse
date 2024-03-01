@@ -4,16 +4,16 @@ import type { Navigation, Page } from "@sveltejs/kit";
 import { readable } from "svelte/store";
 import { vi } from "vitest";
 
-import * as environment from "$app/environment";
+// import * as environment from "$app/environment";
 import * as navigation from "$app/navigation";
 import * as stores from "$app/stores";
 
 // Mock SvelteKit runtime module $app/environment
-vi.mock("$app/environment", (): typeof environment => ({
-	browser: false,
-	dev: true,
-	prerendering: false,
-}));
+// vi.mock("$app/environment", (): typeof environment => ({
+// 	browser: false,
+// 	dev: true,
+// 	prerendering: false,
+// }));
 
 // Mock SvelteKit runtime module $app/navigation
 vi.mock("$app/navigation", (): typeof navigation => ({

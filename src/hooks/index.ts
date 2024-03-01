@@ -6,6 +6,7 @@ export * from "./useCounter";
 export * from "./useDarkMode";
 export * from "./useDebounce";
 export * from "./useDebounceFn";
+export * from "./useDebounceFn/useDebounceFn";
 export * from "./useDocumentTitle";
 export * from "./useElementSize";
 export * from "./useElementSizeObserver";

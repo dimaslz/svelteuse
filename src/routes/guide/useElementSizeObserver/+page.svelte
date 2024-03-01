@@ -18,6 +18,15 @@
 </script>
 
 <DocTpl title="useElementSizeObserver">
+	<div slot="description">
+		<p>
+			The difference with <a
+				href="/guide/useElementSize"
+				class="text-[#ff3e00] underline hover:no-underline">useElementSize</a
+			>, is that useElementSizeObserver is activily listen the change of the element.
+		</p>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 		<Browser body="p-4 bg-gray-950/50">

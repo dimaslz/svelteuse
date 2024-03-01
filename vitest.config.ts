@@ -1,20 +1,19 @@
-import { sveltekit } from "@sveltejs/kit/vite";
-import path from "path";
+import { mergeConfig } from "vite";
 import { defineConfig } from "vitest/config";
 
-export default defineConfig({
-	plugins: [sveltekit()],
-	test: {
-		globals: true,
-		environment: "jsdom",
-		setupFiles: "./test/setup.ts",
-		css: true,
-		exclude: ["**/node_modules"],
-	},
-	resolve: {
-		alias: {
-			"@": path.resolve(__dirname, "src"),
-			"~": path.resolve(__dirname),
+import viteConfig from "./vite.config";
+
+export default mergeConfig(
+	viteConfig,
+	defineConfig({
+		test: {
+			globals: true,
+			environment: "jsdom",
+			setupFiles: "./test/setup.ts",
+			css: true,
+			exclude: ["**/node_modules"],
+			include: ["src/**/*.{test,spec}.{js,ts}"],
+			alias: [{ find: /^svelte$/, replacement: "svelte/internal" }],
 		},
-	},
-});
+	}),
+);

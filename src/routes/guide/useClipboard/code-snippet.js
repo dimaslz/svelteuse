@@ -1,12 +1,12 @@
 export default `
+<!-- javascript -->
 <script lang="ts">
 	import { useClipboard } from "@dimaslz/svelteuse";
 
 	const [clipboard, copyClipboard] = useClipboard();
 </script>
 
-// ...
-
+<!-- html -->
 <div>
 	<p>
 		<span class="font-bold">clipboard content:</span> <code>{$clipboard || "empty"}</code>

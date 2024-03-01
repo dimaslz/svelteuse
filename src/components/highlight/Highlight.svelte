@@ -38,10 +38,10 @@
 			on:click={onCopyCode}
 			class="absolute top-2 right-2 bg-gray-800 rounded-md p-2 [&>svg]:hover:text-gray-400"
 		>
-			<ClipboardOutlineIcon class="w-6 h-6 text-gray-600" />
+			<ClipboardOutlineIcon class="w-4 h-4 text-gray-600" />
 		</button>
 
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		<pre class="text-xs overflow-x-scroll"><code>{@html `${html.trim()}\n\n`}</code></pre>
+		<pre class="text-xs overflow-x-scroll"><code>{@html `${html.trim()}`}</code></pre>
 	</div>
 </div>

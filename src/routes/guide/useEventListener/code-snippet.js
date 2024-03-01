@@ -1,4 +1,5 @@
 export default `
+<!-- javascript -->
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { useEventListener } from "@dimaslz/svelteuse";
@@ -37,8 +38,7 @@ export default `
 	});
 </script>
 
-// ...
-
+<!-- html -->
 <div>
 	<div class="p-4 bg-gray-950/50">
 		<p>

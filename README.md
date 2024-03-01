@@ -5,12 +5,15 @@ List of hooks inspired on [https://usehooks.com](https://usehooks.com), [https:/
 ## Installation
 
 ### npm
+
 `npm install @dimaslz/svelteuse`
 
 ### yarn
+
 `yarn add @dimaslz/svelteuse`
 
-### yarn
+### bun
+
 `bun add @dimaslz/svelteuse`
 
 ## TODO
@@ -141,7 +144,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useTextSelection (https://vueuse.org/core/useTextSelection/)
 - [ ] useUserMedia (https://vueuse.org/core/useUserMedia/)
 - [ ] useWebSocket (https://vueuse.org/core/useWebSocket/)
-- [ ]
 
 ## Author
 

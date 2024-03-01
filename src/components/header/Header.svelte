@@ -27,14 +27,17 @@
 	<nav class="w-full flex items-center justify-end py-2 px-4 text-sm text-gray-400">
 		<ul class="flex divide-x">
 			<li><Link href="/about" class="px-4 py-2 hover:text-[#ff3e00]">about</Link></li>
-			<li><Link href="/github" class="px-4 py-2 hover:text-[#ff3e00]">github</Link></li>
+			<li>
+				<Link href="https://github.com/dimaslz/svelteuse" class="px-4 py-2 hover:text-[#ff3e00]"
+					>github</Link
+				>
+			</li>
 		</ul>
 	</nav>
 </header>
 
 <style>
 	#logo {
-		/* min-width: 272px; */
 		min-width: 272px;
 		max-width: 100%;
 	}

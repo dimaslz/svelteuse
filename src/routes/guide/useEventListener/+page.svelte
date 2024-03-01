@@ -10,7 +10,6 @@
 
 	let clickOnWindow: boolean = false;
 	let clickOnButton: boolean = false;
-	let setTimeoutInstance: number;
 
 	const onClickWindowHandler = () => {
 		console.log("on click window");
@@ -20,13 +19,7 @@
 	const onClickWindow = useEventListener("click", onClickWindowHandler);
 
 	const onClickButtonHandler = () => {
-		console.log("on click button");
-
-		if (setTimeoutInstance) {
-			clearTimeout(setTimeoutInstance);
-		}
-
-		setTimeout(() => (clickOnButton = true));
+		clickOnButton = true;
 	};
 
 	onMount(() => {
@@ -48,10 +41,10 @@
 			<div class="space-y-4">
 				<div class="p-4 bg-gray-950/50">
 					<p>
-						click on window: <code>{clickOnWindow}</code>
+						<span class="font-bold">click on window:</span> <code>{clickOnWindow}</code>
 					</p>
 					<p>
-						click on button: <code>{clickOnButton}</code>
+						<span class="font-bold">click on button:</span> <code>{clickOnButton}</code>
 					</p>
 
 					<div>
@@ -68,22 +61,3 @@
 		<Highlight {code} />
 	</div>
 </DocTpl>
-
-<!-- <div class="w-full">
-	<h1 class="text-4xl">useEventListener</h1>
-
-	<div class="mt-4 space-y-4">
-		<div class="p-4 bg-gray-950/50">
-			<p>
-				click on window: <code>{clickOnWindow}</code>
-			</p>
-			<p>
-				click on button: <code>{clickOnButton}</code>
-			</p>
-		</div>
-
-		<div>
-			<Button bind:ref>click here</Button>
-		</div>
-	</div>
-</div> -->

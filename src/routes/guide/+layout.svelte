@@ -1,5 +1,22 @@
-<script>
+<script lang="ts">
+	import { onMount } from "svelte";
+
 	import { Header, Link } from "@/components";
+	import { page } from "$app/stores";
+
+	export let data;
+
+	onMount(() => {
+		const pageSubscription = page.subscribe(({ route }) => {
+			const linkIndex = data.links.findIndex(({ link }) => link === route.id);
+			data.navigationLinks.prev = data.links[linkIndex - 1] || null;
+			data.navigationLinks.next = data.links[linkIndex + 1] || null;
+		});
+
+		return () => {
+			pageSubscription();
+		};
+	});
 </script>
 
 <Header fixed />
@@ -14,103 +31,41 @@
 				class="text-sm py-2 [&>li>a]:flex [&>li>a]:w-full [&>li>a]:items-center [&>li>a]:rounded-md [&>li>a]:p-2 [&>li>a.is-active]:bg-gray-900"
 			>
 				<li>
-					<Link href="/guide/installation">installation</Link>
+					<Link href="/guide/installation" type="menu">installation</Link>
 				</li>
 			</ul>
 
 			<ul
 				class="text-sm py-2 [&>li>a]:flex [&>li>a]:w-full [&>li>a]:items-center [&>li>a]:rounded-md [&>li>a]:p-2 [&>li>a.is-active]:bg-gray-900"
+				id="sidebar"
 			>
-				<li>
-					<Link href="/guide/useState">useState</Link>
-				</li>
-				<li>
-					<Link href="/guide/useBoolean">useBoolean</Link>
-				</li>
-				<li>
-					<Link href="/guide/useCounter">useCounter</Link>
-				</li>
-				<li>
-					<Link href="/guide/useEventListener">useEventListener</Link>
-				</li>
-				<li>
-					<Link href="/guide/useDebounce">useDebounce</Link>
-				</li>
-				<li>
-					<Link href="/guide/useDebounceFn">useDebounceFn</Link>
-				</li>
-				<li>
-					<Link href="/guide/useThrottle">useThrottle</Link>
-				</li>
-				<li>
-					<Link href="/guide/useThrottleFn">useThrottleFn</Link>
-				</li>
-				<li>
-					<Link href="/guide/useClipboard">useClipboard</Link>
-				</li>
-				<li>
-					<Link href="/guide/useLocalStorage">useLocalStorage</Link>
-				</li>
-				<li>
-					<Link href="/guide/useMediaQuery">useMediaQuery</Link>
-				</li>
-				<li>
-					<Link href="/guide/useDarkMode">useDarkMode</Link>
-				</li>
-				<li>
-					<Link href="/guide/useDocumentTitle">useDocumentTitle</Link>
-				</li>
-				<li>
-					<Link href="/guide/useElementSize">useElementSize</Link>
-				</li>
-				<li>
-					<Link href="/guide/useElementSizeObserver">useElementSizeObserver</Link>
-				</li>
-				<li>
-					<Link href="/guide/useFetch">useFetch</Link>
-				</li>
-				<li>
-					<Link href="/guide/useHover">useHover</Link>
-				</li>
-				<li>
-					<Link href="/guide/useIntervalFn">useIntervalFn</Link>
-				</li>
-				<li>
-					<Link href="/guide/useScreen">useScreen</Link>
-				</li>
-				<li>
-					<Link href="/guide/useScript">useScript</Link>
-				</li>
-				<li>
-					<Link href="/guide/useSessionStorage">useSessionStorage</Link>
-				</li>
-				<li>
-					<Link href="/guide/useTimeoutFn">useTimeoutFn</Link>
-				</li>
-				<li>
-					<Link href="/guide/useToggle">useToggle</Link>
-				</li>
-				<li>
-					<Link href="/guide/useWindowSize">useWindowSize</Link>
-				</li>
-				<li>
-					<Link href="/guide/useImageOnLoad">useImageOnLoad</Link>
-				</li>
-				<li>
-					<Link href="/guide/useMap">useMap</Link>
-				</li>
-				<li>
-					<Link href="/guide/useClickAnyWhere">useClickAnyWhere</Link>
-				</li>
+				{#each data.links as link}
+					<li>
+						<Link href={link.link} type="menu">{link.label}</Link>
+					</li>
+				{/each}
 			</ul>
 		</div>
 
 		<div class="text-center px-2 py-4 text-xs">👨‍💻 with ♥️ and ☕️ from Barcelona</div>
 	</div>
 
-	<div class="h-screen flex px-4 pb-0 pt-16" id="container">
+	<div class="h-screen flex px-4 pb-0 pt-16 flex-col" id="container">
 		<div class="overflow-y-auto w-full p-[2rem_2rem_2rem]">
 			<slot />
+
+			<div class="w-full flex mt-4">
+				<div class="w-full">
+					{#if data.navigationLinks.prev}
+						<Link href={data.navigationLinks.prev.link}>{data.navigationLinks.prev.label}</Link>
+					{/if}
+				</div>
+				<div class="w-full flex justify-end">
+					{#if data.navigationLinks.next}
+						<Link href={data.navigationLinks.next.link}>{data.navigationLinks.next.label}</Link>
+					{/if}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

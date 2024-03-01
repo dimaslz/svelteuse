@@ -6,20 +6,52 @@
 		"email": "me@dimaslz.io",
 		"url": "https://dimaslz.com"
 	},
+	"main": "dist/index.js",
 	"description": "Svelte hooks like React",
 	"keywords": [
 		"svelte",
-		"hooks"
+		"hooks",
+		"useBoolean",
+		"useClickAnyWhere",
+		"useClipboard",
+		"useCounter",
+		"useDarkMode",
+		"useDebounce",
+		"useDebounceFn",
+		"useDocumentTitle",
+		"useElementSize",
+		"useElementSizeObserver",
+		"useEventListener",
+		"useFetch",
+		"useHover",
+		"useImageOnLoad",
+		"useIntervalFn",
+		"useLocalStorage",
+		"useMap",
+		"useMediaQuery",
+		"useScreen",
+		"useScript",
+		"useSessionStorage",
+		"useState",
+		"useThrottle",
+		"useThrottleFn",
+		"useTimeoutFn",
+		"useToggle",
+		"useWindowSize"
 	],
+	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/dimaslz/svelteuse"
 	},
+	"homepage": "https://svelteuse.dimaslz.dev",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "rimraf build && vite build",
 		"start": "node build",
 		"preview": "vite preview --port 2000 --host",
+		"package": "rimraf publish && svelte-package -i src/hooks -o publish/dist && node clean.js && packito",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
@@ -29,10 +61,10 @@
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.8",
-		"@playwright/test": "^1.41.2",
+		"@playwright/test": "^1.42.0",
 		"@sveltejs/adapter-auto": "^3.1.1",
 		"@sveltejs/adapter-node": "^4.0.1",
-		"@sveltejs/kit": "^2.5.0",
+		"@sveltejs/package": "^2.2.7",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"@testing-library/dom": "^9.3.4",
 		"@testing-library/jest-dom": "^6.4.2",
@@ -40,32 +72,174 @@
 		"@testing-library/user-event": "^14.5.2",
 		"@types/cookie": "^0.6.0",
 		"@types/prismjs": "^1.26.3",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
+		"@typescript-eslint/eslint-plugin": "^7.1.0",
+		"@typescript-eslint/parser": "^7.1.0",
+		"@vitest/coverage-v8": "^1.3.1",
 		"autoprefixer": "^10.4.17",
-		"eslint": "^8.56.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-import": "^2.29.1",
 		"eslint-plugin-prettier": "^5.1.3",
 		"eslint-plugin-simple-import-sort": "^12.0.0",
 		"eslint-plugin-svelte": "^2.35.1",
-		"eslint-plugin-tailwindcss": "^3.14.2",
+		"eslint-plugin-tailwindcss": "^3.14.3",
 		"jsdom": "^24.0.0",
+		"packito": "^0.5.0",
 		"postcss": "^8.4.35",
 		"prettier": "^3.2.5",
-		"prettier-plugin-svelte": "^3.1.2",
-		"sass": "^1.70.0",
-		"svelte": "^4.2.10",
-		"svelte-check": "^3.6.4",
+		"prettier-plugin-svelte": "^3.2.2",
+		"rimraf": "^5.0.5",
+		"sass": "^1.71.1",
+		"shelljs": "^0.8.5",
+		"svelte-check": "^3.6.6",
 		"tailwindcss": "^3.4.1",
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3",
-		"vite": "^5.1.1",
-		"vitest": "^1.2.2"
+		"vite": "^5.1.4",
+		"vitest": "^1.3.1"
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/kit": "^2.5.2",
+		"esm-env": "^1.0.0",
 		"prismjs": "^1.29.0",
-		"xoid": "^1.0.0-beta.10"
+		"svelte": "^4.2.12"
+	},
+	"files": [
+		"dist"
+	],
+	"peerDependencies": {
+		"svelte": "^4.2.12"
+	},
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		},
+		"./useBoolean": {
+			"types": "./dist/useBoolean/useBoolean.d.ts",
+			"svelte": "./dist/useBoolean/useBoolean.js"
+		},
+		"./useClickAnyWhere": {
+			"types": "./dist/useClickAnyWhere/useClickAnyWhere.d.ts",
+			"svelte": "./dist/useClickAnyWhere/useClickAnyWhere.js"
+		},
+		"./useClickOutside": {
+			"types": "./dist/useClickOutside/useClickOutside.d.ts",
+			"svelte": "./dist/useClickOutside/useClickOutside.js"
+		},
+		"./useClipboard": {
+			"types": "./dist/useClipboard/useClipboard.d.ts",
+			"svelte": "./dist/useClipboard/useClipboard.js"
+		},
+		"./useCounter": {
+			"types": "./dist/useCounter/useCounter.d.ts",
+			"svelte": "./dist/useCounter/useCounter.js"
+		},
+		"./useDarkMode": {
+			"types": "./dist/useDarkMode/useDarkMode.d.ts",
+			"svelte": "./dist/useDarkMode/useDarkMode.js"
+		},
+		"./useDebounce": {
+			"types": "./dist/useDebounce/useDebounce.d.ts",
+			"svelte": "./dist/useDebounce/useDebounce.js"
+		},
+		"./useDebounceFn": {
+			"types": "./dist/useDebounceFn/useDebounceFn.d.ts",
+			"svelte": "./dist/useDebounceFn/useDebounceFn.js"
+		},
+		"./useDocumentTitle": {
+			"types": "./dist/useDocumentTitle/useDocumentTitle.d.ts",
+			"svelte": "./dist/useDocumentTitle/useDocumentTitle.js"
+		},
+		"./useElementSize": {
+			"types": "./dist/useElementSize/useElementSize.d.ts",
+			"svelte": "./dist/useElementSize/useElementSize.js"
+		},
+		"./useElementSizeObserver": {
+			"types": "./dist/useElementSizeObserver/useElementSizeObserver.d.ts",
+			"svelte": "./dist/useElementSizeObserver/useElementSizeObserver.js"
+		},
+		"./useEventCallback": {
+			"types": "./dist/useEventCallback/useEventCallback.d.ts",
+			"svelte": "./dist/useEventCallback/useEventCallback.js"
+		},
+		"./useEventListener": {
+			"types": "./dist/useEventListener/useEventListener.d.ts",
+			"svelte": "./dist/useEventListener/useEventListener.js"
+		},
+		"./useFetch": {
+			"types": "./dist/useFetch/useFetch.d.ts",
+			"svelte": "./dist/useFetch/useFetch.js"
+		},
+		"./useHover": {
+			"types": "./dist/useHover/useHover.d.ts",
+			"svelte": "./dist/useHover/useHover.js"
+		},
+		"./useImageOnLoad": {
+			"types": "./dist/useImageOnLoad/useImageOnLoad.d.ts",
+			"svelte": "./dist/useImageOnLoad/useImageOnLoad.js"
+		},
+		"./useInterval": {
+			"types": "./dist/useInterval/useInterval.d.ts",
+			"svelte": "./dist/useInterval/useInterval.js"
+		},
+		"./useIntervalFn": {
+			"types": "./dist/useIntervalFn/useIntervalFn.d.ts",
+			"svelte": "./dist/useIntervalFn/useIntervalFn.js"
+		},
+		"./useLocalStorage": {
+			"types": "./dist/useLocalStorage/useLocalStorage.d.ts",
+			"svelte": "./dist/useLocalStorage/useLocalStorage.js"
+		},
+		"./useMap": {
+			"types": "./dist/useMap/useMap.d.ts",
+			"svelte": "./dist/useMap/useMap.js"
+		},
+		"./useMediaQuery": {
+			"types": "./dist/useMediaQuery/useMediaQuery.d.ts",
+			"svelte": "./dist/useMediaQuery/useMediaQuery.js"
+		},
+		"./useReducer": {
+			"types": "./dist/useReducer/useReducer.d.ts",
+			"svelte": "./dist/useReducer/useReducer.js"
+		},
+		"./useScreen": {
+			"types": "./dist/useScreen/useScreen.d.ts",
+			"svelte": "./dist/useScreen/useScreen.js"
+		},
+		"./useScript": {
+			"types": "./dist/useScript/useScript.d.ts",
+			"svelte": "./dist/useScript/useScript.js"
+		},
+		"./useSessionStorage": {
+			"types": "./dist/useSessionStorage/useSessionStorage.d.ts",
+			"svelte": "./dist/useSessionStorage/useSessionStorage.js"
+		},
+		"./useState": {
+			"types": "./dist/useState/useState.d.ts",
+			"svelte": "./dist/useState/useState.js"
+		},
+		"./useThrottle": {
+			"types": "./dist/useThrottle/useThrottle.d.ts",
+			"svelte": "./dist/useThrottle/useThrottle.js"
+		},
+		"./useThrottleFn": {
+			"types": "./dist/useThrottleFn/useThrottleFn.d.ts",
+			"svelte": "./dist/useThrottleFn/useThrottleFn.js"
+		},
+		"./useTimeoutFn": {
+			"types": "./dist/useTimeoutFn/useTimeoutFn.d.ts",
+			"svelte": "./dist/useTimeoutFn/useTimeoutFn.js"
+		},
+		"./useToggle": {
+			"types": "./dist/useToggle/useToggle.d.ts",
+			"svelte": "./dist/useToggle/useToggle.js"
+		},
+		"./useWindowSize": {
+			"types": "./dist/useWindowSize/useWindowSize.d.ts",
+			"svelte": "./dist/useWindowSize/useWindowSize.js"
+		}
 	}
 }

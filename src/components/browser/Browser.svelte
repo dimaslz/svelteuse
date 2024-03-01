@@ -35,7 +35,7 @@
 	on:keydown={() => []}
 >
 	<div class="flex space-x-4 pt-2 px-4">
-		<div class="flex space-x-2 rounded-md rounded-br-md">
+		<div class="flex space-x-2 rounded-md rounded-br-md items-center">
 			<div class="w-3 h-3 bg-gray-600 rounded-full"></div>
 			<div class="w-3 h-3 bg-gray-600 rounded-full"></div>
 			<div class="w-3 h-3 bg-gray-600 rounded-full"></div>

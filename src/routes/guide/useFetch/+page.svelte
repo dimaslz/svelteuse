@@ -24,8 +24,11 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<div>
-				<div>error: {JSON.stringify($fetchResult.error, null, 2)}</div>
-				<div>data: {JSON.stringify($fetchResult.data, null, 2)}</div>
+				<div>
+					<span class="font-bold">error:</span>
+					{JSON.stringify($fetchResult.error, null, 2)}
+				</div>
+				<div><span class="font-bold">data:</span> {JSON.stringify($fetchResult.data, null, 2)}</div>
 			</div>
 		</Browser>
 	</div>
