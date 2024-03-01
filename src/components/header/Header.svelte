@@ -16,13 +16,14 @@
 		class="flex flex-1 items-center px-4 font-bold text-[#ff3e00] justify-start flex-shrink-0 absolute left-0 top-0 z-[2] h-full"
 		id="logo"
 	>
-		<a
-			href="/"
-			class={[
-				"relative z-[1] w-full h-full flex items-center cursor-pointer",
-				fixed ? "border-b border-gray-700" : "",
-			].join(" ")}>SvelteUse</a
+		<div
+			class={["w-full flex h-full items-center", fixed ? "border-b border-gray-700" : ""].join(" ")}
 		>
+			<a href="/" class="relative z-[1] h-full flex items-center cursor-pointer">SvelteUse</a><Link
+				href="https://github.com/dimaslz"
+				class="text-xs ml-2 font-normal  text-white">by dimaslz</Link
+			>
+		</div>
 	</div>
 	<nav class="w-full flex items-center justify-end py-2 px-4 text-sm text-gray-400">
 		<ul class="flex divide-x">
