@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-	import { Browser, DocTpl, H2, Highlight } from "@/components";
+	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useClickAnyWhere } from "@/hooks";
 
 	import code from "./code-snippet";
@@ -19,8 +19,16 @@
 	});
 </script>
 
-<DocTpl title="useCounter">
-	<div slot="description">...</div>
+<DocTpl title="useClickAnyWhere">
+	<div slot="description">
+		<p>Hook to catch the click on any part of the site</p>
+
+		<h3>Related hooks</h3>
+
+		<ul class="list-disc pl-6">
+			<li><Link href="/guide/useEventListener">useEventListener</Link></li>
+		</ul>
+	</div>
 
 	<div slot="visual-example">
 		<H2>Visual example</H2>
