@@ -30,8 +30,10 @@
 
 	<main class="h-full w-full">
 		<div class="flex h-full flex-1 flex-grow-0 w-full justify-center items-center flex-col">
-			<h1 class="text-8xl text-[#ff3e00]">SvelteUse</h1>
-			<h2 class="text-sm">Svelte hooks library like React and Vue style</h2>
+			<h1 class="md:text-8xl text-7xl text-[#ff3e00]">SvelteUse</h1>
+			<h2 class="text-sm md:text-center text-left">
+				Svelte hooks library like React and Vue style
+			</h2>
 
 			<div class="mt-12">
 				<code
