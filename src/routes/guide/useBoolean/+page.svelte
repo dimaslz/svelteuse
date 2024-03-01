@@ -16,7 +16,7 @@
 <DocTpl title="useBoolean">
 	<div slot="description">
 		<div class="space-y-2">
-			<p>A simple to play with boolean values.</p>
+			<p>A simple hook to play with boolean values.</p>
 
 			<h3>Related hooks</h3>
 
