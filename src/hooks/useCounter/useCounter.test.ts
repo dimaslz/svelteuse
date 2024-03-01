@@ -52,4 +52,30 @@ describe("Hooks - useCounter", () => {
 
 		expect(get(count)).toBe(100);
 	});
+
+	test("on MouseEvent, should increment 1 by default", () => {
+		const { count, increment } = useCounter(0);
+
+		const event = new MouseEvent("click", {
+			bubbles: true,
+			cancelable: true,
+		});
+
+		increment(event);
+
+		expect(get(count)).toBe(1);
+	});
+
+	test("on MouseEvent, should decrement 1 by default", () => {
+		const { count, decrement } = useCounter(0);
+
+		const event = new MouseEvent("click", {
+			bubbles: true,
+			cancelable: true,
+		});
+
+		decrement(event);
+
+		expect(get(count)).toBe(-1);
+	});
 });

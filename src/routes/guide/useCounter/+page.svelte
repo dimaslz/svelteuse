@@ -32,8 +32,8 @@
 				</p>
 
 				<div>
-					<Button on:click={() => increment()}>increment</Button>
-					<Button on:click={() => decrement()}>decrement</Button>
+					<Button on:click={increment}>increment</Button>
+					<Button on:click={() => decrement(1)}>decrement</Button>
 					<Button on:click={reset}>reset</Button>
 					<Button on:click={multiplyBy2}>multiply by 2</Button>
 				</div>
