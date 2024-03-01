@@ -19,10 +19,11 @@ describe("Hooks - useClipboard", () => {
 		(navigator as any).clipboard = originalClipboard;
 	});
 
-	test("value 0 by default", async () => {
+	test("should make the copy", async () => {
 		const [clipboard, copyClipboard] = useClipboard();
 
 		expect(get(clipboard)).toBe(null);
+
 		await copyClipboard(mockData);
 
 		expect(get(clipboard)).toBe(mockData);

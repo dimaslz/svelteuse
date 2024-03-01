@@ -17,6 +17,10 @@
 </script>
 
 <DocTpl title="useClipboard">
+	<div slot="description">
+		<p>Hook to work copy to clipboard easily.</p>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 
