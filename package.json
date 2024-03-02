@@ -157,10 +157,6 @@
 			"types": "./dist/useElementSize/useElementSize.d.ts",
 			"svelte": "./dist/useElementSize/useElementSize.js"
 		},
-		"./useEventCallback": {
-			"types": "./dist/useEventCallback/useEventCallback.d.ts",
-			"svelte": "./dist/useEventCallback/useEventCallback.js"
-		},
 		"./useEventListener": {
 			"types": "./dist/useEventListener/useEventListener.d.ts",
 			"svelte": "./dist/useEventListener/useEventListener.js"

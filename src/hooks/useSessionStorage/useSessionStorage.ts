@@ -1,7 +1,6 @@
 import { onMount } from "svelte";
 import { get } from "svelte/store";
 
-import { useEventCallback } from "@/hooks/useEventCallback";
 import { useEventListener } from "@/hooks/useEventListener/useEventListener";
 import { type TsetValue, useState } from "@/hooks/useState/useState";
 
@@ -43,7 +42,7 @@ export function useSessionStorage<T>(key: string, initialValue: T): UseStateOutp
 
 	const [storedValue, setStoredValue] = useState<T>(readValue);
 
-	const setValue = useEventCallback((value: TNewState<T>): void => {
+	const setValue = (value: TNewState<T>): void => {
 		// Prevent build error "window is undefined" but keeps working
 		if (typeof window === "undefined") {
 			console.warn(
@@ -59,7 +58,7 @@ export function useSessionStorage<T>(key: string, initialValue: T): UseStateOutp
 		} catch (error) {
 			console.warn(`Error setting sessionStorage key “${key}”:`, error);
 		}
-	});
+	};
 
 	onMount(() => {
 		setStoredValue(readValue());

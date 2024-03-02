@@ -31,7 +31,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useDocumentTitle](/src/hooks/useDocumentTitle): <https://usehooks-ts.com/react-hook/use-document-title>, <https://vueuse.org/core/useTitle/>, <https://usehooks.com/usedocumenttitle>
 - [x] [useElementSize](/src/hooks/useElementSize): <https://usehooks-ts.com/react-hook/use-element-size>, <https://vueuse.org/core/useElementSize/>
 - [x] [useElementSizeObserver](/src/hooks/useResizeObserver): <https://vueuse.org/core/useResizeObserver/>
-- [x] [useEventCallback](/src/hooks/useEventCallback): <https://usehooks-ts.com/react-hook/use-event-callback>
 - [x] [useEventListener](/src/hooks/useEventListener): <https://vueuse.org/core/useEventListener/>, <https://usehooks.com/useeventlistener>, <https://usehooks-ts.com/react-hook/use-event-listener>
 - [x] [useFetch](/src/hooks/useFetch): <https://vueuse.org/core/useFetch/>, <https://usehooks.com/usefetch>, <https://usehooks-ts.com/react-hook/use-fetch>
 - [x] [useHover](/src/hooks/useHover): <https://usehooks-ts.com/react-hook/use-hover>, <https://usehooks.com/usehover>, <https://vueuse.org/core/useElementHover/>
@@ -54,7 +53,8 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useWindowSize](/src/hooks/useWindowSize): <https://usehooks.com/usewindowsize>, <https://usehooks-ts.com/react-hook/use-window-size>, <https://vueuse.org/core/useWindowSize/>
 
 <!--  -->
-- [x] useLocation (https://vueuse.org/core/useBrowserLocation/)
+- [ ] useLocation (https://vueuse.org/core/useBrowserLocation/)
+- [ ] useEventCallback: <https://usehooks-ts.com/react-hook/use-event-callback>
 - [ ] usePreferredDark (https://vueuse.org/core/usePreferredDark/)
 - [ ] useCountdown (https://usehooks-ts.com/react-hook/use-countdown, https://usehooks.com/usecountdown)
 - [ ] useIntersectionObserver (https://usehooks-ts.com/react-hook/use-intersection-observer, https://usehooks.com/useintersectionobserver, https://vueuse.org/core/useIntersectionObserver/)
