@@ -25,7 +25,7 @@ export default `
 	<p>
 		Element size are <code>{JSON.stringify($elementSize, null, 2)}</code>
 	</p>
-	<div id="some" bind:this={elementRef} class="border">
+	<div id="some" bind:this={elementRef} class="border overflow-auto resize">
 		<h1>This is the element</h1>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus nemo porro doloremque,
