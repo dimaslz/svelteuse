@@ -5,12 +5,18 @@ export default `
 
 	import { useElementSize } from "@dimaslz/svelteuse";
 
-	const [setElementRef, elementSize] = useElementSize();
+	const [setElementRef, elementSize, killInstance] = useElementSize();
 
 	let elementRef: HTMLDivElement;
 
 	onMount(() => {
-		setElementRef(elementRef);
+		if (elementRef) {
+			setElementRef(elementRef);
+		}
+
+		return () => {
+			killInstance(); // kill event listener
+		}
 	});
 </script>
 

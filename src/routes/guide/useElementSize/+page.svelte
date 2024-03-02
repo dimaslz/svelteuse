@@ -6,7 +6,7 @@
 
 	import code from "./code-snippet";
 
-	const [setElementRef, elementSize] = useElementSize();
+	const [setElementRef, elementSize, killInstance] = useElementSize();
 
 	let elementRef: HTMLDivElement;
 
@@ -14,27 +14,25 @@
 		if (elementRef) {
 			setElementRef(elementRef);
 		}
+
+		return () => {
+			killInstance();
+		};
 	});
 </script>
 
 <DocTpl title="useElementSize">
 	<div slot="description">
-		<p>
-			The difference with <a
-				href="/guide/useElementSizeObserver"
-				class="text-[#ff3e00] underline hover:no-underline">useElementSizeObserver</a
-			>, is that useElementSize does not activily listen the change of the element.
-		</p>
+		<p>Listen the size of the element.</p>
 	</div>
 
 	<div slot="visual-example">
 		<H2>Visual example</H2>
-
 		<Browser body="p-4 bg-gray-950/50">
 			<p class="py-4">
 				Element size are <code>{JSON.stringify($elementSize, null, 2)}</code>
 			</p>
-			<div id="some" bind:this={elementRef} class="border">
+			<div id="some" bind:this={elementRef} class="border overflow-auto resize">
 				<h1>This is the element</h1>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus nemo porro

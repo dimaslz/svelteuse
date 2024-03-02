@@ -1,18 +1,19 @@
-import { onMount } from "svelte";
 import { get } from "svelte/store";
 
-import { useEventListener, useState } from "..";
+import { useState } from "..";
 
 interface Size {
 	width: number;
 	height: number;
 }
 
-export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
-	(node: T | null) => void,
+export function useElementSize<T extends Element>(): [
+	(node: T) => void,
 	SvelteStore<Size>,
+	() => void,
 ] {
-	const [ref, setRef] = useState<T | null>(null);
+	let observer: ResizeObserver;
+	const [ref, setRef] = useState<T>(null);
 	const [size, setSize] = useState<Size>({
 		width: 0,
 		height: 0,
@@ -21,21 +22,20 @@ export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
 	// Prevent too many rendering using useCallback
 	const handleSize = () => {
 		setSize({
-			width: get(ref)?.offsetWidth || 0,
-			height: get(ref)?.offsetHeight || 0,
+			width: get(ref)?.clientWidth || 0,
+			height: get(ref)?.clientHeight || 0,
 		});
 	};
 
-	const setup = (_ref: T | null) => {
-		useEventListener("resize", handleSize, _ref);
+	const setup = (_ref: T) => {
 		setRef(_ref);
+		observer = new ResizeObserver(handleSize);
+		observer.observe(_ref);
 	};
 
-	onMount(() => {
-		ref.subscribe(() => {
-			handleSize();
-		});
-	});
+	const unobserve = () => {
+		if (observer) observer.unobserve(get(ref));
+	};
 
-	return [setup, size];
+	return [setup, size, unobserve];
 }

@@ -43,10 +43,6 @@ export async function load({ route }) {
 			link: "/guide/useElementSize",
 		},
 		{
-			label: "useElementSizeObserver",
-			link: "/guide/useElementSizeObserver",
-		},
-		{
 			label: "useEventListener",
 			link: "/guide/useEventListener",
 		},

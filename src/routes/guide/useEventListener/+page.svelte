@@ -28,7 +28,6 @@
 		return () => {
 			clickButtonHandler?.();
 			onClickWindow?.();
-			console.clear();
 		};
 	});
 </script>

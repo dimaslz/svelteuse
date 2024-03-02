@@ -20,7 +20,6 @@
 		"useDebounceFn",
 		"useDocumentTitle",
 		"useElementSize",
-		"useElementSizeObserver",
 		"useEventListener",
 		"useFetch",
 		"useHover",
@@ -156,10 +155,6 @@
 		"./useElementSize": {
 			"types": "./dist/useElementSize/useElementSize.d.ts",
 			"svelte": "./dist/useElementSize/useElementSize.js"
-		},
-		"./useElementSizeObserver": {
-			"types": "./dist/useElementSizeObserver/useElementSizeObserver.d.ts",
-			"svelte": "./dist/useElementSizeObserver/useElementSizeObserver.js"
 		},
 		"./useEventCallback": {
 			"types": "./dist/useEventCallback/useEventCallback.d.ts",
