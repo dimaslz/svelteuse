@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Browser, DocTpl, Highlight } from "@/components";
+	import { Browser, DocTpl, Highlight, Link } from "@/components";
 	import H2 from "@/components/h/h2.svelte";
 	import { useDocumentTitle } from "@/hooks";
 
@@ -13,6 +13,15 @@
 </script>
 
 <DocTpl title="useDocumentTitle">
+	<div slot="description" class="space-y-2">
+		<p>Allow to update the site title easily.</p>
+
+		<p>Related hook</p>
+		<ul class="list-disc ml-6">
+			<li><Link href="/guide/useState">useState</Link></li>
+		</ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 
