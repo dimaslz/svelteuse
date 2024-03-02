@@ -32,6 +32,7 @@ describe("Hooks - useClickAnyWhere", () => {
 		});
 
 		await unmount();
+
 		await fireEvent.click(document);
 
 		expect(onClickFn).not.toBeCalled();

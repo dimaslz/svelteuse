@@ -25,6 +25,7 @@ export function useEventListener<E extends Event = Event>(
 	element.addEventListener(eventName, listener as EventListener, options);
 
 	return (): void => {
+		console.log("id", id);
 		element.removeEventListener(eventName, listener as EventListener, options);
 		eventListeners.delete(id);
 	};
