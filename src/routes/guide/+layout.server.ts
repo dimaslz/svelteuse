@@ -59,6 +59,10 @@ export async function load({ route }) {
 			link: "/guide/useImageOnLoad",
 		},
 		{
+			label: "useInterval",
+			link: "/guide/useInterval",
+		},
+		{
 			label: "useIntervalFn",
 			link: "/guide/useIntervalFn",
 		},

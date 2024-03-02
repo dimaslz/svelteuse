@@ -1,17 +1,64 @@
-export function useIntervalFn(callback: () => void, delay: number | null): () => void {
-	let savedCallback = callback;
+import { BROWSER } from "esm-env";
 
-	savedCallback = callback;
+import { useState } from "@/hooks";
 
-	if (!delay) {
-		throw new Error("Delay time are mandatory and should be from 1ms");
+type Options = {
+	immediate?: boolean;
+	immediateCallback?: boolean;
+};
+
+export type ReturnControls = {
+	isActive: SvelteStore<boolean>;
+	pause: () => void;
+	resume: () => void;
+};
+
+export function useIntervalFn(
+	callback: () => void,
+	interval: number = 1000,
+	options: Options = {},
+): ReturnControls {
+	const { immediate = true, immediateCallback = false } = options;
+
+	let timer: ReturnType<typeof setInterval> | null = null;
+	const [isActive, setIsActive] = useState(false);
+
+	function clean() {
+		if (timer) {
+			clearInterval(timer);
+			timer = null;
+		}
 	}
 
-	const id = setInterval(() => {
-		savedCallback();
-	}, delay);
+	function pause() {
+		setIsActive(false);
+		clean();
+	}
 
-	return (): void => {
-		clearInterval(id);
+	function resume() {
+		const intervalValue = interval;
+		if (intervalValue <= 0) {
+			return;
+		}
+
+		setIsActive(true);
+
+		if (immediateCallback) {
+			callback();
+		}
+
+		clean();
+
+		timer = setInterval(callback, intervalValue);
+	}
+
+	if (immediate && BROWSER) {
+		resume();
+	}
+
+	return {
+		isActive,
+		pause,
+		resume,
 	};
 }

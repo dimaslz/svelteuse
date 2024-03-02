@@ -1,22 +1,14 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-
-	import { DocTpl, H2, Highlight } from "@/components";
+	import { Button, DocTpl, H2, Highlight } from "@/components";
 	import Browser from "@/components/browser/Browser.svelte";
 	import { useIntervalFn, useState } from "@/hooks";
 
 	import code from "./code-snippet";
 
 	const [counter, updateCounter] = useState<number>(0);
-	const intervalInstance = useIntervalFn(() => {
-		updateCounter((prevValue) => prevValue + 1);
+	const { isActive, resume, pause } = useIntervalFn(() => {
+		updateCounter((v) => v + 1);
 	}, 200);
-
-	onMount(() => {
-		return () => {
-			intervalInstance();
-		};
-	});
 </script>
 
 <DocTpl title="useIntervalFn">
@@ -27,6 +19,14 @@
 			<p>
 				Update number every 200ms is <code>{$counter}</code>
 			</p>
+			<p>
+				is active: {$isActive}
+			</p>
+
+			<div>
+				<Button on:click={pause}>pause</Button>
+				<Button on:click={resume}>resume</Button>
+			</div>
 		</Browser>
 	</div>
 

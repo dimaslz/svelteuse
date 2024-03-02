@@ -13,6 +13,7 @@ export * from "./useEventListener";
 export * from "./useFetch";
 export * from "./useHover";
 export * from "./useImageOnLoad";
+export * from "./useInterval";
 export * from "./useIntervalFn";
 export * from "./useLocalStorage";
 export * from "./useMap";

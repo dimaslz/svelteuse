@@ -1,11 +1,51 @@
+import { get } from "svelte/store";
+
 import { useIntervalFn } from "@/hooks";
+
+vi.mock("esm-env", async (importOriginal) => {
+	const actual: any = await importOriginal();
+
+	return {
+		...actual,
+		BROWSER: true,
+	};
+});
 
 vi.useFakeTimers();
 
 describe("Hooks - useIntervalFn", () => {
-	test("should interval every 100ms", () => {
+	test("should interval every 100ms using controls", () => {
 		const intervalCallbackMock = vi.fn();
-		const intervalIntance = useIntervalFn(intervalCallbackMock, 100);
+		const { isActive, pause, resume } = useIntervalFn(intervalCallbackMock, 100, {
+			immediate: true,
+		});
+
+		vi.advanceTimersByTime(100);
+
+		expect(intervalCallbackMock).toBeCalledTimes(1);
+		expect(get(isActive)).toBe(true);
+
+		vi.advanceTimersByTime(500);
+		expect(intervalCallbackMock).toBeCalledTimes(6);
+
+		pause();
+
+		vi.advanceTimersByTime(200);
+
+		expect(intervalCallbackMock).toBeCalledTimes(6);
+
+		resume();
+
+		vi.advanceTimersByTime(200);
+
+		expect(intervalCallbackMock).toBeCalledTimes(8);
+	});
+
+	test("should interval every 100ms without controls", () => {
+		const intervalCallbackMock = vi.fn();
+		useIntervalFn(intervalCallbackMock, 100, {
+			immediate: true,
+		});
 
 		vi.advanceTimersByTime(100);
 
@@ -14,25 +54,8 @@ describe("Hooks - useIntervalFn", () => {
 		vi.advanceTimersByTime(500);
 		expect(intervalCallbackMock).toBeCalledTimes(6);
 
-		intervalIntance();
+		vi.advanceTimersByTime(200);
 
-		vi.advanceTimersByTime(100);
-		expect(intervalCallbackMock).toBeCalledTimes(6);
-	});
-
-	test("should throw an exception on pass null delay", () => {
-		const intervalCallbackMock = vi.fn();
-
-		expect(() => {
-			useIntervalFn(intervalCallbackMock, null);
-		}).toThrowError("Delay time are mandatory and should be from 1ms");
-	});
-
-	test("should throw an exception on pass delay less than 1", () => {
-		const intervalCallbackMock = vi.fn();
-
-		expect(() => {
-			useIntervalFn(intervalCallbackMock, 0);
-		}).toThrowError("Delay time are mandatory and should be from 1ms");
+		expect(intervalCallbackMock).toBeCalledTimes(8);
 	});
 });
