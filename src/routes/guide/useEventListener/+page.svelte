@@ -13,12 +13,15 @@
 
 	const onClickWindowHandler = () => {
 		console.log("on click window");
+
 		clickOnWindow = true;
 		clickOnButton = false;
 	};
 	const onClickWindow = useEventListener("click", onClickWindowHandler);
 
 	const onClickButtonHandler = () => {
+		console.log("on click button");
+
 		clickOnButton = true;
 	};
 

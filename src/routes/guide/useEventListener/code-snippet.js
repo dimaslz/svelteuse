@@ -8,10 +8,10 @@ export default `
 
 	let clickOnWindow: boolean = false;
 	let clickOnButton: boolean = false;
-	let setTimeoutInstance: number;
 
 	const onClickWindowHandler = () => {
 		console.log("on click window");
+
 		clickOnWindow = true;
 		clickOnButton = false;
 	};
@@ -20,11 +20,7 @@ export default `
 	const onClickButtonHandler = () => {
 		console.log("on click button");
 
-		if (setTimeoutInstance) {
-			clearTimeout(setTimeoutInstance);
-		}
-
-		setTimeout(() => (clickOnButton = true));
+		clickOnButton = true;
 	};
 
 	onMount(() => {
