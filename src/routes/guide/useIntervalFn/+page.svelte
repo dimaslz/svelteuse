@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	import { DocTpl, H2, Highlight } from "@/components";
 	import Browser from "@/components/browser/Browser.svelte";
 	import { useIntervalFn, useState } from "@/hooks";
@@ -6,9 +8,15 @@
 	import code from "./code-snippet";
 
 	const [counter, updateCounter] = useState<number>(0);
-	useIntervalFn(() => {
+	const intervalInstance = useIntervalFn(() => {
 		updateCounter((prevValue) => prevValue + 1);
 	}, 200);
+
+	onMount(() => {
+		return () => {
+			intervalInstance();
+		};
+	});
 </script>
 
 <DocTpl title="useIntervalFn">

@@ -1,19 +1,17 @@
-import { onMount } from "svelte";
-
-export function useIntervalFn(callback: () => void, delay: number | null): void {
+export function useIntervalFn(callback: () => void, delay: number | null): () => void {
 	let savedCallback = callback;
 
-	onMount(() => {
-		savedCallback = callback;
+	savedCallback = callback;
 
-		if (!delay && delay !== 0) {
-			return;
-		}
+	if (!delay) {
+		throw new Error("Delay time are mandatory and should be from 1ms");
+	}
 
-		const id = setInterval(() => {
-			savedCallback();
-		}, delay);
+	const id = setInterval(() => {
+		savedCallback();
+	}, delay);
 
-		return () => clearInterval(id);
-	});
+	return (): void => {
+		clearInterval(id);
+	};
 }
