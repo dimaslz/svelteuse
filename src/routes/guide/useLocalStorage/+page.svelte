@@ -5,10 +5,10 @@
 
 	import code from "./code-snippet";
 
-	const [storageValue, updateLocalStorage] = useLocalStorage<boolean>("dimaslz-svelteuse", true);
+	const { store, update, reset, clear } = useLocalStorage<boolean>("dimaslz-svelteuse", true);
 
 	const toggleTheme = () => {
-		updateLocalStorage((prevValue) => {
+		update((prevValue) => {
 			return !prevValue;
 		});
 	};
@@ -20,9 +20,11 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<p>
-				Value is <code>{JSON.stringify($storageValue)}</code>
+				Value is <code>{JSON.stringify($store)}</code>
 			</p>
 			<Button on:click={toggleTheme}>update state</Button>
+			<Button on:click={reset}>reset state</Button>
+			<Button on:click={clear}>clear state</Button>
 		</Browser>
 	</div>
 

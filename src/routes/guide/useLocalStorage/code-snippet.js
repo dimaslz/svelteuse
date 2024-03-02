@@ -3,7 +3,7 @@ export default `
 <script lang="ts">
 	import { useLocalStorage } from "@dimaslz/svelteuse";
 
-	const [storageValue, updateLocalStorage] = useLocalStorage<boolean>("dimaslz-svelteuse", true);
+	const { store: storageValue, update: updateLocalStorage} = useLocalStorage<boolean>("dimaslz-svelteuse", true);
 
 	const toggleTheme = () => {
 		updateLocalStorage((prevValue) => {

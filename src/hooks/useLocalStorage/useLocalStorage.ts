@@ -6,7 +6,11 @@ import type { TsetValue } from "@/hooks/useState/useState";
 // A wrapper for "JSON.parse()"" to support "undefined" value
 function parseJSON<T>(value: string | null): T | undefined {
 	try {
-		return value === "undefined" ? undefined : JSON.parse(value ?? "");
+		return value === "undefined"
+			? undefined
+			: typeof value === "string" && value !== "true" && value !== "false"
+				? value
+				: JSON.parse(value ?? "");
 	} catch {
 		console.log("parsing error on", { value });
 		return undefined;
@@ -21,7 +25,12 @@ declare global {
 
 type TFn<T> = (f: T) => T;
 type TNewState<T> = TFn<T> | T;
-type UseStateOutput<T> = [SvelteStore<T>, TsetValue<T>, () => void, () => void];
+type UseStateOutput<T> = {
+	store: SvelteStore<T>;
+	update: TsetValue<T>;
+	reset: () => void;
+	clear: () => void;
+};
 
 export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput<T> {
 	const readValue = (): T => {
@@ -32,6 +41,11 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 
 		try {
 			const item = window.localStorage.getItem(key);
+
+			window.localStorage.setItem(
+				key,
+				JSON.stringify(item ? (parseJSON(item || "false") as T) : initialValue),
+			);
 			return item ? (parseJSON(item || "false") as T) : initialValue;
 		} catch (error) {
 			console.warn(`Error reading localStorage key “${key}”:`, error);
@@ -60,7 +74,7 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 	};
 
 	const reset = () => {
-		setValue("" as T);
+		setValue(initialValue as T);
 	};
 
 	const clear = () => {
@@ -79,5 +93,5 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 
 	useEventListener<StorageEvent | CustomEvent>("local-storage", handleStorageChange);
 
-	return [storedValue, setValue, reset, clear];
+	return { store: storedValue, update: setValue, reset, clear };
 }
