@@ -33,6 +33,8 @@
 					style={{ ...style.image, ...css.thumbnail }}
 					src="https://via.placeholder.com/150"
 					alt="thumbnail"
+					width="150"
+					height="150"
 				/>
 
 				<img
@@ -40,6 +42,8 @@
 					style={{ ...style.image, ...css.fullSize }}
 					src="https://via.placeholder.com/600"
 					alt="fullImage"
+					width="600"
+					height="600"
 				/>
 			</div>
 		</Browser>
