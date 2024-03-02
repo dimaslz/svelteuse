@@ -1,4 +1,4 @@
-import { useDebounceFn } from "../useDebounceFn";
+import { useDebounceFn } from "..";
 
 vi.useFakeTimers();
 
