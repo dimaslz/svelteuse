@@ -2,7 +2,7 @@ import { useDebounce } from ".";
 
 vi.useFakeTimers();
 
-describe("useDebounce", () => {
+describe("Hooks - useDebounce", () => {
 	test("the value is not updated before the delay", () => {
 		const [testValue, setDebouncedValue] = useDebounce("initial", 500);
 

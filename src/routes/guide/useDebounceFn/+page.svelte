@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight } from "@/components";
+	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useDebounceFn, useState } from "@/hooks";
 
 	import code from "./code-snippet";
@@ -21,6 +21,19 @@
 </script>
 
 <DocTpl title="useDebounceFn">
+	<div slot="description" class="space-y-2">
+		<p>
+			This hook is like <Link href="/guide/useDebounce">useDebounce</Link>, but it allows you to
+			debounce a value by excecution a callback (follow the example).
+		</p>
+
+		<p>Related hook</p>
+		<ul class="list-disc ml-6">
+			<li><Link href="/guide/useDebounce">useDebounce</Link></li>
+			<li><Link href="/guide/useState">useState</Link></li>
+		</ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 

@@ -4,7 +4,7 @@ type Value<T> = ((v: T) => void) | (() => T);
 type Return<T> = (() => void) | ((f?: Fn<T> | T) => void);
 
 export function useDebounceFn<T>(value: Value<T>, delay?: number): Return<T> {
-	let timeout: number | NodeJS.Timeout;
+	let timeout: number;
 
 	function setDebouncedValue(newValue?: Value<T>): void {
 		clearTimeout(timeout);

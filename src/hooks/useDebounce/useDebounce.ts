@@ -11,7 +11,7 @@ export function useDebounce<T = string>(
 ): [SvelteStore<T>, Return<T>] {
 	const [state, setValue] = useState<T>(value);
 
-	let timeout: number | NodeJS.Timeout;
+	let timeout: number;
 
 	function setDebouncedValue(newValue: NewValue<T>): void {
 		clearTimeout(timeout);
