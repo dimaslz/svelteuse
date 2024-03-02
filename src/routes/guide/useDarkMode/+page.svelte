@@ -8,6 +8,14 @@
 </script>
 
 <DocTpl title="useDarkMode">
+	<div slot="description">
+		<p>
+			This hook is to control the dark mode setup. This is getting the system mode and store it on a
+			localStorage into the key <code class="text-gray-400 font-mono">dark-mode</code>. On change
+			the value, will update the localStore value.
+		</p>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual Example</H2>
 
