@@ -10,7 +10,7 @@ export default `
 		["data", "📦"],
 	];
 
-	const [map, actions] = useMap<string, string>(initialValues);
+	const { map, actions } = useMap<string, string>(initialValues);
 
 	let arrayValue = Array.from(get(map).entries());
 
@@ -18,8 +18,8 @@ export default `
 		arrayValue = Array.from(newMap.entries());
 	});
 
-	const set = () => actions.set(String(Date.now()), "📦");
-	const setAll = () => actions.setAll(otherValues);
+	const set = () => actions.add(String(Date.now()), "📦");
+	const setAll = () => actions.set(otherValues);
 	const reset = () => actions.reset();
 	const remove = () => actions.remove("hello");
 </script>

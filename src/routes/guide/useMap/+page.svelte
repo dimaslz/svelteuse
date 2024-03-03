@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { get } from "svelte/store";
 
-	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
+	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { type MapOrEntries, useMap } from "@/hooks";
 
 	import code from "./code-snippet";
@@ -12,7 +12,7 @@
 		["data", "📦"],
 	];
 
-	const [map, actions] = useMap<string, string>(initialValues);
+	const { map, actions } = useMap<string, string>(initialValues);
 
 	let arrayValue = Array.from(get(map).entries());
 
@@ -20,13 +20,35 @@
 		arrayValue = Array.from(newMap.entries());
 	});
 
-	const set = () => actions.set(String(Date.now()), "📦");
-	const setAll = () => actions.setAll(otherValues);
+	const set = () => actions.add(String(Date.now()), "📦");
+	const setAll = () => actions.set(otherValues);
 	const reset = () => actions.reset();
 	const remove = () => actions.remove("hello");
 </script>
 
 <DocTpl title="useMap">
+	<div slot="description">
+		<p>
+			Manage <code>Map</code> easily with this hook.
+		</p>
+		<p>Inspired on:</p>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks.com/usemap" target="_blank">https://usehooks.com/usemap</Link>
+			</li>
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-map" target="_blank"
+					>https://usehooks-ts.com/react-hook/use-map</Link
+				>
+			</li>
+			<li>
+				<Link href="https://vueuse.org/shared/useArrayMap/" target="_blank"
+					>https://vueuse.org/shared/useArrayMap/</Link
+				>
+			</li>
+		</ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 

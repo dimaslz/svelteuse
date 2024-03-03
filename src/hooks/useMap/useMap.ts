@@ -1,23 +1,26 @@
-import { useState } from "@/hooks/useState/useState";
+import { useState } from "@/hooks";
 
 export type MapOrEntries<K, V> = Map<K, V> | [K, V][];
 
 // Public interface
 export interface Actions<K, V> {
-	set: (key: K, value: V) => void;
-	setAll: (entries: MapOrEntries<K, V>) => void;
+	add: (key: K, value: V) => void;
+	set: (entries: MapOrEntries<K, V>) => void;
 	remove: (key: K) => void;
 	reset: Map<K, V>["clear"];
 }
 
 // We hide some setters from the returned map to disable autocompletion
-type Return<K, V> = [SvelteStore<Omit<Map<K, V>, "set" | "clear" | "delete">>, Actions<K, V>];
+type Return<K, V> = {
+	map: SvelteStore<Omit<Map<K, V>, "set" | "clear" | "delete">>;
+	actions: Actions<K, V>;
+};
 
 export function useMap<K, V>(initialState: MapOrEntries<K, V> = new Map()): Return<K, V> {
 	const [map, setMap] = useState(new Map(initialState));
 
 	const actions: Actions<K, V> = {
-		set: (key, value) => {
+		add: (key, value) => {
 			setMap((prev) => {
 				const copy = new Map(prev);
 				copy.set(key, value);
@@ -25,7 +28,7 @@ export function useMap<K, V>(initialState: MapOrEntries<K, V> = new Map()): Retu
 			});
 		},
 
-		setAll: (entries) => {
+		set: (entries) => {
 			setMap(() => new Map(entries));
 		},
 
@@ -42,5 +45,5 @@ export function useMap<K, V>(initialState: MapOrEntries<K, V> = new Map()): Retu
 		},
 	};
 
-	return [map, actions];
+	return { map, actions };
 }
