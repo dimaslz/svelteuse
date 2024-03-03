@@ -2,20 +2,7 @@ import { get } from "svelte/store";
 
 import { useEventListener, useState } from "@/hooks";
 import type { TsetValue } from "@/hooks/useState/useState";
-
-// A wrapper for "JSON.parse()"" to support "undefined" value
-function parseJSON<T>(value: string | null): T | undefined {
-	try {
-		return value === "undefined"
-			? undefined
-			: typeof value === "string" && value !== "true" && value !== "false"
-				? value
-				: JSON.parse(value ?? "");
-	} catch {
-		console.log("parsing error on", { value });
-		return undefined;
-	}
-}
+import { parseJSON } from "@/utils";
 
 declare global {
 	interface WindowEventMap {
