@@ -1,4 +1,3 @@
-import { onMount } from "svelte";
 import { get } from "svelte/store";
 
 import { useEventListener } from "@/hooks/useEventListener/useEventListener";
@@ -7,7 +6,11 @@ import { type TsetValue, useState } from "@/hooks/useState/useState";
 // A wrapper for "JSON.parse()"" to support "undefined" value
 function parseJSON<T>(value: string | null): T | undefined {
 	try {
-		return value === "undefined" ? undefined : JSON.parse(value ?? "");
+		return value === "undefined"
+			? undefined
+			: typeof value === "string" && value !== "true" && value !== "false"
+				? value
+				: JSON.parse(value ?? "");
 	} catch {
 		console.log("parsing error on", { value });
 		return undefined;
@@ -22,7 +25,12 @@ declare global {
 
 type TFn<T> = (f: T) => T;
 type TNewState<T> = TFn<T> | T;
-type UseStateOutput<T> = [SvelteStore<T>, TsetValue<T>];
+type UseStateOutput<T> = {
+	store: SvelteStore<T>;
+	update: TsetValue<T>;
+	reset: () => void;
+	clear: () => void;
+};
 
 export function useSessionStorage<T>(key: string, initialValue: T): UseStateOutput<T> {
 	const readValue = (): T => {
@@ -33,7 +41,11 @@ export function useSessionStorage<T>(key: string, initialValue: T): UseStateOutp
 
 		try {
 			const item = window.sessionStorage.getItem(key);
-			return item ? (parseJSON(item) as T) : initialValue;
+			window.sessionStorage.setItem(
+				key,
+				JSON.stringify(item ? (parseJSON(item || "false") as T) : initialValue),
+			);
+			return item ? (parseJSON(item || "false") as T) : initialValue;
 		} catch (error) {
 			console.warn(`Error reading sessionStorage key “${key}”:`, error);
 			return initialValue;
@@ -60,9 +72,13 @@ export function useSessionStorage<T>(key: string, initialValue: T): UseStateOutp
 		}
 	};
 
-	onMount(() => {
-		setStoredValue(readValue());
-	});
+	const reset = () => {
+		setValue(initialValue as T);
+	};
+
+	const clear = () => {
+		window.sessionStorage.removeItem(key);
+	};
 
 	const handleStorageChange = (event: StorageEvent | CustomEvent) => {
 		if ((event as StorageEvent)?.key && (event as StorageEvent).key !== key) {
@@ -76,5 +92,5 @@ export function useSessionStorage<T>(key: string, initialValue: T): UseStateOutp
 
 	useEventListener<StorageEvent | CustomEvent>("session-storage", handleStorageChange);
 
-	return [storedValue, setValue];
+	return { store: storedValue, update: setValue, reset, clear };
 }
