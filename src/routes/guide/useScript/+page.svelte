@@ -10,6 +10,13 @@
 </script>
 
 <DocTpl title="useScript">
+	<div slot="description">
+		<p>Inject a script easily with this hook.</p>
+
+		<H2>TODO</H2>
+		<ul class="pl-6 list-disc"><li>Allow inject multiple scripts at the same time.</li></ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 
