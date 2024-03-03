@@ -1,26 +1,14 @@
-import { onMount } from "svelte";
-
-import { useEventListener, useState } from "..";
-
-export function useScreen(): SvelteStore<Screen | undefined> {
-	const getScreen = (): Screen | undefined => {
+export function useScreen(): Partial<Screen> {
+	const getScreen = (): Partial<Screen> => {
 		if (typeof window !== "undefined" && window.screen) {
 			return window.screen;
 		}
-		return undefined;
+
+		return {
+			width: 0,
+			height: 0,
+		};
 	};
 
-	const [screen, setScreen] = useState<Screen | undefined>(getScreen());
-
-	function handleSize() {
-		setScreen(getScreen());
-	}
-
-	useEventListener("resize", handleSize);
-
-	onMount(() => {
-		handleSize();
-	});
-
-	return screen;
+	return getScreen();
 }

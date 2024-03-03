@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight } from "@/components";
+	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useScreen } from "@/hooks";
 
 	import code from "./code-snippet";
@@ -8,6 +8,24 @@
 </script>
 
 <DocTpl title="useScreen">
+	<div slot="description">
+		<p>
+			Get the size of your screen. At the moment just get the screen size at the first load, does
+			not exists listener to get the screen on change the screen, but it is planned to the next
+			iteration.
+		</p>
+		<p>
+			It is inspired on <Link href="https://usehooks-ts.com/react-hook/use-screen" target="_blank"
+				>https://usehooks-ts.com/react-hook/use-screen</Link
+			>
+		</p>
+
+		<H2>TODO</H2>
+		<ul class="list-disc pl-6">
+			<li>Listen on change the screen</li>
+		</ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 
@@ -15,7 +33,7 @@
 			<div>
 				The current window dimensions are:{" "}
 				<code>
-					{JSON.stringify({ width: $screen?.width, height: $screen?.height })}
+					{JSON.stringify({ width: screen?.width, height: screen?.height })}
 				</code>
 			</div>
 		</Browser>
