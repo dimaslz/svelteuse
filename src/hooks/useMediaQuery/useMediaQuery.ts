@@ -1,8 +1,8 @@
-import { onMount } from "svelte";
-
 import { useState } from "@/hooks/useState/useState";
-
-export function useMediaQuery(query: string): SvelteStore<boolean> {
+export function useMediaQuery(query: string): {
+	matches: SvelteStore<boolean>;
+	unsubscribe: () => void;
+} {
 	const getMatches = (query: string): boolean => {
 		if (typeof window !== "undefined") {
 			return window.matchMedia(query).matches;
@@ -11,36 +11,42 @@ export function useMediaQuery(query: string): SvelteStore<boolean> {
 		return false;
 	};
 
-	const [matches, setMatches] = useState<boolean>(getMatches(query));
-
 	function handleChange() {
 		setMatches(getMatches(query));
 	}
 
-	if (typeof window !== "undefined") return matches;
+	const [matches, setMatches] = useState<boolean>(
+		typeof window === "undefined" ? false : getMatches(query),
+	);
 
-	onMount(() => {
-		matches.subscribe(() => {});
-		const matchMedia = window.matchMedia(query);
+	if (typeof window === "undefined") {
+		return {
+			matches,
+			unsubscribe: () => {},
+		};
+	}
 
-		handleChange();
+	matches.subscribe;
+	const matchMedia = window.matchMedia(query);
 
-		if (matchMedia.addListener) {
-			matchMedia.addListener(handleChange);
-		} else {
-			matchMedia.addEventListener("change", () => {
-				handleChange();
-			});
-		}
+	handleChange();
 
-		return () => {
+	if (matchMedia.addListener) {
+		matchMedia.addListener(handleChange);
+	} else {
+		matchMedia.addEventListener("change", () => {
+			handleChange();
+		});
+	}
+
+	return {
+		matches,
+		unsubscribe: () => {
 			if (matchMedia.removeListener) {
 				matchMedia.removeListener(handleChange);
 			} else {
 				matchMedia.removeEventListener("change", handleChange);
 			}
-		};
-	});
-
-	return matches;
+		},
+	};
 }

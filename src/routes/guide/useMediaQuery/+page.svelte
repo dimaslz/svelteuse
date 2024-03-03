@@ -1,10 +1,18 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	import { Browser, DocTpl, H2, Highlight as HighlightSvelte } from "@/components";
 	import { useMediaQuery } from "@/hooks";
 
 	import code from "./code-snippet";
 
-	const matches = useMediaQuery("(min-width: 768px)");
+	const { matches, unsubscribe } = useMediaQuery("(min-width: 768px)");
+
+	onMount(() => {
+		return () => {
+			unsubscribe();
+		};
+	});
 </script>
 
 <DocTpl title="useMediaQuery">
