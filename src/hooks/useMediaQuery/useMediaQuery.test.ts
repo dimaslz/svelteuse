@@ -3,7 +3,6 @@ import { get } from "svelte/store";
 import { useMediaQuery } from "@/hooks";
 
 const mockMatchMedia = (matches: boolean): void => {
-	// window.matchMedia.matches = matches;
 	Object.defineProperty(window, "matchMedia", {
 		writable: true,
 		value: vi.fn().mockImplementation((query) => ({
