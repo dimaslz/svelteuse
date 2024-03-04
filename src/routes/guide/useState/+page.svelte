@@ -18,6 +18,13 @@
 </script>
 
 <DocTpl title="useState">
+	<div slot="description">
+		<p>
+			This hook works like the React hook. The difference using the hook and without using the hook
+			is small, for that feel free to do not use.
+		</p>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual Example</H2>
 
