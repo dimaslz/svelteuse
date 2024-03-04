@@ -11,6 +11,10 @@
 </script>
 
 <DocTpl title="useTimeoutFn">
+	<div slot="description">
+		<p>Simple hook to execute a function after a time defined.</p>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 
