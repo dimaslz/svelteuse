@@ -7,9 +7,9 @@ type Return<T> = (f: Fn<T> | T) => void;
 
 export function useDebounce<T = string>(
 	value: NewValue<T>,
-	delay?: number,
+	delay: number = 1000,
 ): [SvelteStore<T>, Return<T>] {
-	const [state, setValue] = useState<T>(value);
+	const [state, setValue] = useState<T>((value || "") as T);
 
 	let timeout: number;
 

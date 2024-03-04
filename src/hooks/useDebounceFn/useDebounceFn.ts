@@ -1,22 +1,14 @@
-type Fn<T> = (v: T) => void;
-
-type Value<T> = ((v: T) => void) | (() => T);
-type Return<T> = (() => void) | ((f?: Fn<T> | T) => void);
-
-export function useDebounceFn<T>(value: Value<T>, delay?: number): Return<T> {
+export function useDebounceFn<Args extends unknown[], T = string>(
+	fn: (...args: Args) => T,
+	delay: number = 1000,
+) {
 	let timeout: number;
 
-	function setDebouncedValue(newValue?: Value<T>): void {
+	function setDebouncedValue(...args: Args): void {
 		clearTimeout(timeout);
 
 		timeout = setTimeout(() => {
-			if (typeof value === "function") {
-				if (newValue) {
-					(value as (f: Fn<T> | T) => void)(newValue);
-				} else {
-					(value as () => void)();
-				}
-			}
+			fn(...args);
 		}, delay);
 	}
 
