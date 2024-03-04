@@ -1,9 +1,16 @@
 export default `
 <!-- javascript -->
 <script lang="ts">
+	import { onMount } from "svelte";
 	import { useWindowSize } from "@dimaslz/svelteuse";
 
-	const windowSize = useWindowSize();
+	const { windowSize, removeEvent } = useWindowSize();
+
+	onMount(() => {
+		return () => {
+			removeEvent();
+		};
+	});
 </script>
 
 <!-- html -->

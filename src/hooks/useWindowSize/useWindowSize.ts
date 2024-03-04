@@ -7,7 +7,10 @@ interface WindowSize {
 	height: number;
 }
 
-export function useWindowSize(): SvelteStore<WindowSize> {
+export function useWindowSize({ intoComponent = false }: { intoComponent?: boolean } = {}): {
+	windowSize: SvelteStore<WindowSize>;
+	removeEvent: () => void;
+} {
 	const [windowSize, setWindowSize] = useState<WindowSize>({
 		width: 0,
 		height: 0,
@@ -20,12 +23,24 @@ export function useWindowSize(): SvelteStore<WindowSize> {
 		});
 	};
 
-	useEventListener("resize", handleSize);
+	const listenerInstance = useEventListener("resize", handleSize);
 
-	// Set size at the first client-side load
-	onMount(() => {
+	if (intoComponent) {
+		onMount(() => {
+			handleSize();
+
+			return () => {
+				listenerInstance();
+			};
+		});
+	} else if (typeof window !== "undefined") {
 		handleSize();
-	});
+	}
 
-	return windowSize;
+	return {
+		windowSize,
+		removeEvent: () => {
+			listenerInstance();
+		},
+	};
 }
