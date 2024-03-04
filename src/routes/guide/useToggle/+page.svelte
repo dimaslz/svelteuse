@@ -6,10 +6,10 @@
 
 	import code from "./code-snippet";
 
-	const [value, toggle, setValue] = useToggle();
+	const { value, toggle, update } = useToggle();
 
 	const customToggle = () => {
-		setValue(!get(value));
+		update(!get(value));
 	};
 </script>
 
