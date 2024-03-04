@@ -1,11 +1,10 @@
-export function useThrottleFn<Args extends unknown[]>(
-	fn: (...args: Args) => void,
-	interval = 1000,
-): (...args: Args) => void {
+export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
+
+export function useThrottleFn<T extends FunctionArgs>(fn: T, interval: number = 1000): T {
 	let lastUpdated: number = 0;
 	let id: number;
 
-	return (...args: Args) => {
+	return (...args) => {
 		const now = Date.now();
 		if (now - lastUpdated < interval) {
 			if (id) {

@@ -1,15 +1,20 @@
-import { useState } from "@/hooks/useState/useState";
+import { useState } from "@/hooks";
 
-export function useThrottle<T = null>(
-	_value: T,
-	interval = 1000,
-): [SvelteStore<T>, (v: T) => void] {
+type Fn<T> = () => T;
+type NewValue<T> = Fn<T> | T;
+
+type Return<T> = (f: Fn<T> | T) => void;
+
+export function useThrottle<T = string>(
+	_value: NewValue<T>,
+	interval: number = 1000,
+): [SvelteStore<T>, Return<T>] {
 	const [value, updateValue] = useState<T>((_value || "") as T);
 
 	let lastUpdated: number = 0;
 	let id: number;
 
-	const run = (value: T) => {
+	const setThrottleValue = (newValue: NewValue<T>) => {
 		const now = Date.now();
 		if (now - lastUpdated < interval) {
 			if (id) {
@@ -18,14 +23,15 @@ export function useThrottle<T = null>(
 
 			id = setTimeout(() => {
 				clearTimeout(id);
-				updateValue(value);
+				updateValue(typeof newValue === "function" ? (newValue as () => T)() : (newValue as T));
 			}, interval);
 
 			return;
 		}
+
 		lastUpdated = now;
-		return updateValue(value);
+		return updateValue(typeof newValue === "function" ? (newValue as () => T)() : (newValue as T));
 	};
 
-	return [value, run];
+	return [value, setThrottleValue];
 }

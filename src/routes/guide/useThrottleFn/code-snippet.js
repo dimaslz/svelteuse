@@ -6,6 +6,7 @@ export default `
 	let value: string = "";
 	const [state, setState] = useState(value);
 
+	// the params here, are the same of possible params on throttledFunction(...)
 	const updateState = (value: string) => {
 		setState(value);
 	};
@@ -15,6 +16,7 @@ export default `
 	const onInput = ($event: Event) => {
 		const { value: _value } = $event.target as HTMLInputElement;
 
+		// the possible params are the same of updateState(...)
 		throttledFunction(_value);
 	};
 </script>
