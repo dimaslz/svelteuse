@@ -15,6 +15,10 @@ export async function load({ route }) {
 			link: "/guide/useClickAnyWhere",
 		},
 		{
+			label: "useClickOutside",
+			link: "/guide/useClickOutside",
+		},
+		{
 			label: "useClipboard",
 			link: "/guide/useClipboard",
 		},

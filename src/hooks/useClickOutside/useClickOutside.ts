@@ -1,19 +1,40 @@
+import { onMount } from "svelte";
+
 import { useEventListener } from "..";
 
 type Handler = (event: MouseEvent) => void;
 
-export function useClickOutside<T extends HTMLElement = HTMLElement>(
-	ref: T,
-	handler: Handler,
-	mouseEvent: "mousedown" | "mouseup" = "mousedown",
-): void {
-	useEventListener(mouseEvent, (event: MouseEvent) => {
-		const el = ref;
+type Options = {
+	handler: Handler;
+	mouseEvent?: "mousedown" | "mouseup";
+	component?: boolean;
+};
 
-		if (!el || el.contains(event.target as Node)) {
+export function useClickOutside<T extends HTMLElement = HTMLElement>({
+	handler,
+	mouseEvent = "mousedown",
+	component = false,
+}: Options): { setElementRef: (elm: T) => void; removeListener: () => void } {
+	let element: T;
+
+	const removeListener = useEventListener(mouseEvent, (event: MouseEvent) => {
+		if (!element || element.contains(event.target as Node)) {
 			return;
 		}
 
 		handler(event);
 	});
+
+	if (component) {
+		onMount(() => {
+			return () => {
+				removeListener();
+			};
+		});
+	}
+
+	return {
+		setElementRef: (elm) => (element = elm),
+		removeListener,
+	};
 }
