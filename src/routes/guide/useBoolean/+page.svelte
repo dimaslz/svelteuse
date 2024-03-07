@@ -4,7 +4,7 @@
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useBoolean } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const { value, setValue, setTrue, setFalse, toggle } = useBoolean();
 
@@ -15,15 +15,21 @@
 
 <DocTpl title="useBoolean">
 	<div slot="description">
-		<div class="space-y-2">
-			<p>A simple hook to play with boolean values.</p>
+		<p>A simple hook to play with boolean values.</p>
 
-			<h3>Related hooks</h3>
+		<h3 class="text-lg">Related hooks</h3>
+		<ul class="list-disc pl-6">
+			<li><Link href="/guide/useTooggle">useTooggle</Link></li>
+		</ul>
 
-			<ul class="list-disc pl-6">
-				<li><Link href="/guide/useTooggle">useTooggle</Link></li>
-			</ul>
-		</div>
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-boolean"
+					>https://usehooks-ts.com/react-hook/use-boolean</Link
+				>
+			</li>
+		</ul>
 	</div>
 
 	<div slot="visual-example">
@@ -46,8 +52,16 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Code example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<Highlight {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </DocTpl>
