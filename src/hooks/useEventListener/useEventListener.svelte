@@ -5,7 +5,7 @@
 
 	export let callbackListener: () => void;
 	export let eventType: string = "click";
-	export let element: any;
+	export let element: Element | Window;
 
 	const eventListenerInstance = useEventListener<MouseEvent>(eventType, callbackListener, element);
 
@@ -16,4 +16,4 @@
 	});
 </script>
 
-<div data-testid="element">hello</div>
+<div>hello</div>
