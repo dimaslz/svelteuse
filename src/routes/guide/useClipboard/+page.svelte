@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
+	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useClipboard } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { codeBase, exampleCode } from "./code-snippet";
 
 	const [clipboard, copyClipboard] = useClipboard();
 
@@ -19,6 +19,30 @@
 <DocTpl title="useClipboard">
 	<div slot="description">
 		<p>Hook to work copy to clipboard easily.</p>
+
+		<h3 class="text-lg">Related hooks</h3>
+		<ul class="list-disc pl-6">
+			<li><Link href="/guide/useEventListener">useEventListener</Link></li>
+		</ul>
+
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks.com/usecopytoclipboard" target="_blank"
+					>https://usehooks.com/usecopytoclipboard</Link
+				>
+			</li>
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-copy-to-clipboard" target="_blank"
+					>https://usehooks-ts.com/react-hook/use-copy-to-clipboard</Link
+				>
+			</li>
+			<li>
+				<Link href="https://vueuse.org/core/useClipboard" target="_blank"
+					>https://vueuse.org/core/useClipboard</Link
+				>
+			</li>
+		</ul>
 	</div>
 
 	<div slot="visual-example">
@@ -46,8 +70,11 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Code example</H2>
+		<H2>Code base</H2>
+		<Highlight language="svelte" code={codeBase} />
 
-		<Highlight {code} />
+		<div class="h-12"></div>
+		<H2>Code example</H2>
+		<Highlight code={exampleCode} />
 	</div>
 </DocTpl>
