@@ -2,7 +2,7 @@
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useCounter } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const { count, increment, decrement, reset, setCount } = useCounter(99);
 
@@ -14,10 +14,26 @@
 		<div class="space-y-2">
 			<p>A simple hook to implement a counter by actions.</p>
 
-			<h3>Related hooks</h3>
-
+			<h3 class="text-lg">Related hooks</h3>
 			<ul class="list-disc pl-6">
 				<li><Link href="/guide/useState">useState</Link></li>
+			</ul>
+
+			<h3 class="text-lg">Inspired on:</h3>
+			<ul class="list-disc pl-6">
+				<li>
+					<Link href="https://usehooks.com/usecounter">https://usehooks.com/usecounter</Link>
+				</li>
+				<li>
+					<Link href="https://usehooks-ts.com/react-hook/use-counter"
+						>https://usehooks-ts.com/react-hook/use-counter</Link
+					>
+				</li>
+				<li>
+					<Link href="https://vueuse.org/shared/useCounter/"
+						>https://vueuse.org/shared/useCounter/</Link
+					>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -42,8 +58,16 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Code example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<Highlight {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </DocTpl>

@@ -1,4 +1,4 @@
-import { type TsetValue, useState } from "../useState/useState";
+import { type TsetValue, useState } from "@/hooks";
 
 interface UseCounterOutput {
 	count: Readonly<SvelteStore<number>>;
