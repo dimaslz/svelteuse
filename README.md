@@ -29,8 +29,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useDebounce](/src/hooks/useDebounce): <https://usehooks.com/usedebounce>, <https://usehooks-ts.com/react-hook/use-debounce>, <https://vueuse.org/shared/useDebounceFn/>
 - [x] [useDebounceFn](/src/hooks/useDebounce): <https://usehooks.com/usedebounce>, <https://usehooks-ts.com/react-hook/use-debounce>, <https://vueuse.org/shared/useDebounceFn/>
 - [x] [useDocumentTitle](/src/hooks/useDocumentTitle): <https://usehooks-ts.com/react-hook/use-document-title>, <https://vueuse.org/core/useTitle/>, <https://usehooks.com/usedocumenttitle>
-- [x] [useElementSize](/src/hooks/useElementSize): <https://usehooks-ts.com/react-hook/use-element-size>, <https://vueuse.org/core/useElementSize/>
-- [x] [useElementSizeObserver](/src/hooks/useResizeObserver): <https://vueuse.org/core/useResizeObserver/>
+- [x] [useElementSize](/src/hooks/useElementSize): <https://usehooks-ts.com/react-hook/use-element-size>, <https://vueuse.org/core/useElementSize/>, <https://vueuse.org/core/useResizeObserver/>
 - [x] [useEventListener](/src/hooks/useEventListener): <https://vueuse.org/core/useEventListener/>, <https://usehooks.com/useeventlistener>, <https://usehooks-ts.com/react-hook/use-event-listener>
 - [x] [useFetch](/src/hooks/useFetch): <https://vueuse.org/core/useFetch/>, <https://usehooks.com/usefetch>, <https://usehooks-ts.com/react-hook/use-fetch>
 - [x] [useHover](/src/hooks/useHover): <https://usehooks-ts.com/react-hook/use-hover>, <https://usehooks.com/usehover>, <https://vueuse.org/core/useElementHover/>
@@ -40,7 +39,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useLocalStorage](/src/hooks/useLocalStorage): <https://usehooks.com/uselocalstorage>, <https://vueuse.org/core/useLocalStorage/>, <https://usehooks-ts.com/react-hook/use-local-storage>
 - [x] [useMap](/src/hooks/useMap): <https://usehooks.com/usemap>, <https://usehooks-ts.com/react-hook/use-map>, <https://vueuse.org/shared/useArrayMap/>
 - [x] [useMediaQuery](/src/hooks/useMediaQuery): <https://usehooks.com/usemediaquery>, <https://usehooks-ts.com/react-hook/use-media-query>, <https://vueuse.org/core/useMediaQuery/>
-- [x] [useReducer](/src/hooks/useReducer)
 - [x] [useScreen](/src/hooks/useScreen): <https://usehooks-ts.com/react-hook/use-screen>
 - [x] [useScript](/src/hooks/useScript): <https://usehooks.com/usescript>, <https://usehooks-ts.com/react-hook/use-script>, <https://vueuse.org/core/useScriptTag/>
 - [x] [useSessionStorage](/src/hooks/useSessionStorage): <https://usehooks.com/usesessionstorage>, <https://usehooks-ts.com/react-hook/use-session-storage>, <https://vueuse.org/core/useSessionStorage/>
@@ -54,6 +52,7 @@ This list is orientative, let's try to get all 👨‍💻.
 
 <!--  -->
 
+- [ ] [useReducer](/src/hooks/useReducer)
 - [ ] useLocation (https://vueuse.org/core/useBrowserLocation/)
 - [ ] useEventCallback: <https://usehooks-ts.com/react-hook/use-event-callback>
 - [ ] usePreferredDark (https://vueuse.org/core/usePreferredDark/)
