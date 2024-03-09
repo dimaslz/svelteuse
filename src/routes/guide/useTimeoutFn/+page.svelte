@@ -1,13 +1,26 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight } from "@/components";
+	import { onMount } from "svelte";
+
+	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
 	import { useState, useTimeoutFn } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
-	const [counter, updateCounter] = useState<number>(0);
-	useTimeoutFn(() => {
-		updateCounter((prevValue) => prevValue + 1);
-	}, 2000);
+	const [value, update] = useState<string>("Please wait 3 seconds");
+	const { start, stop, isPending } = useTimeoutFn(() => {
+		update("Fired!");
+	}, 3000);
+
+	const startTimeout = () => {
+		update("Please wait 3 seconds");
+		start();
+	};
+
+	onMount(() => {
+		return () => {
+			stop();
+		};
+	});
 </script>
 
 <DocTpl title="useTimeoutFn">
@@ -20,8 +33,16 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<p>
-				Update number after 2 seconds: <code>{$counter}</code>
+				{$value}
 			</p>
+
+			<div>
+				{#if $isPending}
+					<Button on:click={stop}>stop</Button>
+				{:else}
+					<Button on:click={startTimeout}>start</Button>
+				{/if}
+			</div>
 		</Browser>
 	</div>
 

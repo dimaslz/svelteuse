@@ -1,20 +1,38 @@
 export const exampleCode = `
 <!-- javascript -->
 <script lang="ts">
-	import { updateCounter, useState } from "@dimaslz/svelteuse";
+	import { onMount } from "svelte";
 
-	const [counter, updateCounter] = useState<number>(0);
+	import { useState, useTimeoutFn } from "@dimaslz/svelteuse";
 
-	useTimeoutFn(() => {
-		updateCounter((prevValue) => prevValue + 1);
-	}, 2000);
+	const [value, update] = useState<string>("Please wait 3 seconds");
+	const { start, stop, isPending } = useTimeoutFn(() => {
+		update("Fired!");
+	}, 3000);
+
+	const startTimeout = () => {
+		update("Please wait 3 seconds");
+		start();
+	};
+
+	onMount(() => {
+		return () => {
+			stop();
+		};
+	});
 </script>
 
 <!-- html -->
+<p>
+	{$value}
+</p>
+
 <div>
-	<p>
-		Update number after 2 seconds: <code>{$counter}</code>
-	</p>
+	{#if $isPending}
+		<button on:click={stop}>stop</button>
+	{:else}
+		<button on:click={startTimeout}>start</button>
+	{/if}
 </div>
 `;
 
