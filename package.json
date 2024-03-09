@@ -65,6 +65,7 @@
 		"@playwright/test": "^1.42.0",
 		"@sveltejs/adapter-auto": "^3.1.1",
 		"@sveltejs/adapter-node": "^4.0.1",
+		"@sveltejs/kit": "^2.5.3",
 		"@sveltejs/package": "^2.2.7",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"@testing-library/dom": "^9.3.4",
@@ -92,6 +93,7 @@
 		"sass": "^1.71.1",
 		"shelljs": "^0.8.5",
 		"svelte-check": "^3.6.6",
+		"svelte-highlight": "^7.6.0",
 		"tailwindcss": "^3.4.1",
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3",
@@ -100,10 +102,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/kit": "^2.5.2",
 		"esm-env": "^1.0.0",
-		"svelte": "^4.2.12",
-		"svelte-highlight": "^7.6.0"
+		"svelte": "^4.2.12"
 	},
 	"files": [
 		"dist"
@@ -192,10 +192,6 @@
 		"./useMediaQuery": {
 			"types": "./dist/useMediaQuery/useMediaQuery.d.ts",
 			"svelte": "./dist/useMediaQuery/useMediaQuery.js"
-		},
-		"./useReducer": {
-			"types": "./dist/useReducer/useReducer.d.ts",
-			"svelte": "./dist/useReducer/useReducer.js"
 		},
 		"./useScreen": {
 			"types": "./dist/useScreen/useScreen.d.ts",
