@@ -1,6 +1,6 @@
 import { onMount } from "svelte";
 
-import { useEventListener } from "..";
+import { useEventListener } from "@/hooks";
 
 type Handler = (event: MouseEvent) => void;
 

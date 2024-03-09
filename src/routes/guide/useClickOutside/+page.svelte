@@ -4,7 +4,7 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useClickOutside } from "@/hooks";
 
-	import { codeBase, exampleCode } from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const onClickHandler = () => {
 		console.log("onClickHandler");
@@ -56,7 +56,7 @@
 
 	<div slot="code-example">
 		<H2>Code base</H2>
-		<Highlight language="typescript" code={codeBase} />
+		<Highlight language="typescript" code={sourceCode} />
 
 		<div class="h-12"></div>
 		<H2>Code example</H2>

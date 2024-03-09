@@ -26,7 +26,7 @@ export const exampleCode = `
 `;
 
 export const sourceCode = `
-import { type TsetValue, useState } from "@dimaslz/svelteuse";
+import { type TsetValue, useState } from "@dimaslz/svelteuse"
 
 interface UseCounterOutput {
 	count: Readonly<SvelteStore<number>>;

@@ -1,4 +1,5 @@
-import { useState } from "@/hooks/useState/useState";
+import { useState } from "@/hooks";
+
 export function useMediaQuery(query: string): {
 	matches: SvelteStore<boolean>;
 	unsubscribe: () => void;

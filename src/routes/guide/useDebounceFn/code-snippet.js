@@ -1,4 +1,4 @@
-export default `
+export const exampleCode = `
 <!-- javascript -->
 <script lang="ts">
 	import { useDebounceFn, useState } from "@dimaslz/svelteuse";
@@ -32,5 +32,23 @@ export default `
 		<input bind:value on:input={onInput} />
 	</div>
 </div>
+`;
 
+export const sourceCode = `
+export function useDebounceFn<Args extends unknown[], T = string>(
+	fn: (...args: Args) => T,
+	delay: number = 1000,
+) {
+	let timeout: number;
+
+	function setDebouncedValue(...args: Args): void {
+		clearTimeout(timeout);
+
+		timeout = setTimeout(() => {
+			fn(...args);
+		}, delay);
+	}
+
+	return setDebouncedValue;
+}
 `;

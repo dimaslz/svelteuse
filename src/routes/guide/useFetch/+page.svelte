@@ -2,7 +2,7 @@
 	import { Browser, H2, Highlight } from "@/components";
 	import { useFetch } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const url = "https://randomdata-api.loremapi.io";
 
@@ -34,8 +34,16 @@
 	</div>
 
 	<div class="mt-12 text-xs">
-		<H2>Code example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<Highlight {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-import { useState } from "@/hooks/useState/useState";
+import { useState } from "@/hooks";
 
 interface State<T> {
 	data?: T;

@@ -23,10 +23,10 @@ export const exampleCode = `
 </div>
 `;
 
-export const codeBase = `
+export const sourceCode = `
 import { onMount } from "svelte";
 
-import { useEventListener } from "..";
+import { useEventListener } from "@dimaslz/svelteuse"
 
 type Handler = (event: MouseEvent) => void;
 

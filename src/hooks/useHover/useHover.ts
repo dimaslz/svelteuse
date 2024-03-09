@@ -1,4 +1,4 @@
-import { useEventListener, useState } from "..";
+import { useEventListener, useState } from "@/hooks";
 
 export function useHover<T extends HTMLElement = HTMLElement>({
 	onEnter = () => {},

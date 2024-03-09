@@ -57,7 +57,8 @@
 		"test:coverage": "vitest --reporter=verbose --coverage",
 		"prettier": "prettier --plugin-search-dir . --check .",
 		"lint": "eslint ./",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --write .",
+		"generate-examples": "node generate-examples && yarn format"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.8",

@@ -23,7 +23,7 @@ export const exampleCode = `
 </div>
 `;
 export const sourceCode = `
-import { useEventListener } from "@/hooks";
+import { useEventListener } from "@dimaslz/svelteuse"
 
 type Handler = (event: MouseEvent) => void;
 

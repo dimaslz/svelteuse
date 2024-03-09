@@ -1,7 +1,6 @@
 import { get } from "svelte/store";
 
-import { useLocalStorage } from "@/hooks/useLocalStorage/useLocalStorage";
-import { useMediaQuery } from "@/hooks/useMediaQuery/useMediaQuery";
+import { useLocalStorage, useMediaQuery } from "@/hooks";
 
 const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
 

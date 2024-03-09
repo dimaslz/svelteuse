@@ -2,7 +2,7 @@
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useClipboard } from "@/hooks";
 
-	import { codeBase, exampleCode } from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const [clipboard, copyClipboard] = useClipboard();
 
@@ -71,7 +71,7 @@
 
 	<div slot="code-example">
 		<H2>Code base</H2>
-		<Highlight language="svelte" code={codeBase} />
+		<Highlight language="svelte" code={sourceCode} />
 
 		<div class="h-12"></div>
 		<H2>Code example</H2>

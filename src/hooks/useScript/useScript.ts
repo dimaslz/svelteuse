@@ -1,6 +1,6 @@
 import { onMount } from "svelte";
 
-import { useState } from "@/hooks/useState/useState";
+import { useState } from "@/hooks";
 
 export type UseScriptStatus = "idle" | "loading" | "ready" | "error";
 export interface UseScriptOptions {

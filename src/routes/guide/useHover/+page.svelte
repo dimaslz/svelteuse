@@ -5,7 +5,7 @@
 	import Browser from "@/components/browser/Browser.svelte";
 	import { useHover } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	let hoverRef: HTMLElement;
 	const [isHover, setElement] = useHover();
@@ -39,8 +39,16 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Visual example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<Highlight {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </DocTpl>

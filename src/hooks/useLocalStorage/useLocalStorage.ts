@@ -1,7 +1,6 @@
 import { get } from "svelte/store";
 
-import { useEventListener, useState } from "@/hooks";
-import type { TsetValue } from "@/hooks/useState/useState";
+import { type TsetValue, useEventListener, useState } from "@/hooks";
 import { parseJSON } from "@/utils";
 
 declare global {

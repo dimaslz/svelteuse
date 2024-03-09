@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
 
-import { useState } from "..";
+import { useState } from "@/hooks";
 
 interface Size {
 	width: number;

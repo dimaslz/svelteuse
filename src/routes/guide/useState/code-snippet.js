@@ -1,4 +1,4 @@
-export default `
+export const exampleCode = `
 <!-- javascript -->
 <script lang="ts">
 	import { useState } from "@dimaslz/svelteuse";
@@ -26,4 +26,29 @@ export default `
 	<button on:click={updateState}>update state</button>
 	<button on:click={updateStateByFn}>update by function</button>
 </div>
+`;
+
+export const sourceCode = `
+import { get, writable } from "svelte/store";
+export type TsetValue<T> = (v: T | TFn<T>) => void;
+
+type TFn<T> = (f: T) => T;
+type TNewState<T> = TFn<T> | T;
+type UseStateOutput<T> = [SvelteStore<T>, TsetValue<T>];
+
+export const useState = <T>(value: TFn<T> | T | null = null): UseStateOutput<T> => {
+	const { subscribe, update } = writable<T>(
+		typeof value === "function" ? (value as () => T)() : (value as T),
+	);
+
+	const setState = (newState: TNewState<T>): void => {
+		if (newState instanceof Function) {
+			update(() => newState(get({ subscribe })));
+		} else {
+			update(() => newState);
+		}
+	};
+
+	return [{ subscribe }, setState];
+};
 `;

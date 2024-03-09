@@ -1,4 +1,4 @@
-import { useState } from "..";
+import { useState } from "@/hooks";
 
 export function useToggle(defaultValue?: boolean): {
 	value: SvelteStore<boolean>;

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-	import { Browser, DocTpl, H2, Highlight as HighlightSvelte } from "@/components";
+	import { Browser, DocTpl, H2, Highlight } from "@/components";
 	import { useMediaQuery } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const { matches, unsubscribe } = useMediaQuery("(min-width: 768px)");
 
@@ -30,8 +30,16 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Code example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<HighlightSvelte {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </DocTpl>

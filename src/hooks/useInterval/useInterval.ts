@@ -1,7 +1,6 @@
 import { get } from "svelte/store";
 
-import { type ReturnControls as IntervalFnReturnControls, useIntervalFn } from "@/hooks";
-import { useState } from "@/hooks/useState/useState";
+import { type ReturnControls as IntervalFnReturnControls, useIntervalFn, useState } from "@/hooks";
 
 type IntervalOptions = {
 	controls?: boolean;

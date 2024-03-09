@@ -1,17 +1,17 @@
 {
-  "remove": {
-    "devDependencies": "*",
-    "scripts": "*",
-    "type": true,
-    "esm": true,
-    "husky": true,
-    "commitlint": true
-  },
-  "replace": {
-    "main": "index.js",
-    "module": "index.mjs"
-  },
-  "copy": ["README.md", "LICENSE"],
-  "publisher":  "npm",
-  "output": "./publish"
+	"remove": {
+		"devDependencies": "*",
+		"scripts": "*",
+		"type": true,
+		"esm": true,
+		"husky": true,
+		"commitlint": true
+	},
+	"replace": {
+		"main": "index.js",
+		"module": "index.mjs"
+	},
+	"copy": ["README.md", "LICENSE"],
+	"publisher": "npm",
+	"output": "./publish"
 }

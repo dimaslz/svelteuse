@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply text-gray-600 font-sans bg-white flex m-0 p-0 w-full h-auto min-h-full font-normal antialiased;
+	@apply text-gray-600 font-sans bg-white flex m-0 p-0 w-full h-auto min-h-full font-normal antialiased;
 
-   @apply dark:text-gray-200 dark:bg-gray-900;
+	@apply dark:text-gray-200 dark:bg-gray-900;
 }

@@ -1,6 +1,6 @@
 import { onMount } from "svelte";
 
-import { useEventListener, useState } from "..";
+import { useEventListener, useState } from "@/hooks";
 
 interface WindowSize {
 	width: number;

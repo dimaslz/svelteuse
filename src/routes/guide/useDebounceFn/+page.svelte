@@ -2,7 +2,7 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useDebounceFn, useState } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	let value: string = "";
 	const [state, updateValue] = useState("");
@@ -11,7 +11,7 @@
 		updateValue(value);
 	};
 
-	const updateStateFn = useDebounceFn<string>(fnUpdate, 200);
+	const updateStateFn = useDebounceFn(fnUpdate, 200);
 
 	const onInput = ($event: Event) => {
 		const { value } = $event.target as HTMLInputElement;
@@ -58,8 +58,16 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Code example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<Highlight {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </DocTpl>

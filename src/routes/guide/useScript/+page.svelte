@@ -2,7 +2,7 @@
 	import { Browser, DocTpl, H2, Highlight } from "@/components";
 	import { useScript } from "@/hooks";
 
-	import code from "./code-snippet";
+	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const status = useScript(`https://code.jquery.com/jquery-3.5.1.min.js`, {
 		removeOnUnmount: true,
@@ -30,8 +30,16 @@
 	</div>
 
 	<div slot="code-example">
-		<H2>Code example</H2>
+		<div>
+			<H2>Code base</H2>
 
-		<Highlight {code} />
+			<Highlight language="typescript" code={sourceCode} />
+		</div>
+
+		<div class="mt-12">
+			<H2>Code example</H2>
+
+			<Highlight code={exampleCode} />
+		</div>
 	</div>
 </DocTpl>
