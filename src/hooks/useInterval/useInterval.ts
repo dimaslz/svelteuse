@@ -12,10 +12,14 @@ type ReturnControls = {
 	state: SvelteStore<number>;
 	reset: () => void;
 } & IntervalFnReturnControls;
-// type IntervalReturn = ReturnControls | SvelteStore<number>;
 
 export function useInterval(interval: number): SvelteStore<number>;
-export function useInterval(interval: number, options?: IntervalOptions): ReturnControls;
+export function useInterval(
+	interval: number,
+	options?: Omit<IntervalOptions, "controls">,
+): SvelteStore<number>;
+export function useInterval(interval: number, options: IntervalOptions): ReturnControls;
+
 export function useInterval(interval: number, options: IntervalOptions = {}): unknown {
 	const { controls: exposeControls = false, immediate = true, callback } = options;
 
@@ -26,6 +30,7 @@ export function useInterval(interval: number, options: IntervalOptions = {}): un
 			return c + 1;
 		});
 	};
+
 	const reset = () => {
 		updateState(0);
 	};

@@ -14,11 +14,46 @@ vi.mock("esm-env", async (importOriginal) => {
 vi.useFakeTimers();
 
 describe("Hooks - useInterval", () => {
-	test("counter update with controls", async () => {
-		const { state } = useInterval(100, { controls: true });
+	describe("with controls", () => {
+		test("counter update with controls", async () => {
+			const mockFn = vi.fn();
+			const { state, reset, pause, resume, isActive } = useInterval(100, {
+				controls: true,
+				callback: mockFn,
+			});
 
-		vi.advanceTimersByTime(200);
+			vi.advanceTimersByTime(200);
 
-		expect(get(state)).toBe(2);
+			expect(mockFn).toBeCalled();
+			expect(get(state)).toBe(2);
+
+			reset();
+
+			expect(get(isActive)).toBe(true);
+			expect(get(state)).toBe(0);
+
+			pause();
+
+			expect(get(isActive)).toBe(false);
+			vi.advanceTimersByTime(200);
+
+			expect(get(state)).toBe(0);
+
+			resume();
+
+			vi.advanceTimersByTime(200);
+
+			expect(get(state)).toBe(2);
+			expect(get(isActive)).toBe(true);
+		});
+	});
+	describe("without controls", () => {
+		test("counter update with controls", async () => {
+			const value = useInterval(100, { immediate: true });
+
+			vi.advanceTimersByTime(200);
+
+			expect(get(value)).toBe(2);
+		});
 	});
 });

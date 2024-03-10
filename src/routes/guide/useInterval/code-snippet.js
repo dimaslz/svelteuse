@@ -23,9 +23,9 @@ export const exampleCode = `
 		</p>
 
 		<div>
-			<Button on:click={pause}>pause</Button>
-			<Button on:click={resume}>resume</Button>
-			<Button on:click={reset}>reset</Button>
+			<button on:click={pause}>pause</button>
+			<button on:click={resume}>resume</button>
+			<button on:click={reset}>reset</button>
 		</div>
 	</div>
 </div>
@@ -46,10 +46,14 @@ type ReturnControls = {
 	state: SvelteStore<number>;
 	reset: () => void;
 } & IntervalFnReturnControls;
-// type IntervalReturn = ReturnControls | SvelteStore<number>;
 
 export function useInterval(interval: number): SvelteStore<number>;
-export function useInterval(interval: number, options?: IntervalOptions): ReturnControls;
+export function useInterval(
+	interval: number,
+	options?: Omit<IntervalOptions, "controls">,
+): SvelteStore<number>;
+export function useInterval(interval: number, options: IntervalOptions): ReturnControls;
+
 export function useInterval(interval: number, options: IntervalOptions = {}): unknown {
 	const { controls: exposeControls = false, immediate = true, callback } = options;
 
@@ -60,6 +64,7 @@ export function useInterval(interval: number, options: IntervalOptions = {}): un
 			return c + 1;
 		});
 	};
+
 	const reset = () => {
 		updateState(0);
 	};
