@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 
 	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
+	import Link from "@/components/link/Link.svelte";
 	import { useEventListener } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
@@ -36,6 +37,29 @@
 </script>
 
 <DocTpl title="useEventListener">
+	<div slot="description">
+		<p>Listen any event from a element.</p>
+
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://vueuse.org/core/useEventListener/"
+					>https://vueuse.org/core/useEventListener/</Link
+				>
+			</li>
+			<li>
+				<Link href="https://usehooks.com/useeventlistener"
+					>https://usehooks.com/useeventlistener</Link
+				>
+			</li>
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-event-listener"
+					>https://usehooks-ts.com/react-hook/use-event-listener</Link
+				>
+			</li>
+		</ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 

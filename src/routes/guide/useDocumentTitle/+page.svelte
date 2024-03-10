@@ -16,9 +16,26 @@
 	<div slot="description" class="space-y-2">
 		<p>Allow to update the site title easily.</p>
 
-		<p>Related hook</p>
-		<ul class="list-disc ml-6">
+		<h3 class="text-lg">Related hooks</h3>
+		<ul class="list-disc pl-6">
 			<li><Link href="/guide/useState">useState</Link></li>
+		</ul>
+
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-document-title"
+					>https://usehooks-ts.com/react-hook/use-document-title</Link
+				>
+			</li>
+			<li>
+				<Link href="https://vueuse.org/core/useTitle">https://vueuse.org/core/useTitle</Link>
+			</li>
+			<li>
+				<Link href="https://usehooks.com/usedocumenttitle"
+					>https://usehooks.com/usedocumenttitle</Link
+				>
+			</li>
 		</ul>
 	</div>
 

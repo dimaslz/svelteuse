@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Browser, DocTpl, H2, Highlight } from "@/components";
+	import Link from "@/components/link/Link.svelte";
 	import { useThrottle } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
@@ -16,6 +17,30 @@
 </script>
 
 <DocTpl title="useThrottle">
+	<div slot="description">
+		<p>Throttle event by a hook.</p>
+
+		<h3 class="text-lg">Related hooks:</h3>
+		<ul class="list-disc pl-6">
+			<li><Link href="/guide/useState">useState</Link></li>
+			<li><Link href="/guide/useThrottleFn">useThrottleFn</Link></li>
+		</ul>
+
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks.com/usethrottle" target="_blank"
+					>https://usehooks.com/usethrottle</Link
+				>
+			</li>
+			<li>
+				<Link href="https://vueuse.org/shared/useThrottleFn/" target="_blank"
+					>https://vueuse.org/shared/useThrottleFn/</Link
+				>
+			</li>
+		</ul>
+	</div>
+
 	<div slot="visual-example">
 		<H2>Visual example</H2>
 

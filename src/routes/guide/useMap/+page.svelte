@@ -31,7 +31,13 @@
 		<p>
 			Manage <code>Map</code> easily with this hook.
 		</p>
-		<p>Inspired on:</p>
+
+		<h3 class="text-lg">Related hooks:</h3>
+		<ul class="list-disc pl-6">
+			<li><Link href="/guide/useState">useState</Link></li>
+		</ul>
+
+		<h3 class="text-lg">Inspired on:</h3>
 		<ul class="list-disc pl-6">
 			<li>
 				<Link href="https://usehooks.com/usemap" target="_blank">https://usehooks.com/usemap</Link>

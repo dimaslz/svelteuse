@@ -14,13 +14,17 @@
 			not exists listener to get the screen on change the screen, but it is planned to the next
 			iteration.
 		</p>
-		<p>
-			It is inspired on <Link href="https://usehooks-ts.com/react-hook/use-screen" target="_blank"
-				>https://usehooks-ts.com/react-hook/use-screen</Link
-			>
-		</p>
 
-		<H2>TODO</H2>
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-screen" target="_blank"
+					>https://usehooks-ts.com/react-hook/use-screen</Link
+				>
+			</li>
+		</ul>
+
+		<H2 class="pt-12">TODO</H2>
 		<ul class="list-disc pl-6">
 			<li>Listen on change the screen</li>
 		</ul>

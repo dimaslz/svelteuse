@@ -27,10 +27,19 @@
 			debounce a value by excecution a callback (follow the example).
 		</p>
 
-		<p>Related hook</p>
-		<ul class="list-disc ml-6">
-			<li><Link href="/guide/useDebounce">useDebounce</Link></li>
+		<h3 class="text-lg">Related hooks</h3>
+		<ul class="list-disc pl-6">
 			<li><Link href="/guide/useState">useState</Link></li>
+			<li><Link href="/guide/useDebounce">useDebounce</Link></li>
+		</ul>
+
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://vueuse.org/shared/useDebounceFn/"
+					>https://vueuse.org/shared/useDebounceFn/</Link
+				>
+			</li>
 		</ul>
 	</div>
 

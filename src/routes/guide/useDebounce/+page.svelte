@@ -16,9 +16,22 @@
 	<div slot="description" class="space-y-2">
 		<p>This hook allows you to debounce a value.</p>
 
-		<p>Related hook</p>
-		<ul class="list-disc ml-6">
+		<h3 class="text-lg">Related hooks</h3>
+		<ul class="list-disc pl-6">
 			<li><Link href="/guide/useState">useState</Link></li>
+			<li><Link href="/guide/useDebounceFn">useDebounceFn</Link></li>
+		</ul>
+
+		<h3 class="text-lg">Inspired on:</h3>
+		<ul class="list-disc pl-6">
+			<li>
+				<Link href="https://usehooks.com/usedebounce">https://usehooks.com/usedebounce</Link>
+			</li>
+			<li>
+				<Link href="https://usehooks-ts.com/react-hook/use-debounce"
+					>https://usehooks-ts.com/react-hook/use-debounce</Link
+				>
+			</li>
 		</ul>
 	</div>
 
