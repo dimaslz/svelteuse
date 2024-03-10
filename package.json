@@ -13,6 +13,7 @@
 		"hooks",
 		"useBoolean",
 		"useClickAnyWhere",
+		"useClickOutside",
 		"useClipboard",
 		"useCounter",
 		"useDarkMode",
@@ -24,6 +25,7 @@
 		"useFetch",
 		"useHover",
 		"useImageOnLoad",
+		"useInterval",
 		"useIntervalFn",
 		"useLocalStorage",
 		"useMap",
@@ -34,6 +36,7 @@
 		"useState",
 		"useThrottle",
 		"useThrottleFn",
+		"useTimeout",
 		"useTimeoutFn",
 		"useToggle",
 		"useWindowSize"
@@ -216,6 +219,10 @@
 		"./useThrottleFn": {
 			"types": "./dist/useThrottleFn/useThrottleFn.d.ts",
 			"svelte": "./dist/useThrottleFn/useThrottleFn.js"
+		},
+		"./useTimeout": {
+			"types": "./dist/useTimeout/useTimeout.d.ts",
+			"svelte": "./dist/useTimeout/useTimeout.js"
 		},
 		"./useTimeoutFn": {
 			"types": "./dist/useTimeoutFn/useTimeoutFn.d.ts",
