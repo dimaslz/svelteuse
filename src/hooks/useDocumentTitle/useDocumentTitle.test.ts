@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
 
-import { useDocumentTitle } from "..";
+import { useDocumentTitle } from "@/hooks";
 
 describe("Hooks - useDocumentTitle", () => {
 	test("update document title", () => {

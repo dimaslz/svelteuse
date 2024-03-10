@@ -1,4 +1,4 @@
-import { useThrottleFn } from "..";
+import { useThrottleFn } from "@/hooks";
 
 vi.useFakeTimers();
 

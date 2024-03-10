@@ -1,7 +1,7 @@
 import { get } from "svelte/store";
 
 import { type TsetValue, useEventListener, useState } from "@/hooks";
-import { parseJSON } from "@/utils";
+import { parseJSON } from "@/hooks/utils";
 
 declare global {
 	interface WindowEventMap {
