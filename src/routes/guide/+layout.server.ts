@@ -107,6 +107,10 @@ export async function load({ route }) {
 			link: "/guide/useThrottleFn",
 		},
 		{
+			label: "useTimeout",
+			link: "/guide/useTimeout",
+		},
+		{
 			label: "useTimeoutFn",
 			link: "/guide/useTimeoutFn",
 		},
