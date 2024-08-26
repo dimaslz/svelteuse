@@ -151,7 +151,13 @@
           run: "echo \"container is not running\" && exit 1"
         - 
           name: "setup nginx config"
-          run: "wget https://statics.dimaslz.dev/fito/nginx/static-config.nginx.tmpl -O nginx.tmpl\n\texport SERVER_NAME=\"svelteuse.dimaslz.dev\"\n\texport SERVER_URL=\"http://${{ env.newContainerIP }}:${{ env.newContainerPort }}\"\n\tenvsubst < nginx.tmpl > svelteuse.dimaslz.dev\n\tscp svelteuse.dimaslz.dev prod:/etc/nginx/sites-enabled/svelteuse.dimaslz.dev\n\tssh prod \"nginx -t && systemctl restart nginx\""
+          run: "wget https://statics.dimaslz.dev/fito/nginx/static-config.nginx-certbot-1-step.tmpl -O nginx.tmpl\n\texport SERVER_NAME=\"svelteuse.dimaslz.dev\"\n\texport SERVER_URL=\"http://${{ env.newContainerIP }}:${{ env.newContainerPort }}\"\n\tenvsubst < nginx.tmpl > svelteuse.dimaslz.dev\n\tscp svelteuse.dimaslz.dev prod:/etc/nginx/sites-enabled/svelteuse.dimaslz.dev\n\tssh prod \"nginx -t && systemctl restart nginx\""
+        - 
+          name: "create certificates"
+          run: "ssh prod \"mkdir -p /usr/share/nginx/html/svelteuse.dimaslz.dev && echo \\\"1\\\" | certbot certonly --webroot -w /usr/share/nginx/html/svelteuse.dimaslz.dev -d svelteuse.dimaslz.dev --email ${{ secrets.FITO_ENV_USER_EMAIL }} --agree-tos --no-eff-email && nginx -t && systemctl restart nginx\""
+        - 
+          name: "setup nginx config"
+          run: "wget https://statics.dimaslz.dev/fito/nginx/static-config.nginx-certbot-2-step.tmpl -O nginx.tmpl\n\texport SERVER_NAME=\"svelteuse.dimaslz.dev\"\n\texport SERVER_URL=\"http://${{ env.newContainerIP }}:${{ env.newContainerPort }}\"\n\tenvsubst < nginx.tmpl > svelteuse.dimaslz.dev\n\tscp svelteuse.dimaslz.dev prod:/etc/nginx/sites-enabled/svelteuse.dimaslz.dev\n\tssh prod \"nginx -t && systemctl restart nginx\""
         - 
           name: "Container is not running"
           if: "${{ failure() }}"
