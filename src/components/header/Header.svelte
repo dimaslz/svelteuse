@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Link } from "@/components";
+	import Link from "@/components/link/Link.svelte";
 
 	export let fixed: boolean = false;
 
