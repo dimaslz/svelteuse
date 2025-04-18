@@ -26,8 +26,8 @@
 			: "",
 		type === "button"
 			? outline
-				? "border border-[#ff3e00]/80 hover:border-[#ff3e00]  py-2 px-4 rounded-sm text-[#ff3e00]/80 hover:text-[#ff3e00] dark:hover:text-[#ff3e00] mt-12 !no-underline"
-				: "bg-[#ff3e00]/80 hover:bg-[#ff3e00] py-2 px-4 rounded-sm text-white hover:text-white dark:hover:text-white mt-12"
+				? "border border-[#ff3e00]/80 hover:border-[#ff3e00]  py-2 px-4 rounded-xs text-[#ff3e00]/80 hover:text-[#ff3e00] dark:hover:text-[#ff3e00] mt-12 no-underline!"
+				: "bg-[#ff3e00]/80 hover:bg-[#ff3e00] py-2 px-4 rounded-xs text-white hover:text-white dark:hover:text-white mt-12"
 			: "",
 		// $isActive && (activeClassName || "is-active"),
 		$$restProps.class,

@@ -91,8 +91,8 @@
 	#container {
 		padding-right: calc((100vw - var(--vp-layout-max-width)) / 2);
 		padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width));
-		flex-grow: 1;
-		flex-shrink: 0;
+		grow: 1;
+		shrink: 0;
 		width: 100%;
 		min-width: 768px;
 	}

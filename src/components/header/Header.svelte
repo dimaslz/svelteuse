@@ -5,7 +5,7 @@
 
 	const classes = [
 		"w-full min-h-[64px] flex",
-		fixed ? "fixed top-0 left-0 right-0 z-[2]" : "relative",
+		fixed ? "fixed top-0 left-0 right-0 z-2" : "relative",
 	].join(" ");
 
 	delete $$restProps.class;
@@ -13,13 +13,13 @@
 
 <header class={classes} {...$$restProps}>
 	<div
-		class="flex flex-1 items-center px-4 font-bold text-[#ff3e00] justify-start flex-shrink-0 absolute left-0 top-0 z-[2] h-full"
+		class="flex flex-1 items-center px-4 font-bold text-[#ff3e00] justify-start shrink-0 absolute left-0 top-0 z-2 h-full"
 		id="logo"
 	>
 		<div
 			class={["w-full flex h-full items-center", fixed ? "border-b border-gray-700" : ""].join(" ")}
 		>
-			<a href="/" class="relative z-[1] h-full flex items-center cursor-pointer">SvelteUse</a><Link
+			<a href="/" class="relative z-1 h-full flex items-center cursor-pointer">SvelteUse</a><Link
 				href="https://github.com/dimaslz"
 				class="text-xs ml-2 font-normal  text-white">by dimaslz</Link
 			>
