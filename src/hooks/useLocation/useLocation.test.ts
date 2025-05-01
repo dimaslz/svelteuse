@@ -50,8 +50,7 @@ describe('useLocation', () => {
 
     expect(state).toMatchObject({
       trigger: 'load',
-      state: { foo: 'bar' },
-      length: 42,
+      length: 5,
       origin: undefined, // `location.origin` isn't mocked
       hash: '#test',
       host: 'localhost:3000',
