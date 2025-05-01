@@ -30,3 +30,4 @@ export * from "./useTimeout";
 export * from "./useTimeoutFn";
 export * from "./useToggle";
 export * from "./useWindowSize";
+export * from "./useLocation";

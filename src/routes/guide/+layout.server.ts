@@ -122,6 +122,10 @@ export async function load({ route }) {
 			label: "useWindowSize",
 			link: "/guide/useWindowSize",
 		},
+		{
+			label: "useLocation",
+			link: "/guide/useLocation",
+		},
 	];
 
 	const navigationLinks: {

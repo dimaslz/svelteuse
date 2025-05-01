@@ -63,7 +63,7 @@
 		</div>
 	</div>
 
-	<div id="content" class={["min-w-screen", body].join(" ")}>
+	<div id="content" class={["min-w-auto", body].join(" ")}>
 		<slot />
 	</div>
 </div>
