@@ -53,7 +53,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useEventCallback](/src/hooks/useEventCallback): <https://usehooks-ts.com/react-hook/use-event-callback>
 - [x] [usePreferredDark](/src/hooks/usePreferredDark): (<https://vueuse.org/core/usePreferredDark>)
 - [x] [useCountdown](/src/hooks/useCountdown): (<https://usehooks-ts.com/react-hook/use-countdown>, <https://usehooks.com/usecountdown>)
-- [ ] [useIntersectionObserver](/src/hooks/useIntersectionObserver): (<https://usehooks-ts.com/react-hook/use-intersection-observer>, <https://usehooks.com/useintersectionobserver>, <https://vueuse.org/core/useIntersectionObserver>)
+- [x] [useIntersectionObserver](/src/hooks/useIntersectionObserver): (<https://usehooks-ts.com/react-hook/use-intersection-observer>, <https://usehooks.com/useintersectionobserver>, <https://vueuse.org/core/useIntersectionObserver>)
 
 <!--  -->
 
