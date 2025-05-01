@@ -138,6 +138,10 @@ export async function load({ route }) {
 			label: "useCountdown",
 			link: "/guide/useCountdown",
 		},
+		{
+			label: "useIntersectionObserver",
+			link: "/guide/useIntersectionObserver",
+		},
 	];
 
 	const navigationLinks: {

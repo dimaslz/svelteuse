@@ -43,7 +43,8 @@
 		"useEventCallback",
 		"useLocation",
 		"usePreferredDark",
-		"useCountdown"
+		"useCountdown",
+		"useIntersectionObserver"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -255,6 +256,10 @@
 		"./useCountdown": {
 			"types": "./dist/useCountdown/useCountdown.d.ts",
 			"svelte": "./dist/useCountdown/useCountdown.js"
+		},
+		"./useIntersectionObserver": {
+			"types": "./dist/useIntersectionObserver/useIntersectionObserver.d.ts",
+			"svelte": "./dist/useIntersectionObserver/useIntersectionObserver.js"
 		}
 	}
 }
