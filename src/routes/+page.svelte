@@ -32,7 +32,7 @@
 			<div class="mt-12">
 				<code
 					class={[
-						"relative flex cursor-pointer rounded-sm text-sm text-gray-400 shadow-inner dark:text-gray-900 px-6 group",
+						"cursor-pointer relative flex rounded-sm text-sm text-gray-400 shadow-inner dark:text-gray-900 px-6 group z-10",
 						!copied ? "bg-gray-900 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100" : "",
 					].join(" ")}
 				>
@@ -46,7 +46,7 @@
 
 					<button
 						on:click={copyCommand}
-						class="z-0 flex h-full w-full items-center justify-center rounded-sm p-4 font-mono"
+						class="z-0 flex h-full w-full items-center justify-center rounded-sm p-4 font-mono cursor-pointer"
 					>
 						$ npm add @dimaslz/svelteuse
 					</button>
@@ -58,6 +58,8 @@
 					</div>
 				</code>
 			</div>
+
+			<a class="text-red-600 hover:text-red-400 text-xs mt-2 p-1" href="https://www.npmjs.com/package/@dimaslz/svelteuse">https://www.npmjs.com/package/@dimaslz/svelteuse</a>
 
 			<p class="mt-12">
 				This project has been inspired on <Link href="https://usehooks.com" target="_blank"
