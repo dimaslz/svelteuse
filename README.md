@@ -54,11 +54,11 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [usePreferredDark](/src/hooks/usePreferredDark): (<https://vueuse.org/core/usePreferredDark>)
 - [x] [useCountdown](/src/hooks/useCountdown): (<https://usehooks-ts.com/react-hook/use-countdown>, <https://usehooks.com/usecountdown>)
 - [x] [useIntersectionObserver](/src/hooks/useIntersectionObserver): (<https://usehooks-ts.com/react-hook/use-intersection-observer>, <https://usehooks.com/useintersectionobserver>, <https://vueuse.org/core/useIntersectionObserver>)
+- [x] [useMouseInElement](/src/hooks/useMouseInElement): (<https://vueuse.org/core/useMouseInElement>, <https://usehooks.com/usemouse>)
 
 <!--  -->
 
 - [ ] [useReducer](/src/hooks/useReducer)
-- [ ] useMouseInElement (https://vueuse.org/core/useMouseInElement/, https://usehooks.com/usemouse)
 - [ ] useRandomInterval (https://usehooks.com/userandominterval)
 - [ ] useNow (https://vueuse.org/core/useNow/)
 - [ ] useIsClient (https://usehooks-ts.com/react-hook/use-is-client, https://usehooks.com/useisclient)

@@ -142,6 +142,10 @@ export async function load({ route }) {
 			label: "useIntersectionObserver",
 			link: "/guide/useIntersectionObserver",
 		},
+		{
+			label: "useMouseInElement",
+			link: "/guide/useMouseInElement",
+		},
 	];
 
 	const navigationLinks: {

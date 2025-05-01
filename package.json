@@ -44,7 +44,8 @@
 		"useLocation",
 		"usePreferredDark",
 		"useCountdown",
-		"useIntersectionObserver"
+		"useIntersectionObserver",
+		"useMouseInElement"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -260,6 +261,10 @@
 		"./useIntersectionObserver": {
 			"types": "./dist/useIntersectionObserver/useIntersectionObserver.d.ts",
 			"svelte": "./dist/useIntersectionObserver/useIntersectionObserver.js"
+		},
+		"./useMouseInElement": {
+			"types": "./dist/useMouseInElement/useMouseInElement.d.ts",
+			"svelte": "./dist/useMouseInElement/useMouseInElement.js"
 		}
 	}
 }

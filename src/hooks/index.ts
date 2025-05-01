@@ -35,3 +35,4 @@ export * from "./useEventCallback";
 export * from "./usePreferredDark";
 export * from "./useCountdown";
 export * from "./useIntersectionObserver";
+export * from "./useMouseInElement";
