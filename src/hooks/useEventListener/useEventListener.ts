@@ -6,7 +6,7 @@ export function useEventListener<E extends Event = Event>(
 	eventName: string,
 	handler: (event: E) => void,
 	element: Element | Window | null = BROWSER ? window : null,
-	options: boolean = true,
+	options: boolean | AddEventListenerOptions = true,
 ): () => void {
 	if (!element) {
 		return () => {};
