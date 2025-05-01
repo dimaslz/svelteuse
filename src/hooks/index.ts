@@ -31,3 +31,4 @@ export * from "./useTimeoutFn";
 export * from "./useToggle";
 export * from "./useWindowSize";
 export * from "./useLocation";
+export * from "./useEventCallback";

@@ -126,6 +126,10 @@ export async function load({ route }) {
 			label: "useLocation",
 			link: "/guide/useLocation",
 		},
+		{
+			label: "useEventCallback",
+			link: "/guide/useEventCallback",
+		},
 	];
 
 	const navigationLinks: {

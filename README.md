@@ -50,11 +50,11 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useToggle](/src/hooks/useToggle): <https://usehooks-ts.com/react-hook/use-toggle>, <https://usehooks.com/usetoggle>, <https://vueuse.org/shared/useToggle/>
 - [x] [useWindowSize](/src/hooks/useWindowSize): <https://usehooks.com/usewindowsize>, <https://usehooks-ts.com/react-hook/use-window-size>, <https://vueuse.org/core/useWindowSize/>
 - [x] [useLocation](/src/hooks/useLocation): (<https://vueuse.org/core/useLocation>)
+- [x] [useEventCallback](/src/hooks/useEventCallback): <https://usehooks-ts.com/react-hook/use-event-callback>
 
 <!--  -->
 
 - [ ] [useReducer](/src/hooks/useReducer)
-- [ ] useEventCallback: <https://usehooks-ts.com/react-hook/use-event-callback>
 - [ ] usePreferredDark (https://vueuse.org/core/usePreferredDark/)
 - [ ] useCountdown (https://usehooks-ts.com/react-hook/use-countdown, https://usehooks.com/usecountdown)
 - [ ] useIntersectionObserver (https://usehooks-ts.com/react-hook/use-intersection-observer, https://usehooks.com/useintersectionobserver, https://vueuse.org/core/useIntersectionObserver/)

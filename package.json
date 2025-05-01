@@ -39,7 +39,8 @@
 		"useTimeout",
 		"useTimeoutFn",
 		"useToggle",
-		"useWindowSize"
+		"useWindowSize",
+		"useEventCallback"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
