@@ -45,7 +45,8 @@
 		"usePreferredDark",
 		"useCountdown",
 		"useIntersectionObserver",
-		"useMouseInElement"
+		"useMouseInElement",
+		"useRandomInterval"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -265,6 +266,10 @@
 		"./useMouseInElement": {
 			"types": "./dist/useMouseInElement/useMouseInElement.d.ts",
 			"svelte": "./dist/useMouseInElement/useMouseInElement.js"
+		},
+		"./useRandomInterval": {
+			"types": "./dist/useRandomInterval/useRandomInterval.d.ts",
+			"svelte": "./dist/useRandomInterval/useRandomInterval.js"
 		}
 	}
 }

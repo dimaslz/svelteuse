@@ -146,6 +146,10 @@ export async function load({ route }) {
 			label: "useMouseInElement",
 			link: "/guide/useMouseInElement",
 		},
+		{
+			label: "useRandomInterval",
+			link: "/guide/useRandomInterval",
+		},
 	];
 
 	const navigationLinks: {
