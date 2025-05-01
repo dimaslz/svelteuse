@@ -42,7 +42,8 @@
 		"useWindowSize",
 		"useEventCallback",
 		"useLocation",
-		"usePreferredDark"
+		"usePreferredDark",
+		"useCountdown"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -250,6 +251,10 @@
 		"./usePreferredDark": {
 			"types": "./dist/usePreferredDark/usePreferredDark.d.ts",
 			"svelte": "./dist/usePreferredDark/usePreferredDark.js"
+		},
+		"./useCountdown": {
+			"types": "./dist/useCountdown/useCountdown.d.ts",
+			"svelte": "./dist/useCountdown/useCountdown.js"
 		}
 	}
 }

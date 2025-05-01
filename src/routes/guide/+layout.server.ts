@@ -134,6 +134,10 @@ export async function load({ route }) {
 			label: "usePreferredDark",
 			link: "/guide/usePreferredDark",
 		},
+		{
+			label: "useCountdown",
+			link: "/guide/useCountdown",
+		},
 	];
 
 	const navigationLinks: {
