@@ -130,6 +130,10 @@ export async function load({ route }) {
 			label: "useEventCallback",
 			link: "/guide/useEventCallback",
 		},
+		{
+			label: "usePreferredDark",
+			link: "/guide/usePreferredDark",
+		},
 	];
 
 	const navigationLinks: {
