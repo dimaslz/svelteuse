@@ -1,6 +1,6 @@
-import { BROWSER } from "esm-env";
-
 import { useState } from "@/hooks";
+import { isClient } from "@/utils/is-client";
+
 
 type Options = {
 	immediate?: boolean;
@@ -14,8 +14,8 @@ export type ReturnControls = {
 };
 
 export function useIntervalFn(
-	callback: () => void,
-	interval: number = 1000,
+	callback: (timer?: any) => void,
+	interval: number | null = 1000,
 	options: Options = {},
 ): ReturnControls {
 	const { immediate = true, immediateCallback = false } = options;
@@ -37,14 +37,14 @@ export function useIntervalFn(
 
 	function resume() {
 		const intervalValue = interval;
-		if (intervalValue <= 0) {
+		if (intervalValue === null || intervalValue <= 0) {
 			return;
 		}
 
 		setIsActive(true);
 
 		if (immediateCallback) {
-			callback();
+			callback(timer);
 		}
 
 		clean();
@@ -52,7 +52,7 @@ export function useIntervalFn(
 		timer = setInterval(callback, intervalValue);
 	}
 
-	if (immediate && BROWSER) {
+	if (immediate && isClient()) {
 		resume();
 	}
 

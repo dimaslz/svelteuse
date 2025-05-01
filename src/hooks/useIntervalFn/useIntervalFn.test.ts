@@ -2,18 +2,15 @@ import { get } from "svelte/store";
 
 import { useIntervalFn } from "@/hooks";
 
-vi.mock("esm-env", async (importOriginal) => {
-	const actual: any = await importOriginal();
-
-	return {
-		...actual,
-		BROWSER: true,
-	};
-});
-
-vi.useFakeTimers();
-
 describe("Hooks - useIntervalFn", () => {
+	beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+	});
+
 	test("should interval every 100ms using controls", () => {
 		const intervalCallbackMock = vi.fn();
 		const { isActive, pause, resume } = useIntervalFn(intervalCallbackMock, 100, {
