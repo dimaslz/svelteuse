@@ -51,7 +51,8 @@
 		"useIsClient",
 		"useTransition",
 		"usePrevious",
-		"useOrientation"
+		"useOrientation",
+		"usePreferredLanguage"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -295,6 +296,10 @@
 		"./useOrientation": {
 			"types": "./dist/useOrientation/useOrientation.d.ts",
 			"svelte": "./dist/useOrientation/useOrientation.js"
+		},
+		"./usePreferredLanguage": {
+			"types": "./dist/usePreferredLanguage/usePreferredLanguage.d.ts",
+			"svelte": "./dist/usePreferredLanguage/usePreferredLanguage.js"
 		}
 	}
 }

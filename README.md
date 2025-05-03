@@ -61,13 +61,13 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useTransition](/src/hooks/useTransition): (<https://vueuse.org/core/useTransition>)
 - [x] [usePrevious](/src/hooks/usePrevious): (<https://usehooks.com/useprevious>, <https://vueuse.org/core/usePrevious>)
 - [x] [useOrientation](/src/hooks/useOrientation): (<https://usehooks.com/useorientation>, <https://vueuse.org/core/useScreenOrientation>)
+- [x] [usePreferredLanguage](/src/hooks/usePreferredLanguage): (<https://usehooks.com/usepreferredlanguage>, <https://vueuse.org/core/usePreferredLanguages>)
 
 <!--  -->
 
 - [ ] [useReducer](/src/hooks/useReducer)
 - [ ] useTimestamp (https://vueuse.org/core/useTimestamp/)
 - [ ] useNetwork (https://vueuse.org/core/useNetwork/, https://usehooks.com/usenetworkstate)
-- [ ] usePreferredLanguage (https://usehooks.com/usepreferredlanguage, https://vueuse.org/core/usePreferredLanguages/)
 - [ ] useRetry (https://usehooks.com/usecontinuousretry)
 - [ ] useVisibilityChange (https://usehooks.com/usevisibilitychange, https://vueuse.org/core/useDocumentVisibility/)
 - [ ] useRenderInfo (https://usehooks.com/userenderinfo)

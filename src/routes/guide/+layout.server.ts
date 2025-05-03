@@ -170,6 +170,10 @@ export async function load({ route }) {
 			label: "useOrientation",
 			link: "/guide/useOrientation",
 		},
+		{
+			label: "usePreferredLanguage",
+			link: "/guide/usePreferredLanguage",
+		},
 	];
 
 	const navigationLinks: {
