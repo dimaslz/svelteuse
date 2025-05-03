@@ -158,6 +158,10 @@ export async function load({ route }) {
 			label: "useIsClient",
 			link: "/guide/useIsClient",
 		},
+		{
+			label: "useTransition",
+			link: "/guide/useTransition",
+		},
 	];
 
 	const navigationLinks: {

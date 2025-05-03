@@ -58,12 +58,12 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useRandomInterval](/src/hooks/useRandomInterval): (<https://usehooks.com/userandominterval>)
 - [x] [useNow](/src/hooks/useNow): (<https://vueuse.org/core/useNow>)
 - [x] [useIsClient](/src/hooks/useIsClient): (<https://usehooks-ts.com/react-hook/use-is-client>, <https://usehooks.com/useisclient>)
+- [x] [useTransition](/src/hooks/useTransition): (<https://vueuse.org/core/useTransition>)
 
 <!--  -->
 
 - [ ] [useReducer](/src/hooks/useReducer)
 - [ ] useTimestamp (https://vueuse.org/core/useTimestamp/)
-- [ ] useTransition (https://vueuse.org/core/useTransition/)
 - [ ] usePrevious (https://usehooks.com/useprevious, https://vueuse.org/core/usePrevious/)
 - [ ] useNetwork (https://vueuse.org/core/useNetwork/, https://usehooks.com/usenetworkstate)
 - [ ] useOrientation (https://usehooks.com/useorientation, https://vueuse.org/core/useScreenOrientation/)

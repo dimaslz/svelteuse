@@ -48,7 +48,8 @@
 		"useMouseInElement",
 		"useRandomInterval",
 		"useNow",
-		"useIsClient"
+		"useIsClient",
+		"useTransition"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -280,6 +281,10 @@
 		"./useIsClient": {
 			"types": "./dist/useIsClient/useIsClient.d.ts",
 			"svelte": "./dist/useIsClient/useIsClient.js"
+		},
+		"./useTransition": {
+			"types": "./dist/useTransition/useTransition.d.ts",
+			"svelte": "./dist/useTransition/useTransition.js"
 		}
 	}
 }
