@@ -52,7 +52,8 @@
 		"useTransition",
 		"usePrevious",
 		"useOrientation",
-		"usePreferredLanguage"
+		"usePreferredLanguage",
+		"useContinuousRetry"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -300,6 +301,10 @@
 		"./usePreferredLanguage": {
 			"types": "./dist/usePreferredLanguage/usePreferredLanguage.d.ts",
 			"svelte": "./dist/usePreferredLanguage/usePreferredLanguage.js"
+		},
+		"./useContinuousRetry": {
+			"types": "./dist/useContinuousRetry/useContinuousRetry.d.ts",
+			"svelte": "./dist/useContinuousRetry/useContinuousRetry.js"
 		}
 	}
 }

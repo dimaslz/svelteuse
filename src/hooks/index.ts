@@ -40,3 +40,4 @@ export * from "./useIsClient";
 export * from "./useTransition";
 export * from "./useOrientation";
 export * from "./usePreferredLanguage";
+export * from "./useContinuousRetry";

@@ -174,6 +174,10 @@ export async function load({ route }) {
 			label: "usePreferredLanguage",
 			link: "/guide/usePreferredLanguage",
 		},
+		{
+			label: "useContinuousRetry",
+			link: "/guide/useContinuousRetry",
+		},
 	];
 
 	const navigationLinks: {
