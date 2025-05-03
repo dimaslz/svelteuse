@@ -38,3 +38,4 @@ export * from "./useIntersectionObserver";
 export * from "./useMouseInElement";
 export * from "./useIsClient";
 export * from "./useTransition";
+export * from "./useOrientation";

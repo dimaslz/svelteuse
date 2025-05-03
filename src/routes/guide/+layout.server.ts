@@ -166,6 +166,10 @@ export async function load({ route }) {
 			label: "usePrevious",
 			link: "/guide/usePrevious",
 		},
+		{
+			label: "useOrientation",
+			link: "/guide/useOrientation",
+		},
 	];
 
 	const navigationLinks: {

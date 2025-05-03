@@ -50,7 +50,8 @@
 		"useNow",
 		"useIsClient",
 		"useTransition",
-		"usePrevious"
+		"usePrevious",
+		"useOrientation"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -290,6 +291,10 @@
 		"./usePrevious": {
 			"types": "./dist/usePrevious/usePrevious.d.ts",
 			"svelte": "./dist/usePrevious/usePrevious.js"
+		},
+		"./useOrientation": {
+			"types": "./dist/useOrientation/useOrientation.d.ts",
+			"svelte": "./dist/useOrientation/useOrientation.js"
 		}
 	}
 }
