@@ -47,7 +47,8 @@
 		"useIntersectionObserver",
 		"useMouseInElement",
 		"useRandomInterval",
-		"useNow"
+		"useNow",
+		"useIsClient"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -275,6 +276,10 @@
 		"./useNow": {
 			"types": "./dist/useNow/useNow.d.ts",
 			"svelte": "./dist/useNow/useNow.js"
+		},
+		"./useIsClient": {
+			"types": "./dist/useIsClient/useIsClient.d.ts",
+			"svelte": "./dist/useIsClient/useIsClient.js"
 		}
 	}
 }

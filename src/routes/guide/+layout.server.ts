@@ -154,6 +154,10 @@ export async function load({ route }) {
 			label: "useNow",
 			link: "/guide/useNow",
 		},
+		{
+			label: "useIsClient",
+			link: "/guide/useIsClient",
+		},
 	];
 
 	const navigationLinks: {
