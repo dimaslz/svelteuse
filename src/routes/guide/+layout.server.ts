@@ -162,6 +162,10 @@ export async function load({ route }) {
 			label: "useTransition",
 			link: "/guide/useTransition",
 		},
+		{
+			label: "usePrevious",
+			link: "/guide/usePrevious",
+		},
 	];
 
 	const navigationLinks: {

@@ -49,7 +49,8 @@
 		"useRandomInterval",
 		"useNow",
 		"useIsClient",
-		"useTransition"
+		"useTransition",
+		"usePrevious"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -285,6 +286,10 @@
 		"./useTransition": {
 			"types": "./dist/useTransition/useTransition.d.ts",
 			"svelte": "./dist/useTransition/useTransition.js"
+		},
+		"./usePrevious": {
+			"types": "./dist/usePrevious/usePrevious.d.ts",
+			"svelte": "./dist/usePrevious/usePrevious.js"
 		}
 	}
 }
