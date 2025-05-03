@@ -56,11 +56,11 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useIntersectionObserver](/src/hooks/useIntersectionObserver): (<https://usehooks-ts.com/react-hook/use-intersection-observer>, <https://usehooks.com/useintersectionobserver>, <https://vueuse.org/core/useIntersectionObserver>)
 - [x] [useMouseInElement](/src/hooks/useMouseInElement): (<https://vueuse.org/core/useMouseInElement>, <https://usehooks.com/usemouse>)
 - [x] [useRandomInterval](/src/hooks/useRandomInterval): (<https://usehooks.com/userandominterval>)
+- [x] [useNow](/src/hooks/useNow): (<https://vueuse.org/core/useNow>)
 
 <!--  -->
 
 - [ ] [useReducer](/src/hooks/useReducer)
-- [ ] useNow (https://vueuse.org/core/useNow/)
 - [ ] useIsClient (https://usehooks-ts.com/react-hook/use-is-client, https://usehooks.com/useisclient)
 - [ ] useTimestamp (https://vueuse.org/core/useTimestamp/)
 - [ ] useTransition (https://vueuse.org/core/useTransition/)

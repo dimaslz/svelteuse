@@ -150,6 +150,10 @@ export async function load({ route }) {
 			label: "useRandomInterval",
 			link: "/guide/useRandomInterval",
 		},
+		{
+			label: "useNow",
+			link: "/guide/useNow",
+		},
 	];
 
 	const navigationLinks: {
