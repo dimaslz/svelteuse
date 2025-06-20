@@ -63,6 +63,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useOrientation](/src/hooks/useOrientation): (<https://usehooks.com/useorientation>, <https://vueuse.org/core/useScreenOrientation>)
 - [x] [usePreferredLanguage](/src/hooks/usePreferredLanguage): (<https://usehooks.com/usepreferredlanguage>, <https://vueuse.org/core/usePreferredLanguages>)
 - [x] [useContinuousRetry](/src/hooks/useContinuousRetry): (<https://usehooks.com/usecontinuousretry>)
+- [x] [useLongPress](/src/hooks/useLongPress): (<https://usehooks.com/uselongpress>, <https://vueuse.org/core/onLongPress>)
 
 <!--  -->
 
@@ -73,7 +74,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useRenderInfo (https://usehooks.com/userenderinfo)
 - [ ] useRenderCount (https://usehooks.com/userendercount)
 - [ ] useIsFirstRender (https://usehooks-ts.com/react-hook/use-is-first-render, https://usehooks.com/useisfirstrender)
-- [ ] useLongPress (https://usehooks.com/uselongpress, https://vueuse.org/core/onLongPress/)
 - [ ] useFavicon (https://usehooks.com/usefavicon, https://vueuse.org/core/useFavicon/)
 - [ ] useDefault (https://usehooks.com/usedefault)
 - [ ] useWindowScroll (https://usehooks.com/usewindowscroll, https://vueuse.org/core/useWindowScroll/)

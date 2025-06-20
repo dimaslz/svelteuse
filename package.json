@@ -305,6 +305,10 @@
 		"./useContinuousRetry": {
 			"types": "./dist/useContinuousRetry/useContinuousRetry.d.ts",
 			"svelte": "./dist/useContinuousRetry/useContinuousRetry.js"
+		},
+		"./useLongPress": {
+			"types": "./dist/useLongPress/useLongPress.d.ts",
+			"svelte": "./dist/useLongPress/useLongPress.js"
 		}
 	}
 }

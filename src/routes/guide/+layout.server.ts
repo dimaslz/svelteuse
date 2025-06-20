@@ -178,6 +178,10 @@ export async function load({ route }) {
 			label: "useContinuousRetry",
 			link: "/guide/useContinuousRetry",
 		},
+		{
+			label: "useLongPress",
+			link: "/guide/useLongPress",
+		},
 	];
 
 	const navigationLinks: {
