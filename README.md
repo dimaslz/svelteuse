@@ -65,6 +65,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useContinuousRetry](/src/hooks/useContinuousRetry): (<https://usehooks.com/usecontinuousretry>)
 - [x] [useLongPress](/src/hooks/useLongPress): (<https://usehooks.com/uselongpress>, <https://vueuse.org/core/onLongPress>)
 - [x] [useVisibilityChange](/src/hooks/useVisibilityChange) (<https://usehooks.com/usevisibilitychange>, <https://vueuse.org/core/useDocumentVisibility>)
+- [x] [useWindowFocus](/src/hooks/useWindowFocus) (<https://vueuse.org/core/useWindowFocus>)
 
 <!--  -->
 
@@ -77,7 +78,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useFavicon (https://usehooks.com/usefavicon, https://vueuse.org/core/useFavicon/)
 - [ ] useDefault (https://usehooks.com/usedefault)
 - [ ] useWindowScroll (https://usehooks.com/usewindowscroll, https://vueuse.org/core/useWindowScroll/)
-- [ ] useWindowFocus (https://vueuse.org/core/useWindowFocus/)
 - [ ] useMeasure (https://usehooks.com/usemeasure)
 - [ ] useList (https://usehooks.com/uselist)
 - [ ] useLockBodyScroll (https://usehooks.com/uselockbodyscroll, https://usehooks-ts.com/react-hook/use-locked-body)

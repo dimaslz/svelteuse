@@ -186,6 +186,10 @@ export async function load({ route }) {
 			label: "useVisibilityChange",
 			link: "/guide/useVisibilityChange",
 		},
+		{
+			label: "useWindowFocus",
+			link: "/guide/useWindowFocus",
+		},
 	];
 
 	const navigationLinks: {
