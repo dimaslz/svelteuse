@@ -190,6 +190,10 @@ export async function load({ route }) {
 			label: "useWindowFocus",
 			link: "/guide/useWindowFocus",
 		},
+		{
+			label: "useScroll",
+			link: "/guide/useScroll",
+		},
 	];
 
 	const navigationLinks: {

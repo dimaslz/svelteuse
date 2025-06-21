@@ -313,6 +313,10 @@
 		"./useVisibilityChange": {
 			"types": "./dist/useVisibilityChange/useVisibilityChange.d.ts",
 			"svelte": "./dist/useVisibilityChange/useVisibilityChange.js"
+		},
+		"./useScroll": {
+			"types": "./dist/useScroll/useScroll.d.ts",
+			"svelte": "./dist/useScroll/useScroll.js"
 		}
 	}
 }

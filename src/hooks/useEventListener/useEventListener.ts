@@ -2,11 +2,23 @@ import { BROWSER } from "esm-env";
 
 const eventListeners = new Map();
 
+function throttleFn(func: (...args: any) => void, timeFrame: number) {
+	let lastTime = 0;
+	return function (...args: any) {
+		const now = new Date().getTime();
+		if (now - lastTime >= timeFrame) {
+			func(...args);
+			lastTime = now;
+		}
+	};
+}
+
 export function useEventListener<E extends Event = Event>(
 	eventName: string,
 	handler: (event: E) => void,
 	element: Element | Window | null = BROWSER ? window : null,
 	options: boolean | AddEventListenerOptions = true,
+	throttle: number = 0
 ): () => void {
 	if (!element) {
 		return () => {};
@@ -17,15 +29,27 @@ export function useEventListener<E extends Event = Event>(
 
 	eventListeners.set(id, {
 		eventName,
-		handler: listener,
+		handler: throttle ? throttleFn(listener, throttle) : listener,
 		element,
 		options,
 	});
 
-	element.addEventListener(eventName, listener as EventListener, options);
+	element.addEventListener(
+		eventName,
+		throttle
+			? throttleFn(listener as EventListener, throttle)
+			: listener as EventListener,
+		options
+	);
 
 	return (): void => {
-		element.removeEventListener(eventName, listener as EventListener, options);
+		element.removeEventListener(
+			eventName,
+			throttle
+				? throttleFn(listener as EventListener, throttle)
+				: listener as EventListener,
+			options,
+		);
 		eventListeners.delete(id);
 	};
 }

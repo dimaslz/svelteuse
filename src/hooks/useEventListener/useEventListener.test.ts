@@ -12,37 +12,83 @@ vi.mock("esm-env", async (importOriginal) => {
 });
 
 describe("Hooks - useEventListener", () => {
-	test.each([
-		["click", new MouseEvent("")],
-		["change", new Event("")],
-		["focus", new FocusEvent("")],
-		["blur", new FocusEvent("")],
-		["select", new Event("")],
-		["mouseUp", new MouseEvent("")],
-		["mouseDown", new MouseEvent("")],
-		["mouseOver", new MouseEvent("")],
-		["mouseEnter", new MouseEvent("")],
-		["mouseLeave", new MouseEvent("")],
-		["mouseMove", new MouseEvent("")],
-		["mouseOut", new MouseEvent("")],
-	])("on listen %s", async (eventName, eventType) => {
-		const callbackMock = vi.fn();
-		const { unmount } = render(UseEventListenerComponent, {
-			props: {
-				eventType: eventName.toLowerCase(),
-				callbackListener: callbackMock,
-				element: window,
-			},
+	describe("default", () => {
+
+		test.each([
+			["click", new MouseEvent("")],
+			["change", new Event("")],
+			["focus", new FocusEvent("")],
+			["blur", new FocusEvent("")],
+			["select", new Event("")],
+			["mouseUp", new MouseEvent("")],
+			["mouseDown", new MouseEvent("")],
+			["mouseOver", new MouseEvent("")],
+			["mouseEnter", new MouseEvent("")],
+			["mouseLeave", new MouseEvent("")],
+			["mouseMove", new MouseEvent("")],
+			["mouseOut", new MouseEvent("")],
+			["scroll", new UIEvent("")],
+		])("on listen %s", async (eventName, eventType) => {
+			const callbackMock = vi.fn();
+			const { unmount } = render(UseEventListenerComponent, {
+				props: {
+					eventType: eventName.toLowerCase(),
+					callbackListener: callbackMock,
+					element: window,
+				},
+			});
+
+			await (fireEvent as any)[eventName](window);
+
+			expect(callbackMock).nthCalledWith(1, eventType);
+
+			await unmount();
+
+			await (fireEvent as any)[eventName](window);
+
+			expect(callbackMock).not.nthCalledWith(2);
 		});
+	})
 
-		await (fireEvent as any)[eventName](window);
+	describe("throttle", () => {
+		test.each([
+			["click", new MouseEvent("")],
+			["change", new Event("")],
+			["focus", new FocusEvent("")],
+			["blur", new FocusEvent("")],
+			["select", new Event("")],
+			["mouseUp", new MouseEvent("")],
+			["mouseDown", new MouseEvent("")],
+			["mouseOver", new MouseEvent("")],
+			["mouseEnter", new MouseEvent("")],
+			["mouseLeave", new MouseEvent("")],
+			["mouseMove", new MouseEvent("")],
+			["mouseOut", new MouseEvent("")],
+			["scroll", new UIEvent("")],
+		])("on listen %s", async (eventName, eventType) => {
+			vi.useFakeTimers();
+			const callbackMock = vi.fn();
+			const { unmount } = render(UseEventListenerComponent, {
+				props: {
+					eventType: eventName.toLowerCase(),
+					callbackListener: callbackMock,
+					element: window,
+					throttle: 200
+				},
+			});
 
-		expect(callbackMock).nthCalledWith(1, eventType);
+			await (fireEvent as any)[eventName](window);
 
-		await unmount();
+			// vi.advanceTimersByTime(200);
 
-		await (fireEvent as any)[eventName](window);
+			expect(callbackMock).toBeCalledTimes(1);
+			expect(callbackMock).nthCalledWith(1, eventType);
 
-		expect(callbackMock).not.nthCalledWith(2);
-	});
+			await unmount();
+
+			await (fireEvent as any)[eventName](window);
+
+			expect(callbackMock).not.nthCalledWith(2);
+		});
+	})
 });

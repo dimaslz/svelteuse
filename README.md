@@ -65,7 +65,9 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useContinuousRetry](/src/hooks/useContinuousRetry): (<https://usehooks.com/usecontinuousretry>)
 - [x] [useLongPress](/src/hooks/useLongPress): (<https://usehooks.com/uselongpress>, <https://vueuse.org/core/onLongPress>)
 - [x] [useVisibilityChange](/src/hooks/useVisibilityChange) (<https://usehooks.com/usevisibilitychange>, <https://vueuse.org/core/useDocumentVisibility>)
-- [x] [useWindowFocus](/src/hooks/useWindowFocus) (<https://vueuse.org/core/useWindowFocus>)
+- [x] [useWindowFocus](/src/hooks/useWindowFocus): (<https://vueuse.org/core/useWindowFocus>)
+- [x] [useWindowScroll](/src/hooks/useWindowScroll): (<https://usehooks.com/usewindowscroll>, <https://vueuse.org/core/useWindowScroll>)
+- [x] [useScroll](/src/hooks/useScroll): (<https://vueuse.org/core/useScroll>)
 
 <!--  -->
 
@@ -77,11 +79,9 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useIsFirstRender (https://usehooks-ts.com/react-hook/use-is-first-render, https://usehooks.com/useisfirstrender)
 - [ ] useFavicon (https://usehooks.com/usefavicon, https://vueuse.org/core/useFavicon/)
 - [ ] useDefault (https://usehooks.com/usedefault)
-- [ ] useWindowScroll (https://usehooks.com/usewindowscroll, https://vueuse.org/core/useWindowScroll/)
 - [ ] useMeasure (https://usehooks.com/usemeasure)
 - [ ] useList (https://usehooks.com/uselist)
 - [ ] useLockBodyScroll (https://usehooks.com/uselockbodyscroll, https://usehooks-ts.com/react-hook/use-locked-body)
-- [ ] useScroll (https://vueuse.org/core/useScroll/)
 - [ ] useScrollLock (https://vueuse.org/core/useScrollLock/)
 - [ ] useQueue (https://usehooks.com/usequeue)
 - [ ] useKeyPress (https://usehooks.com/usekeypress)
