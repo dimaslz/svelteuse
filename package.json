@@ -309,6 +309,10 @@
 		"./useLongPress": {
 			"types": "./dist/useLongPress/useLongPress.d.ts",
 			"svelte": "./dist/useLongPress/useLongPress.js"
+		},
+		"./useVisibilityChange": {
+			"types": "./dist/useVisibilityChange/useVisibilityChange.d.ts",
+			"svelte": "./dist/useVisibilityChange/useVisibilityChange.js"
 		}
 	}
 }

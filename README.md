@@ -64,13 +64,13 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [usePreferredLanguage](/src/hooks/usePreferredLanguage): (<https://usehooks.com/usepreferredlanguage>, <https://vueuse.org/core/usePreferredLanguages>)
 - [x] [useContinuousRetry](/src/hooks/useContinuousRetry): (<https://usehooks.com/usecontinuousretry>)
 - [x] [useLongPress](/src/hooks/useLongPress): (<https://usehooks.com/uselongpress>, <https://vueuse.org/core/onLongPress>)
+- [x] [useVisibilityChange](/src/hooks/useVisibilityChange) (<https://usehooks.com/usevisibilitychange>, <https://vueuse.org/core/useDocumentVisibility>)
 
 <!--  -->
 
 - [ ] [useReducer](/src/hooks/useReducer)
 - [ ] useTimestamp (https://vueuse.org/core/useTimestamp/)
 - [ ] useNetwork (https://vueuse.org/core/useNetwork/, https://usehooks.com/usenetworkstate)
-- [ ] useVisibilityChange (https://usehooks.com/usevisibilitychange, https://vueuse.org/core/useDocumentVisibility/)
 - [ ] useRenderInfo (https://usehooks.com/userenderinfo)
 - [ ] useRenderCount (https://usehooks.com/userendercount)
 - [ ] useIsFirstRender (https://usehooks-ts.com/react-hook/use-is-first-render, https://usehooks.com/useisfirstrender)

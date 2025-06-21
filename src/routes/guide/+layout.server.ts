@@ -182,6 +182,10 @@ export async function load({ route }) {
 			label: "useLongPress",
 			link: "/guide/useLongPress",
 		},
+		{
+			label: "useVisibilityChange",
+			link: "/guide/useVisibilityChange",
+		},
 	];
 
 	const navigationLinks: {
