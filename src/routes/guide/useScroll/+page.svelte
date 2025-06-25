@@ -16,7 +16,7 @@
 				>
 			</li>
 			<li>
-				<Link href="https://vueuse.org/core/useWindowScroll" target="_blank"
+				<Link href="https://vueuse.org/core/useScroll" target="_blank"
 					>https://vueuse.org/core/useScroll</Link
 				>
 			</li>
