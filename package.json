@@ -53,7 +53,10 @@
 		"usePrevious",
 		"useOrientation",
 		"usePreferredLanguage",
-		"useContinuousRetry"
+		"useContinuousRetry",
+		"useLongPress",
+		"useVisibilityChange",
+		"useScroll"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
