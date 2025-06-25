@@ -198,6 +198,10 @@ export async function load({ route }) {
 			label: "useMeasure",
 			link: "/guide/useMeasure",
 		},
+		{
+			label: "useFavicon",
+			link: "/guide/useFavicon",
+		},
 	];
 
 	const navigationLinks: {
