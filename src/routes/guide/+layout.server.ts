@@ -194,6 +194,10 @@ export async function load({ route }) {
 			label: "useScroll",
 			link: "/guide/useScroll",
 		},
+		{
+			label: "useMeasure",
+			link: "/guide/useMeasure",
+		},
 	];
 
 	const navigationLinks: {

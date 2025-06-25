@@ -56,7 +56,8 @@
 		"useContinuousRetry",
 		"useLongPress",
 		"useVisibilityChange",
-		"useScroll"
+		"useScroll",
+		"useMeasure"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -320,6 +321,10 @@
 		"./useScroll": {
 			"types": "./dist/useScroll/useScroll.d.ts",
 			"svelte": "./dist/useScroll/useScroll.js"
+		},
+		"./useMeasure": {
+			"types": "./dist/useMeasure/useMeasure.d.ts",
+			"svelte": "./dist/useMeasure/useMeasure.js"
 		}
 	}
 }
