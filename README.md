@@ -70,6 +70,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useScroll](/src/hooks/useScroll): (<https://vueuse.org/core/useScroll>)
 - [x] [useMeasure](/src/hooks/useMeasure): (<https://usehooks.com/usemeasure>)
 - [x] [useFavicon](/src/hooks/useFavicon): (<https://usehooks.com/usefavicon>, <https://vueuse.org/core/useFavicon>)
+- [x] [useList](/src/hooks/useList): (<https://usehooks.com/uselist>)
 
 <!--  -->
 
@@ -80,7 +81,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useRenderCount (https://usehooks.com/userendercount)
 - [ ] useIsFirstRender (https://usehooks-ts.com/react-hook/use-is-first-render, https://usehooks.com/useisfirstrender)
 - [ ] useDefault (https://usehooks.com/usedefault)
-- [ ] useList (https://usehooks.com/uselist)
 - [ ] useLockBodyScroll (https://usehooks.com/uselockbodyscroll, https://usehooks-ts.com/react-hook/use-locked-body)
 - [ ] useScrollLock (https://vueuse.org/core/useScrollLock/)
 - [ ] useQueue (https://usehooks.com/usequeue)

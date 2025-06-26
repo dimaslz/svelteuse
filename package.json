@@ -58,7 +58,8 @@
 		"useVisibilityChange",
 		"useScroll",
 		"useMeasure",
-		"useFavicon"
+		"useFavicon",
+		"useList"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -330,6 +331,10 @@
 		"./useFavicon": {
 			"types": "./dist/useFavicon/useFavicon.d.ts",
 			"svelte": "./dist/useFavicon/useFavicon.js"
+		},
+		"./useList": {
+			"types": "./dist/useList/useList.d.ts",
+			"svelte": "./dist/useList/useList.js"
 		}
 	}
 }

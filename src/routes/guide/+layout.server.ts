@@ -202,6 +202,10 @@ export async function load({ route }) {
 			label: "useFavicon",
 			link: "/guide/useFavicon",
 		},
+		{
+			label: "useList",
+			link: "/guide/useList",
+		},
 	];
 
 	const navigationLinks: {
