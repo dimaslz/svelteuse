@@ -206,6 +206,10 @@ export async function load({ route }) {
 			label: "useList",
 			link: "/guide/useList",
 		},
+		{
+			label: "useStep",
+			link: "/guide/useStep",
+		},
 	];
 
 	const navigationLinks: {

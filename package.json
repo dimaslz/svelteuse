@@ -59,7 +59,8 @@
 		"useScroll",
 		"useMeasure",
 		"useFavicon",
-		"useList"
+		"useList",
+		"useStep"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -335,6 +336,10 @@
 		"./useList": {
 			"types": "./dist/useList/useList.d.ts",
 			"svelte": "./dist/useList/useList.js"
+		},
+		"./useStep": {
+			"types": "./dist/useStep/useStep.d.ts",
+			"svelte": "./dist/useStep/useStep.js"
 		}
 	}
 }
