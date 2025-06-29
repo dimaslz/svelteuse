@@ -5,6 +5,7 @@
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import Button from "@/components/button/Button.svelte";
 	import { useStep } from "@/hooks/useStep/useStep";
+	import Link from "@/components/link/Link.svelte";
 
 	const [step, { goToNextStep, goToPrevStep, canGoToNextStep, canGoToPrevStep }] = useStep(5);
 
@@ -16,6 +17,15 @@
 			A Svelte hook for controlling and navigating step-based workflows or wizards.
 		</p>
 	</div>
+
+	<h3 class="text-lg">Inspired on:</h3>
+	<ul class="list-disc pl-6">
+		<li>
+			<Link href="https://usehooks-ts.com/react-hook/use-step" target="_blank"
+				>https://usehooks-ts.com/react-hook/use-step</Link
+			>
+		</li>
+	</ul>
 
 	<div slot="visual-example">
 		<H2>Visual Example</H2>
