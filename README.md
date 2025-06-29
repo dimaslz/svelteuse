@@ -72,6 +72,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useFavicon](/src/hooks/useFavicon): (<https://usehooks.com/usefavicon>, <https://vueuse.org/core/useFavicon>)
 - [x] [useList](/src/hooks/useList): (<https://usehooks.com/uselist>)
 - [x] [useStep](/src/hooks/useStep): (<https://usehooks-ts.com/react-hook/use-step>)
+- [x] [useStepper](/src/hooks/useStepper): (<https://vueuse.org/core/useStepper>)
 
 <!--  -->
 
@@ -98,7 +99,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] isMounted (https://usehooks-ts.com/react-hook/use-is-mounted)
 - [ ] useFullScreen (https://vueuse.org/core/useFullscreen/)
 - [ ] useSsr (https://usehooks-ts.com/react-hook/use-ssr)
-- [ ] useStepper (https://vueuse.org/core/useStepper/)
 - [ ] useTernaryDarkMode (https://usehooks-ts.com/react-hook/use-ternary-dark-mode)
 - [ ] useAsyncState (https://vueuse.org/core/useAsyncState/)
 - [ ] useLastChanged (https://vueuse.org/shared/useLastChanged/)

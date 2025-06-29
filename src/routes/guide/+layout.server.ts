@@ -210,6 +210,10 @@ export async function load({ route }) {
 			label: "useStep",
 			link: "/guide/useStep",
 		},
+		{
+			label: "useStepper",
+			link: "/guide/useStepper",
+		},
 	];
 
 	const navigationLinks: {

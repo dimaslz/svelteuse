@@ -60,7 +60,8 @@
 		"useMeasure",
 		"useFavicon",
 		"useList",
-		"useStep"
+		"useStep",
+		"useStepper"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -340,6 +341,10 @@
 		"./useStep": {
 			"types": "./dist/useStep/useStep.d.ts",
 			"svelte": "./dist/useStep/useStep.js"
+		},
+		"./useStepper": {
+			"types": "./dist/useStepper/useStepper.d.ts",
+			"svelte": "./dist/useStepper/useStepper.js"
 		}
 	}
 }
