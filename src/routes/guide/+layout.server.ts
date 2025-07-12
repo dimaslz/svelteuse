@@ -218,6 +218,10 @@ export async function load({ route }) {
 			label: "useHistory",
 			link: "/guide/useHistory",
 		},
+		{
+			label: "useThrottledHistory",
+			link: "/guide/useThrottledHistory",
+		},
 	];
 
 	const navigationLinks: {
