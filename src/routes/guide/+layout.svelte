@@ -1,10 +1,30 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import hotkeys from 'hotkeys-js';
+
 
 	import { Header, Link } from "@/components";
 	import { page } from "$app/stores";
+	import InputText from "@/components/input-text/InputText.svelte";
+	import XOutlineIcon from "@/components/icons/XOutlineIcon.svelte";
 
 	export let data;
+
+	let searchItems = data.links;
+	let searchResults = data.links;
+	let showSearch = false;
+
+	const handleOnSearch = (event: Event) => {
+	  const { value } = event.target as HTMLInputElement;
+
+		searchResults = searchItems.filter((item) => {
+		  return item.label.match(new RegExp(value, 'i'));
+		});
+	};
+
+	const handleOnCloseSearch = () => {
+    showSearch = false;
+	}
 
 	onMount(() => {
 		const pageSubscription = page.subscribe(({ route }) => {
@@ -13,7 +33,25 @@
 			data.navigationLinks.next = data.links[linkIndex + 1] || null;
 		});
 
+		const handleOnCloseSearch = (e: KeyboardEvent) => {
+		  if (e.key === "Escape") {
+        showSearch = false;
+			}
+		};
+
+		hotkeys('command+k,ctrl-k', function() {
+      showSearch = true;
+
+      setTimeout(() => {
+        const elm = document.getElementById("search-modal");
+        elm?.querySelector("input")?.focus();
+      }, 0)
+		});
+
+		window.addEventListener("keyup", handleOnCloseSearch, false);
+
 		return () => {
+		  window.removeEventListener("keyup", handleOnCloseSearch, false);
 			pageSubscription();
 		};
 	});
@@ -22,6 +60,42 @@
 <Header fixed />
 
 <div class="flex w-full h-auto">
+  {#if showSearch}
+    <div class="fixed inset-0 bg-gray-900/50 z-10 size-full flex justify-center items-center" id="search-modal">
+      <div class="my-0 mx-auto w-96 h-96 bg-gray-900 flex flex-col p-3 border border-gray-600 rounded-lg relative">
+        <div>
+          <h2 class="text-2xl font-bold mb-2">Search you hook</h2>
+          <button
+            class="absolute top-2 right-2 hover:opacity-80 cursor-pointer"
+            on:click={handleOnCloseSearch}
+          >
+            <XOutlineIcon class="size-8" />
+          </button>
+        </div>
+     	  <InputText
+     			class="w-full"
+     			placeholder="search..."
+          on:input={handleOnSearch}
+    		/>
+
+        <div class="h-full overflow-y-scroll mt-4 w-full">
+          {#if searchResults.length === 0}
+            <div class="size-full flex items-center justify-center">no results</div>
+          {:else}
+            <ul class="text-sm w-full">
+              {#each searchResults as link}
+     					<li class="w-full flex">
+      						<Link href={link.link} type="menu" class="w-full">{link.label}</Link>
+     					</li>
+       			{/each}
+            </ul>
+
+          {/if}
+        </div>
+      </div>
+  	</div>
+  {/if}
+
 	<div
 		class="flex h-screen flex-col bg-gray-950 divide-y divide-gray-600 pt-16 space-y-4 px-4"
 		id="menu"
