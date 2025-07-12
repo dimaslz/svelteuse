@@ -7,9 +7,9 @@
 <div class="flex flex-col h-screen items-center w-full">
   <Header />
 
-  <main class="h-full w-full px-12">
+  <main class="h-full w-full px-12 max-w-[1024px]">
    	<div class="flex h-full flex-1 grow-0 w-full justify-center items-center flex-col">
-  		<h1 class="text-6xl text-[#ff3e00]">SvelteUse</h1>
+  		<h1 class="text-8xl text-[#ff3e00]">SvelteUse</h1>
 
       <span class="my-12 space-y-4">
         <p>
