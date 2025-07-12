@@ -1,7 +1,22 @@
-<script>
+<script lang="ts">
 	import { H1, H2, Highlight, Link } from "@/components";
 
 	import { demo } from "./code-snippets";
+
+	type Manager = "npm" | "pnpm" | "yarn" | "bun";
+	const commandMap: Record<Manager, string> = {
+	  npm: "$ npm add @dimaslz/svelteuse",
+	  pnpm: "$ pnpm add @dimaslz/svelteuse",
+	  yarn: "$ yarn add @dimaslz/svelteuse",
+	  bun: "$ bun add @dimaslz/svelteuse"
+	};
+	let manager: Manager = "npm";
+	let command = commandMap[manager];
+
+	const handleChangeManager = (_manager: Manager) => {
+	  manager = _manager;
+		command = commandMap[manager];
+	}
 </script>
 
 <!-- eslint-disable no-useless-escape -->
@@ -23,9 +38,35 @@
 
 	<div class="space-y-4 mt-6">
 		<div>
+      <ul class="flex text-[#ff3e00]/80 space-x-2 px-2">
+        <li>
+          <button
+            class={["text-[#ff3e00]/80 hover:text-[#ff3e00] dark:hover:text-[#ff3e00] cursor-pointer", manager === 'npm' ? '' : 'underline'].join(" ")}
+            on:click={() => handleChangeManager("npm")}
+          >npm</button>
+        </li>
+        <li>
+          <button
+            class={["text-[#ff3e00]/80 hover:text-[#ff3e00] dark:hover:text-[#ff3e00] cursor-pointer", manager === 'pnpm' ? '' : 'underline'].join(" ")}
+            on:click={() => handleChangeManager("pnpm")}
+          >pnpm</button>
+        </li>
+        <li>
+          <button
+            class={["text-[#ff3e00]/80 hover:text-[#ff3e00] dark:hover:text-[#ff3e00] cursor-pointer", manager === 'yarn' ? '' : 'underline'].join(" ")}
+            on:click={() => handleChangeManager("yarn")}
+          >yarn</button>
+        </li>
+        <li>
+          <button
+            class={["text-[#ff3e00]/80 hover:text-[#ff3e00] dark:hover:text-[#ff3e00] cursor-pointer", manager === 'bun' ? '' : 'underline'].join(" ")}
+            on:click={() => handleChangeManager("bun")}
+          >bun</button>
+        </li>
+      </ul>
 			<Highlight
 				code={`
-		$ npm add @dimaslz/svelteuse`}
+		${command}`}
 			/>
 		</div>
 

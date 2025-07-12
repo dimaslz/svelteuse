@@ -19,7 +19,7 @@
 	const hideConfirmationDebounced = useDebounceFn(hideConfirmation, 1000);
 
 	const onCopyCode = () => {
-		copyClipboard(code);
+		copyClipboard(code.trim());
 		showConfirmation = true;
 		hideConfirmationDebounced();
 	};
