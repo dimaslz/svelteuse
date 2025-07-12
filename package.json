@@ -61,7 +61,8 @@
 		"useFavicon",
 		"useList",
 		"useStep",
-		"useStepper"
+		"useStepper",
+		"useHistory"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -345,6 +346,10 @@
 		"./useStepper": {
 			"types": "./dist/useStepper/useStepper.d.ts",
 			"svelte": "./dist/useStepper/useStepper.js"
+		},
+		"./useHistory": {
+			"types": "./dist/useHistory/useHistory.d.ts",
+			"svelte": "./dist/useHistory/useHistory.js"
 		}
 	}
 }
