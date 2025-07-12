@@ -222,6 +222,10 @@ export async function load({ route }) {
 			label: "useThrottledHistory",
 			link: "/guide/useThrottledHistory",
 		},
+		{
+			label: "useIdle",
+			link: "/guide/useIdle",
+		},
 	];
 
 	const navigationLinks: {

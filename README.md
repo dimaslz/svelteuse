@@ -75,6 +75,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useStepper](/src/hooks/useStepper): (<https://vueuse.org/core/useStepper>)
 - [x] [useHistory](/src/hooks/useHistory): (<https://usehooks.com/usehistorystate>, <https://vueuse.org/core/useRefHistory>)
 - [x] [useThrottledHistory](/src/hooks/useThrottledHistory): (<https://vueuse.org/core/useThrottledRefHistory>)
+- [x] [useIdle](/src/hooks/useIdle): (<https://usehooks.com/useidle>, <https://vueuse.org/core/useIdle>)
 
 <!--  -->
 
@@ -91,7 +92,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useKeyPress (https://usehooks.com/usekeypress)
 - [ ] useTimeoutPoll (https://vueuse.org/core/useTimeoutPoll/, )
 - [ ] useSet (https://usehooks.com/useset, https://vueuse.org/shared/set/)
-- [ ] useIdle (https://usehooks.com/useidle, https://vueuse.org/core/useIdle/)
 - [ ] useDebouncedHistory (https://vueuse.org/core/useDebouncedRefHistory/)
 - [ ] useManualHistory (https://vueuse.org/core/useManualRefHistory/)
 - [ ] usePageLeave (https://usehooks.com/usepageleave, https://vueuse.org/core/usePageLeave/)

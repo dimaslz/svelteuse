@@ -63,7 +63,8 @@
 		"useStep",
 		"useStepper",
 		"useHistory",
-		"useThrottledHistory"
+		"useThrottledHistory",
+		"useIdle"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -356,6 +357,10 @@
 		"./useThrottledHistory": {
 			"types": "./dist/useThrottledHistory/useThrottledHistory.d.ts",
 			"svelte": "./dist/useThrottledHistory/useThrottledHistory.js"
+		},
+		"./useIdle": {
+			"types": "./dist/useIdle/useIdle.d.ts",
+			"svelte": "./dist/useIdle/useIdle.js"
 		}
 	}
 }
