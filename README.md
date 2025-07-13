@@ -79,6 +79,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useObjectState](/src/hooks/useObjectState): (<https://usehooks.com/useobjectstate>)
 - [x] [useAsyncState](/src/hooks/useAsyncState): (<https://vueuse.org/core/useAsyncState>)
 - [x] [useScrollLock](/src/hooks/useScrollLock): (<https://vueuse.org/core/useScrollLock>)
+- [x] [useStorage](/src/hooks/useStorage): (<https://vueuse.org/core/useStorage>)
 
 <!--  -->
 
@@ -102,7 +103,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useSsr (https://usehooks-ts.com/react-hook/use-ssr)
 - [ ] useTernaryDarkMode (https://usehooks-ts.com/react-hook/use-ternary-dark-mode)
 - [ ] useLastChanged (https://vueuse.org/shared/useLastChanged/)
-- [ ] useStorage (https://vueuse.org/core/useStorage/)
 - [ ] useActiveElement (https://vueuse.org/core/useActiveElement/)
 - [ ] useDraggable (https://vueuse.org/core/useDraggable/)
 - [ ] useDropZone (https://vueuse.org/core/useDropZone/)

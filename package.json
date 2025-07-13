@@ -67,7 +67,8 @@
 		"useIdle",
 		"useObjectState",
 		"useAsyncState",
-		"useScrollLock"
+		"useScrollLock",
+		"useStorage"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -376,6 +377,10 @@
 		"./useScrollLock": {
 			"types": "./dist/useScrollLock/useScrollLock.d.ts",
 			"svelte": "./dist/useScrollLock/useScrollLock.js"
+		},
+		"./useStorage": {
+			"types": "./dist/useStorage/useStorage.d.ts",
+			"svelte": "./dist/useStorage/useStorage.js"
 		}
 	}
 }

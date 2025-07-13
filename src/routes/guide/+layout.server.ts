@@ -238,6 +238,10 @@ export async function load({ route }) {
 			label: "useScrollLock",
 			link: "/guide/useScrollLock",
 		},
+		{
+			label: "useStorage",
+			link: "/guide/useStorage",
+		},
 	];
 
 	const navigationLinks: {
