@@ -76,6 +76,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useHistory](/src/hooks/useHistory): (<https://usehooks.com/usehistorystate>, <https://vueuse.org/core/useRefHistory>)
 - [x] [useThrottledHistory](/src/hooks/useThrottledHistory): (<https://vueuse.org/core/useThrottledRefHistory>)
 - [x] [useIdle](/src/hooks/useIdle): (<https://usehooks.com/useidle>, <https://vueuse.org/core/useIdle>)
+- [x] [useObjectState](/src/hooks/useObjectState): (<https://usehooks.com/useobjectstate>)
 
 <!--  -->
 
@@ -95,7 +96,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useDebouncedHistory (https://vueuse.org/core/useDebouncedRefHistory/)
 - [ ] useManualHistory (https://vueuse.org/core/useManualRefHistory/)
 - [ ] usePageLeave (https://usehooks.com/usepageleave, https://vueuse.org/core/usePageLeave/)
-- [ ] useObjectState (https://usehooks.com/useobjectstate)
 - [ ] isMounted (https://usehooks-ts.com/react-hook/use-is-mounted)
 - [ ] useFullScreen (https://vueuse.org/core/useFullscreen/)
 - [ ] useSsr (https://usehooks-ts.com/react-hook/use-ssr)

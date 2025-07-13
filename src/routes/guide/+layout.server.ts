@@ -226,6 +226,10 @@ export async function load({ route }) {
 			label: "useIdle",
 			link: "/guide/useIdle",
 		},
+		{
+			label: "useObjectState",
+			link: "/guide/useObjectState",
+		},
 	];
 
 	const navigationLinks: {

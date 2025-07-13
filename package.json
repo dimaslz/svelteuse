@@ -64,7 +64,8 @@
 		"useStepper",
 		"useHistory",
 		"useThrottledHistory",
-		"useIdle"
+		"useIdle",
+		"useObjectState"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -361,6 +362,10 @@
 		"./useIdle": {
 			"types": "./dist/useIdle/useIdle.d.ts",
 			"svelte": "./dist/useIdle/useIdle.js"
+		},
+		"./useObjectState": {
+			"types": "./dist/useObjectState/useObjectState.d.ts",
+			"svelte": "./dist/useObjectState/useObjectState.js"
 		}
 	}
 }
