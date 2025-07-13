@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
   import { writable } from 'svelte/store';
 
+	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { useTransition } from "@/hooks";
 
+	// example
   const value = writable(0);
   const animated = useTransition(value, {
     duration: 800,

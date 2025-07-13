@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
+	import { InputText, Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useLocation } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import InputText from "@/components/input-text/InputText.svelte";
 
+	// example
 	const location = useLocation();
 
 	const onInput = (event: Event) => {

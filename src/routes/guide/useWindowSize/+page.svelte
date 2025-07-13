@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { windowSize } = useWindowSize();
 </script>
 

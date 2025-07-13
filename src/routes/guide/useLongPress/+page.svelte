@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
-
-	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useLongPress } from "@/hooks/useLongPress/useLongPress";
 	import { writable } from "svelte/store";
 
+	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
+	import { exampleCode, sourceCode } from "./code-snippet";
+	import { useLongPress } from "@/hooks";
+
+	// example
 	const longPressDone = writable<boolean>(false);
 
-  function handleLongPress(event) {
+  function handleLongPress(event: Event) {
     console.log('Long press fired', event);
 		longPressDone.update(() => true);
   }

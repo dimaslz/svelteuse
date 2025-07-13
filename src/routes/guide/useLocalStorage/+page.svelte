@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
-	import { Button } from "@/components";
+	import { Button, Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useLocalStorage } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { store, update, reset, clear } = useLocalStorage<boolean>("dimaslz-svelteuse", true);
 
 	const toggleTheme = () => {

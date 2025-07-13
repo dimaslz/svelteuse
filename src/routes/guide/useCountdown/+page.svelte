@@ -3,15 +3,15 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
-	import { useCountdown } from '@/hooks/useCountdown';
+	import { useCountdown } from '@/hooks';
 
+	// example
   const [count, { start, stop, reset }] = useCountdown({
     countStart: 10,
     countStop: 5,
     intervalMs: 1000,
     isIncrement: false
   });
-
 </script>
 
 <DocTpl title="useCountdown">

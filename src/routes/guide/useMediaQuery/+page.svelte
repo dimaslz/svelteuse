@@ -6,6 +6,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { matches, unsubscribe } = useMediaQuery("(min-width: 768px)");
 
 	onMount(() => {

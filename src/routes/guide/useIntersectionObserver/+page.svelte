@@ -4,6 +4,7 @@
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { useIntersectionObserver } from "@/hooks";
 
+	// example
 	const {
     action: intersectionObserver,
     isIntersecting,

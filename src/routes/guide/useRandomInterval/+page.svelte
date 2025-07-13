@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { onMount } from "svelte";
 
+	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useRandomInterval } from "@/hooks/useRandomInterval/useRandomInterval";
+	import { useRandomInterval } from "@/hooks";
 
+	// example
 	let count = 0;
 
   onMount(() => {

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
-	import { onMount } from "svelte";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { useOrientation } from "@/hooks";
 
+	// example
 	const orientation = useOrientation();
 </script>
 

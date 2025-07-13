@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
-	import { useObjectState } from "@/hooks/useObjectState/useObjectState";
+	import { useObjectState } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 

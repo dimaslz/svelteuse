@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { handleImageOnLoad, css } = useImageOnLoad();
 
 	const style: { [key: string]: Partial<CSSStyleDeclaration> } = {

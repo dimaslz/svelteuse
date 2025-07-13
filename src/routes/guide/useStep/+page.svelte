@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { DocTpl, H2, Highlight } from "@/components";
-	import Browser from "@/components/browser/Browser.svelte";
+	import { Button, Link, Browser, DocTpl, H2, Highlight } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import Button from "@/components/button/Button.svelte";
-	import { useStep } from "@/hooks/useStep/useStep";
-	import Link from "@/components/link/Link.svelte";
+	import { useStep } from "@/hooks";
 
+	// example
 	const [step, { goToNextStep, goToPrevStep, canGoToNextStep, canGoToPrevStep }] = useStep(5);
 
 </script>

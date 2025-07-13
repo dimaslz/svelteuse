@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { DocTpl, H2, Highlight } from "@/components";
-	import { Button } from "@/components";
-	import Browser from "@/components/browser/Browser.svelte";
+	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
 	import { useState } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const [state, setState] = useState<number>(0);
 
 	const updateState = () => {

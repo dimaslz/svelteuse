@@ -2,8 +2,9 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useMouseInElement } from "@/hooks/useMouseInElement/useMouseInElement";
+	import { useMouseInElement } from "@/hooks";
 
+	// example
 	const [mouse, mouseTracker] = useMouseInElement();
 </script>
 

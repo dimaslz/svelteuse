@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
   import { writable } from 'svelte/store';
+	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { usePrevious } from "@/hooks/usePrevious/usePrevious";
+	import { usePrevious } from "@/hooks";
 
+	// example
   const count = writable(0);
   const prevCount = usePrevious(count);
 

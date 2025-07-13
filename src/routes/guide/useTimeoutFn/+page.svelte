@@ -6,6 +6,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const [value, update] = useState<string>("Please wait 3 seconds");
 	const { start, stop, isPending } = useTimeoutFn(() => {
 		update("Fired!");

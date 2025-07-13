@@ -6,6 +6,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const [setElementRef, elementSize, killInstance] = useElementSize();
 
 	let elementRef: HTMLDivElement;

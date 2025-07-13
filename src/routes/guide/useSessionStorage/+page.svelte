@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
-	import { Button } from "@/components";
+	import { Button, Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useSessionStorage } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { store, update, reset, clear } = useSessionStorage<boolean>("dimaslz-svelteuse", true);
 
 	const toggleTheme = () => {

@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
+	import { Browser, DocTpl, H2, Link } from "@/components";
 
-	import { useMeasure } from "@/hooks/useMeasure/useMeasure";
+	import { useMeasure } from "@/hooks";
 
+	// example
 	const { element, dimensions } = useMeasure();
 </script>
 

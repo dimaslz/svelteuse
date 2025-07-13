@@ -6,7 +6,10 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
-	const initialValues: MapOrEntries<string, string> = [["key", "🆕"]];
+	// example
+	const initialValues: MapOrEntries<string, string> = [
+	  ["key", "🆕"]
+	];
 	const otherValues: MapOrEntries<string, string> = [
 		["hello", "👋"],
 		["data", "📦"],

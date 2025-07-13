@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Browser, DocTpl, Highlight, Link } from "@/components";
-	import H2 from "@/components/h/h2.svelte";
+	import { Browser, DocTpl, Highlight, H2, Link } from "@/components";
 	import { useDocumentTitle } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const [title, updateTitle] = useDocumentTitle("site title");
 
 	const onInput = ($event: Event) => {

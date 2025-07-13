@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { DocTpl, H2, Highlight } from "@/components";
-	import Browser from "@/components/browser/Browser.svelte";
+	import { Browser, Button, Link, DocTpl, H2, Highlight } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import Button from "@/components/button/Button.svelte";
-	import { useStepper } from "@/hooks/useStepper/useStepper";
-	import Link from "@/components/link/Link.svelte";
+	import { useStepper } from "@/hooks";
 
+	// example
 	const steps = ['Account', 'Details', 'Confirm'];
 	const {
 		current,

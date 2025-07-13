@@ -4,6 +4,7 @@
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { usePreferredLanguage } from "@/hooks";
 
+	// example
   const language = usePreferredLanguage();
 </script>
 

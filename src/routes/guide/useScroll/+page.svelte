@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
+	// example
 	import { exampleCodeA, exampleCodeB, sourceCode } from "./code-snippet";
 </script>
 

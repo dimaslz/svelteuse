@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	let value: string = "";
 	const [state, setState] = useState(value);
 

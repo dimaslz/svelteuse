@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-	import { Browser, Button, DocTpl, H2, Highlight } from "@/components";
-	import Link from "@/components/link/Link.svelte";
+	import { Link, Browser, Button, DocTpl, H2, Highlight } from "@/components";
 	import { useEventListener } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";

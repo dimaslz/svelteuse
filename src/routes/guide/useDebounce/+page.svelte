@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const [state, updateState] = useDebounce("", 200);
 	let value: string = "";
 

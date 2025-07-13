@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { count, increment, decrement, reset, setCount } = useCounter(99);
 
 	const multiplyBy2 = () => setCount((x: number) => x * 2);

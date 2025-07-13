@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
+	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useEventCallback } from "@/hooks/useEventCallback";
-	import { Button } from "@/components";
+	import { useEventCallback } from "@/hooks";
 
+	// example
 	const handleClick = useEventCallback(event => {
     console.log('Clicked', event)
   })

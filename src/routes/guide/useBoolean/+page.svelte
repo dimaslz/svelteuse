@@ -4,6 +4,7 @@
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useBoolean } from "@/hooks";
 
+	// example
 	import { exampleCode, sourceCode } from "./code-snippet";
 
 	const { value, setValue, setTrue, setFalse, toggle } = useBoolean();

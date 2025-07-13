@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
-	import { useStorage } from "@/hooks/useStorage/useStorage";
 
+
+	import { useStorage } from "@/hooks";
 	import { exampleCode, sourceCode } from "./code-snippet";
 
 	// example

@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-	import { DocTpl, H2, Highlight, Link } from "@/components";
-	import Browser from "@/components/browser/Browser.svelte";
+	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { useHover } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	let hoverRef: HTMLElement;
 	const [isHover, setElement] = useHover();
 

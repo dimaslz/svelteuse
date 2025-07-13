@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
-	import { useIdle } from "@/hooks/useIdle/useIdle";
+	import { useIdle } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const idle = useIdle(5000);
 
 	let isTracking = true;

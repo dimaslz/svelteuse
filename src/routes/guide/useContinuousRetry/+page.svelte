@@ -2,8 +2,9 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useContinuousRetry } from "@/hooks/useContinuousRetry/useContinuousRetry";
+	import { useContinuousRetry } from "@/hooks";
 
+	// example
   let attemptCount = 0;
 
   const hasResolved = useContinuousRetry(() => {

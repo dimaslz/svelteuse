@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
+	import { Button, InputText, Browser, DocTpl, H2, Highlight, Link } from "@/components";
 	import { sourceCode, exampleCode } from "./code-snippet";
-	import { useList } from "@/hooks/useList/useList";
-	import Button from "@/components/button/Button.svelte";
-	import InputText from "@/components/input-text/InputText.svelte";
+	import { useList } from "@/hooks";
 
+	// example
 	let input = '';
 
 	const { list: todos, push, removeAt, clear } = useList<string>([]);

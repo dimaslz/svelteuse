@@ -6,6 +6,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const onClickHandler = () => {
 		console.log("onClickHandler");
 	};

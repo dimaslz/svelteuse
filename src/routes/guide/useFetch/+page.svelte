@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const url = "https://randomdata-api.loremapi.io";
 
 	const fetchResult = useFetch<{ value: boolean }>(url, {

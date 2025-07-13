@@ -4,6 +4,7 @@
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { useIsClient } from "@/hooks";
 
+	// example
 	const isClient = useIsClient();
 </script>
 

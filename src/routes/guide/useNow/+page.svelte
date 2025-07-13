@@ -2,8 +2,9 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useNow } from "@/hooks/useNow/useNow";
+	import { useNow } from "@/hooks";
 
+	// example
 	const now = useNow();
 </script>
 

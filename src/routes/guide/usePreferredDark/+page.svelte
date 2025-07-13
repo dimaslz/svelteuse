@@ -2,8 +2,9 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { usePreferredDark } from "@/hooks/usePreferredDark/usePreferredDark";
+	import { usePreferredDark } from "@/hooks";
 
+	// example
 	const prefferredDark = usePreferredDark();
 </script>
 

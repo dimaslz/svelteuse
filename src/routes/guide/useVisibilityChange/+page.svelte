@@ -2,8 +2,9 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useVisibilityChange } from "@/hooks/useVisibilityChange/useVisibilityChange";
+	import { useVisibilityChange } from "@/hooks";
 
+	// example
   const isVisible = useVisibilityChange();
 </script>
 

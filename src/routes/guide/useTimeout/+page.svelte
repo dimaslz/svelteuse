@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { start, stop, ready } = useTimeout(2000, { controls: true });
 </script>
 

@@ -2,8 +2,9 @@
 	import { Browser, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
-	import { useWindowFocus } from "@/hooks/useWindowFocus/useWindowFocus";
+	import { useWindowFocus } from "@/hooks";
 
+	// example
   const isFocused = useWindowFocus();
 </script>
 

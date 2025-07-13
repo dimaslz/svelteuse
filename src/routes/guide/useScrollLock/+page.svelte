@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
-	import { useScrollLock } from "@/hooks/useScrollLock/useScrollLock";
+	import { useScrollLock } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 

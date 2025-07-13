@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Browser, DocTpl, H2, Highlight } from "@/components";
-	import Link from "@/components/link/Link.svelte";
+	import { Link, Browser, DocTpl, H2, Highlight } from "@/components";
 	import { useThrottle } from "@/hooks";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	let value: string = "";
 
 	const [state, updateState] = useThrottle("", 500);

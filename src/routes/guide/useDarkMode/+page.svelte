@@ -4,6 +4,7 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
+	// example
 	const { isDarkMode, toggle } = useDarkMode();
 </script>
 
