@@ -242,6 +242,10 @@ export async function load({ route }) {
 			label: "useStorage",
 			link: "/guide/useStorage",
 		},
+		{
+			label: "useTextSelection",
+			link: "/guide/useTextSelection",
+		},
 	];
 
 	const navigationLinks: {

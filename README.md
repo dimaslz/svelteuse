@@ -80,6 +80,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useAsyncState](/src/hooks/useAsyncState): (<https://vueuse.org/core/useAsyncState>)
 - [x] [useScrollLock](/src/hooks/useScrollLock): (<https://vueuse.org/core/useScrollLock>)
 - [x] [useStorage](/src/hooks/useStorage): (<https://vueuse.org/core/useStorage>)
+- [x] [useTextSelection](/src/hooks/useTextSelection): (<https://vueuse.org/core/useTextSelection>)
 
 <!--  -->
 
@@ -147,7 +148,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useSpeechRecognition (https://vueuse.org/core/useSpeechRecognition/)
 - [ ] useSpeechSynthesis (https://vueuse.org/core/useSpeechSynthesis/)
 - [ ] useSwipe (https://vueuse.org/core/useSwipe/)
-- [ ] useTextSelection (https://vueuse.org/core/useTextSelection/)
 - [ ] useUserMedia (https://vueuse.org/core/useUserMedia/)
 - [ ] useWebSocket (https://vueuse.org/core/useWebSocket/)
 

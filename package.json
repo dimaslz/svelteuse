@@ -68,7 +68,8 @@
 		"useObjectState",
 		"useAsyncState",
 		"useScrollLock",
-		"useStorage"
+		"useStorage",
+		"useTextSelection"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -381,6 +382,10 @@
 		"./useStorage": {
 			"types": "./dist/useStorage/useStorage.d.ts",
 			"svelte": "./dist/useStorage/useStorage.js"
+		},
+		"./useTextSelection": {
+			"types": "./dist/useTextSelection/useTextSelection.d.ts",
+			"svelte": "./dist/useTextSelection/useTextSelection.js"
 		}
 	}
 }

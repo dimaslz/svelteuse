@@ -48,6 +48,7 @@ export * from "./useState";
 export * from "./useStep";
 export * from "./useStepper";
 export * from "./useStorage";
+export * from "./useTextSelection";
 export * from "./useThrottle";
 export * from "./useThrottledHistory";
 export * from "./useThrottleFn";
