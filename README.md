@@ -78,6 +78,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useIdle](/src/hooks/useIdle): (<https://usehooks.com/useidle>, <https://vueuse.org/core/useIdle>)
 - [x] [useObjectState](/src/hooks/useObjectState): (<https://usehooks.com/useobjectstate>)
 - [x] [useAsyncState](/src/hooks/useAsyncState): (<https://vueuse.org/core/useAsyncState>)
+- [x] [useScrollLock](/src/hooks/useScrollLock): (<https://vueuse.org/core/useScrollLock>)
 
 <!--  -->
 
@@ -89,7 +90,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useIsFirstRender (https://usehooks-ts.com/react-hook/use-is-first-render, https://usehooks.com/useisfirstrender)
 - [ ] useDefault (https://usehooks.com/usedefault)
 - [ ] useLockBodyScroll (https://usehooks.com/uselockbodyscroll, https://usehooks-ts.com/react-hook/use-locked-body)
-- [ ] useScrollLock (https://vueuse.org/core/useScrollLock/)
 - [ ] useQueue (https://usehooks.com/usequeue)
 - [ ] useKeyPress (https://usehooks.com/usekeypress)
 - [ ] useTimeoutPoll (https://vueuse.org/core/useTimeoutPoll/, )
