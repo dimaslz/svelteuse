@@ -77,6 +77,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useThrottledHistory](/src/hooks/useThrottledHistory): (<https://vueuse.org/core/useThrottledRefHistory>)
 - [x] [useIdle](/src/hooks/useIdle): (<https://usehooks.com/useidle>, <https://vueuse.org/core/useIdle>)
 - [x] [useObjectState](/src/hooks/useObjectState): (<https://usehooks.com/useobjectstate>)
+- [x] [useAsyncState](/src/hooks/useAsyncState): (<https://vueuse.org/core/useAsyncState>)
 
 <!--  -->
 
@@ -100,7 +101,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useFullScreen (https://vueuse.org/core/useFullscreen/)
 - [ ] useSsr (https://usehooks-ts.com/react-hook/use-ssr)
 - [ ] useTernaryDarkMode (https://usehooks-ts.com/react-hook/use-ternary-dark-mode)
-- [ ] useAsyncState (https://vueuse.org/core/useAsyncState/)
 - [ ] useLastChanged (https://vueuse.org/shared/useLastChanged/)
 - [ ] useStorage (https://vueuse.org/core/useStorage/)
 - [ ] useActiveElement (https://vueuse.org/core/useActiveElement/)

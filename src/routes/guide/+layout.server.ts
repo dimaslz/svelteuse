@@ -230,6 +230,10 @@ export async function load({ route }) {
 			label: "useObjectState",
 			link: "/guide/useObjectState",
 		},
+		{
+			label: "useAsyncState",
+			link: "/guide/useAsyncState",
+		},
 	];
 
 	const navigationLinks: {

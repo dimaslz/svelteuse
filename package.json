@@ -65,7 +65,8 @@
 		"useHistory",
 		"useThrottledHistory",
 		"useIdle",
-		"useObjectState"
+		"useObjectState",
+		"useAsyncState"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -366,6 +367,10 @@
 		"./useObjectState": {
 			"types": "./dist/useObjectState/useObjectState.d.ts",
 			"svelte": "./dist/useObjectState/useObjectState.js"
+		},
+		"./useAsyncState": {
+			"types": "./dist/useAsyncState/useAsyncState.d.ts",
+			"svelte": "./dist/useAsyncState/useAsyncState.js"
 		}
 	}
 }
