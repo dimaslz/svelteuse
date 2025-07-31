@@ -246,6 +246,10 @@ export async function load({ route }) {
 			label: "useTextSelection",
 			link: "/guide/useTextSelection",
 		},
+		{
+			label: "useUrlSearchParams",
+			link: "/guide/useUrlSearchParams",
+		},
 	];
 
 	const navigationLinks: {

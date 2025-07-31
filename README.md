@@ -81,6 +81,7 @@ This list is orientative, let's try to get all 👨‍💻.
 - [x] [useScrollLock](/src/hooks/useScrollLock): (<https://vueuse.org/core/useScrollLock>)
 - [x] [useStorage](/src/hooks/useStorage): (<https://vueuse.org/core/useStorage>)
 - [x] [useTextSelection](/src/hooks/useTextSelection): (<https://vueuse.org/core/useTextSelection>)
+- [x] [useUrlSearchParams](/src/hooks/useUrlSearchParams): (<https://vueuse.org/core/useUrlSearchParams/?foo=bar&vueuse=awesome>)
 
 <!--  -->
 
@@ -129,7 +130,6 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useStyleTag (https://vueuse.org/core/useStyleTag/)
 - [ ] useTextareaAutosize (https://vueuse.org/core/useTextareaAutosize/)
 - [ ] useTextDirection (https://vueuse.org/core/useTextDirection/)
-- [ ] useUrlSearchParams (https://vueuse.org/core/useUrlSearchParams/?foo=bar&vueuse=awesome)
 - [ ] useWakeLock (https://vueuse.org/core/useWakeLock/)
 - [ ] useWebNotification (https://vueuse.org/core/useWebNotification/)
 - [ ] onStartTyping (https://vueuse.org/core/onStartTyping/)
