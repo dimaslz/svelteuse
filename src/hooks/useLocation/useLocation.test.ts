@@ -1,96 +1,97 @@
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
-import { useLocation } from './useLocation';
-import { get } from 'svelte/store';
+import { get } from "svelte/store";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-describe('useLocation', () => {
-  const originalLocation = window.location;
-  const originalHistory = window.history;
+import { useLocation } from "./useLocation";
 
-  beforeEach(() => {
-    // @ts-ignore override readonly
-    delete window.location;
-    window.location = {
-      hash: '#test',
-      host: 'localhost:3000',
-      hostname: 'localhost',
-      href: 'http://localhost:3000/#test',
-      pathname: '/',
-      port: '3000',
-      protocol: 'http:',
-      search: '?query=value',
-      assign: vi.fn(),
-      reload: vi.fn(),
-      replace: vi.fn(),
-    } as any;
+describe("useLocation", () => {
+	const originalLocation = window.location;
+	const originalHistory = window.history;
 
-    // Mock window.history
-    const fakeHistory = {
-      state: { foo: 'bar' },
-      length: 42,
-    };
+	beforeEach(() => {
+		// @ts-ignore override readonly
+		delete window.location;
+		window.location = {
+			hash: "#test",
+			host: "localhost:3000",
+			hostname: "localhost",
+			href: "http://localhost:3000/#test",
+			pathname: "/",
+			port: "3000",
+			protocol: "http:",
+			search: "?query=value",
+			assign: vi.fn(),
+			reload: vi.fn(),
+			replace: vi.fn(),
+		} as any;
 
-    Object.defineProperty(window, 'history', {
-      value: fakeHistory,
-      configurable: true,
-    });
-  });
+		// Mock window.history
+		const fakeHistory = {
+			state: { foo: "bar" },
+			length: 42,
+		};
 
-  afterEach(() => {
-    // Restore original location and history
-    window.location = originalLocation;
-    Object.defineProperty(window, 'history', {
-      value: originalHistory,
-      configurable: true,
-    });
-  });
+		Object.defineProperty(window, "history", {
+			value: fakeHistory,
+			configurable: true,
+		});
+	});
 
-  it('should initialize with the current location state', () => {
-    const location = useLocation();
-    const state = get(location);
+	afterEach(() => {
+		// Restore original location and history
+		window.location = originalLocation;
+		Object.defineProperty(window, "history", {
+			value: originalHistory,
+			configurable: true,
+		});
+	});
 
-    expect(state).toMatchObject({
-      trigger: 'load',
-      length: 5,
-      origin: undefined, // `location.origin` isn't mocked
-      hash: '#test',
-      host: 'localhost:3000',
-      hostname: 'localhost',
-      href: 'http://localhost:3000/#test',
-      pathname: '/',
-      port: '3000',
-      protocol: 'http:',
-      search: '?query=value',
-    });
-  });
+	it("should initialize with the current location state", () => {
+		const location = useLocation();
+		const state = get(location);
 
-  it('should update on popstate event', () => {
-    const location = useLocation();
+		expect(state).toMatchObject({
+			trigger: "load",
+			length: 5,
+			origin: undefined, // `location.origin` isn't mocked
+			hash: "#test",
+			host: "localhost:3000",
+			hostname: "localhost",
+			href: "http://localhost:3000/#test",
+			pathname: "/",
+			port: "3000",
+			protocol: "http:",
+			search: "?query=value",
+		});
+	});
 
-    // Update mock location
-    window.location.hash = '#changed';
-    window.dispatchEvent(new PopStateEvent('popstate'));
+	it("should update on popstate event", () => {
+		const location = useLocation();
 
-    const state = get(location);
-    expect(state.trigger).toBe('popstate');
-    expect(state.hash).toBe('#changed');
-  });
+		// Update mock location
+		window.location.hash = "#changed";
+		window.dispatchEvent(new PopStateEvent("popstate"));
 
-  it('should update on hashchange event', () => {
-    const location = useLocation();
+		const state = get(location);
+		expect(state.trigger).toBe("popstate");
+		expect(state.hash).toBe("#changed");
+	});
 
-    window.location.hash = '#another';
-    window.dispatchEvent(new HashChangeEvent('hashchange'));
+	it("should update on hashchange event", () => {
+		const location = useLocation();
 
-    const state = get(location);
-    expect(state.trigger).toBe('hashchange');
-    expect(state.hash).toBe('#another');
-  });
+		window.location.hash = "#another";
+		window.dispatchEvent(new HashChangeEvent("hashchange"));
 
-  it.todo('should reflect changes to writable props in location', async () => {
-    const location = useLocation();
+		const state = get(location);
+		expect(state.trigger).toBe("hashchange");
+		expect(state.hash).toBe("#another");
+	});
 
-    location.update((prev) => ({ ...prev, pathname: '/new-path' }));
+	it.todo("should reflect changes to writable props in location", async () => {
+		const location = useLocation();
 
-    expect(window.location.pathname).toBe('/new-path');
-  });
+		location.update((prev) => ({ ...prev, pathname: "/new-path" }));
+
+		expect(window.location.pathname).toBe("/new-path");
+	});
 });

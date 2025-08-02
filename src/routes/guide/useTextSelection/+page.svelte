@@ -12,7 +12,7 @@
 		<ul class="list-disc pl-6">
 			<li>
 				<Link href="https://vueuse.org/core/useTextSelection"
-				>https://vueuse.org/core/useTextSelection</Link
+					>https://vueuse.org/core/useTextSelection</Link
 				>
 			</li>
 		</ul>
@@ -22,13 +22,13 @@
 		<H2>Visual example</H2>
 
 		<Browser body="p-4 bg-gray-950/50 h-96">
-		  <iframe
-  			src="/demos/use-text-selection"
-  			frameborder="0"
-  			width="100%"
-  			height="100%"
-  			title="useTextSelection Demo"
-  		/>
+			<iframe
+				src="/demos/use-text-selection"
+				frameborder="0"
+				width="100%"
+				height="100%"
+				title="useTextSelection Demo"
+			/>
 		</Browser>
 	</div>
 

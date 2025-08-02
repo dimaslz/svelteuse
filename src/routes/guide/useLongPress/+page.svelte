@@ -8,16 +8,17 @@
 	// example
 	const longPressDone = writable<boolean>(false);
 
-  function handleLongPress(event: Event) {
-    console.log('Long press fired', event);
+	function handleLongPress(event: Event) {
+		console.log("Long press fired", event);
 		longPressDone.update(() => true);
-  }
+	}
 </script>
 
 <DocTpl title="useLongPress">
 	<div slot="description">
 		<p>
-			Enable precise control of long-press interactions for both touch and mouse events with useLongPress.
+			Enable precise control of long-press interactions for both touch and mouse events with
+			useLongPress.
 		</p>
 
 		<h3 class="text-lg">Inspired on:</h3>
@@ -43,11 +44,11 @@
 				<div
 					use:useLongPress={handleLongPress}
 					style="padding: 2rem; border: 1px solid;"
-					class={$longPressDone ? 'bg-green-900': ''}
+					class={$longPressDone ? "bg-green-900" : ""}
 				>
 					Press and hold me
 				</div>
-				<p>Is pressed done: {$longPressDone ? 'yes' : 'no'}</p>
+				<p>Is pressed done: {$longPressDone ? "yes" : "no"}</p>
 			</div>
 		</Browser>
 	</div>

@@ -3,7 +3,7 @@
 
 	import { useClickAnyWhere } from "@/hooks";
 
-	export let onClick: () => any;
+	export let onClick: () => void;
 
 	const eventClickAnyWhere = useClickAnyWhere(onClick);
 

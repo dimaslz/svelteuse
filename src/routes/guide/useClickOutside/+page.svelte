@@ -52,6 +52,8 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<div class="h-24 w-24 bg-gray-600 p-2" bind:this={element}>click outside here</div>
+
+			<div>check the console in DevTools on click outside the square.</div>
 		</Browser>
 	</div>
 

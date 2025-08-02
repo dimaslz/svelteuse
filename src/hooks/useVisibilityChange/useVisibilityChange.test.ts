@@ -1,69 +1,70 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { useVisibilityChange } from './useVisibilityChange';
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-describe('useVisibilityChange', () => {
-  let originalVisibility: string;
+import { useVisibilityChange } from "./useVisibilityChange";
 
-  beforeEach(() => {
-    originalVisibility = document.visibilityState;
+describe("useVisibilityChange", () => {
+	let originalVisibility: string;
 
-    Object.defineProperty(document, 'visibilityState', {
-      configurable: true,
-      get: () => 'visible',
-    });
-  });
+	beforeEach(() => {
+		originalVisibility = document.visibilityState;
 
-  afterEach(() => {
-    Object.defineProperty(document, 'visibilityState', {
-      configurable: true,
-      get: () => originalVisibility,
-    });
+		Object.defineProperty(document, "visibilityState", {
+			configurable: true,
+			get: () => "visible",
+		});
+	});
 
-    vi.restoreAllMocks();
-  });
+	afterEach(() => {
+		Object.defineProperty(document, "visibilityState", {
+			configurable: true,
+			get: () => originalVisibility,
+		});
 
-  it('should return true when document is visible', () => {
-    const isVisible = useVisibilityChange();
+		vi.restoreAllMocks();
+	});
 
-    let current = false;
-    const unsubscribe = isVisible.subscribe((v) => (current = v));
+	it("should return true when document is visible", () => {
+		const isVisible = useVisibilityChange();
 
-    expect(current).toBe(true);
-    unsubscribe();
-  });
+		let current = false;
+		const unsubscribe = isVisible.subscribe((v) => (current = v));
 
-  it('should update when document becomes hidden', () => {
-    let state = 'visible';
+		expect(current).toBe(true);
+		unsubscribe();
+	});
 
-    Object.defineProperty(document, 'visibilityState', {
-      configurable: true,
-      get: () => state,
-    });
+	it("should update when document becomes hidden", () => {
+		let state = "visible";
 
-    const isVisible = useVisibilityChange();
-    let current = true;
-    const unsubscribe = isVisible.subscribe((v) => (current = v));
+		Object.defineProperty(document, "visibilityState", {
+			configurable: true,
+			get: () => state,
+		});
 
-    expect(current).toBe(true);
+		const isVisible = useVisibilityChange();
+		let current = true;
+		const unsubscribe = isVisible.subscribe((v) => (current = v));
 
-    state = 'hidden';
-    document.dispatchEvent(new Event('visibilitychange'));
+		expect(current).toBe(true);
 
-    expect(current).toBe(false);
-    unsubscribe();
-  });
+		state = "hidden";
+		document.dispatchEvent(new Event("visibilitychange"));
 
-  it('should be server-safe and default to true', () => {
-    const originalDocument = globalThis.document;
-    // @ts-ignore
-    delete globalThis.document;
+		expect(current).toBe(false);
+		unsubscribe();
+	});
 
-    const store = useVisibilityChange();
-    let val = false;
-    const unsubscribe = store.subscribe((v) => (val = v));
-    expect(val).toBe(true); // fallback
+	it("should be server-safe and default to true", () => {
+		const originalDocument = globalThis.document;
+		// @ts-ignore
+		delete globalThis.document;
 
-    unsubscribe();
-    globalThis.document = originalDocument;
-  });
+		const store = useVisibilityChange();
+		let val = false;
+		const unsubscribe = store.subscribe((v) => (val = v));
+		expect(val).toBe(true); // fallback
+
+		unsubscribe();
+		globalThis.document = originalDocument;
+	});
 });

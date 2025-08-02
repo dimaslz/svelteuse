@@ -16,4 +16,3 @@
 <div>direction bottom: {$scroll.directions.bottom}</div>
 <div>direction left: {$scroll.directions.left}</div>
 <div>direction right: {$scroll.directions.right}</div>
-

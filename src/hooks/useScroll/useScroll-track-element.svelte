@@ -17,10 +17,6 @@
 <div>direction left: {$scroll.directions.left}</div>
 <div>direction right: {$scroll.directions.right}</div>
 
-<div
-	data-testid="container"
-	use:trackScroll
-	style="width: 200px; height: 200px; overflow: scroll;"
->
+<div data-testid="container" use:trackScroll style="width: 200px; height: 200px; overflow: scroll;">
 	<div style="width: 500px; height: 500px;" />
 </div>

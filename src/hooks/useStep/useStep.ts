@@ -1,4 +1,4 @@
-import { writable, get, type Writable } from 'svelte/store';
+import { get, type Writable, writable } from "svelte/store";
 
 type UseStepActions = {
 	goToNextStep: () => void;
@@ -9,7 +9,7 @@ type UseStepActions = {
 	setStep: (step: number | ((step: number) => number)) => void;
 };
 
-export function useStep(maxStep: number): [step: typeof stepStore, actions: UseStepActions] {
+export function useStep(maxStep: number): [step: Writable<number>, actions: UseStepActions] {
 	const stepStore = writable(1);
 	const canGoToPrevStep = writable(false);
 	const canGoToNextStep = writable(false);
@@ -21,12 +21,12 @@ export function useStep(maxStep: number): [step: typeof stepStore, actions: UseS
 
 	function setStep(step: number | ((current: number) => number)) {
 		const current = get(stepStore);
-		const newStep = typeof step === 'function' ? step(current) : step;
+		const newStep = typeof step === "function" ? step(current) : step;
 
 		if (newStep >= 1 && newStep <= maxStep) {
 			stepStore.set(newStep);
 		} else {
-			throw new Error('Step not valid');
+			throw new Error("Step not valid");
 		}
 	}
 

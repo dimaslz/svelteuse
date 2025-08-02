@@ -51,14 +51,13 @@ export const exampleCode = `
 `;
 
 export const sourceCode = `
-import { BROWSER } from "esm-env";
-
+import { isClient } from "@/utils/is-client";
 const eventListeners = new Map();
 
 export function useEventListener<E extends Event = Event>(
 	eventName: string,
 	handler: (event: E) => void,
-	element: Element | Window | null = BROWSER ? window : null,
+	element: Element | Window | null = isClient() ? window : null,
 	options: boolean = true,
 ): () => void {
 	if (!element) {

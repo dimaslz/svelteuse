@@ -1,44 +1,45 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { fireEvent, render, waitFor } from "@testing-library/svelte";
 import { tick } from "svelte";
 import { get } from "svelte/store";
-import { useScroll } from "./useScroll";
-import { fireEvent, render, waitFor } from "@testing-library/svelte";
-import UseScrollPlayground from "./useScroll-track-window.svelte"
-import UseScrollTrackElementPlayground from "./useScroll-track-element.svelte"
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock('@/utils/is-client', () => ({
+import { useScroll } from "./useScroll";
+import UseScrollTrackElementPlayground from "./useScroll-track-element.svelte";
+import UseScrollPlayground from "./useScroll-track-window.svelte";
+
+vi.mock("@/utils/is-client", () => ({
 	isClient: () => true,
 }));
 
 vi.useFakeTimers();
 
-describe('useScroll', () => {
+describe("useScroll", () => {
 	let mockElement: HTMLElement;
 
 	beforeEach(() => {
 		mockElement = document.createElement("div");
 
-		Object.defineProperty(mockElement, 'scrollTop', {
+		Object.defineProperty(mockElement, "scrollTop", {
 			value: 100,
 			writable: true,
 		});
-		Object.defineProperty(mockElement, 'scrollLeft', {
+		Object.defineProperty(mockElement, "scrollLeft", {
 			value: 50,
 			writable: true,
 		});
-		Object.defineProperty(mockElement, 'scrollHeight', {
+		Object.defineProperty(mockElement, "scrollHeight", {
 			value: 1000,
 			writable: true,
 		});
-		Object.defineProperty(mockElement, 'clientHeight', {
+		Object.defineProperty(mockElement, "clientHeight", {
 			value: 900,
 			writable: true,
 		});
-		Object.defineProperty(mockElement, 'scrollWidth', {
+		Object.defineProperty(mockElement, "scrollWidth", {
 			value: 500,
 			writable: true,
 		});
-		Object.defineProperty(mockElement, 'clientWidth', {
+		Object.defineProperty(mockElement, "clientWidth", {
 			value: 500,
 			writable: true,
 		});
@@ -58,7 +59,7 @@ describe('useScroll', () => {
 				document.documentElement.scrollLeft = 0;
 			});
 
-			it('initializes with default scroll state', () => {
+			it("initializes with default scroll state", () => {
 				const { scroll } = useScroll();
 
 				expect(get(scroll)).toEqual({
@@ -78,17 +79,17 @@ describe('useScroll', () => {
 				});
 			});
 
-			it('calls scrollTo with options object', () => {
+			it("calls scrollTo with options object", () => {
 				const scrollToSpy = vi.fn();
 				window.document.documentElement.scrollTo = scrollToSpy;
 
 				const { scrollTo } = useScroll();
-				scrollTo({ top: 200, left: 100, behavior: 'smooth' });
+				scrollTo({ top: 200, left: 100, behavior: "smooth" });
 
-				expect(scrollToSpy).toHaveBeenCalledWith({ top: 200, left: 100, behavior: 'smooth' });
+				expect(scrollToSpy).toHaveBeenCalledWith({ top: 200, left: 100, behavior: "smooth" });
 			});
 
-			it('calls scrollTo with x, y coordinates', () => {
+			it("calls scrollTo with x, y coordinates", () => {
 				const scrollToSpy = vi.fn();
 				window.document.documentElement.scrollTo = scrollToSpy;
 
@@ -98,10 +99,12 @@ describe('useScroll', () => {
 				expect(scrollToSpy).toHaveBeenCalledWith(300, 400);
 			});
 
-			it('throws when scrollTo is called with invalid arguments', () => {
+			it("throws when scrollTo is called with invalid arguments", () => {
 				const { scrollTo } = useScroll();
 
-				expect(() => scrollTo('badArg' as any)).toThrowError(/Invalid arguments passed to scrollTo/);
+				expect(() => scrollTo("badArg" as any)).toThrowError(
+					/Invalid arguments passed to scrollTo/,
+				);
 			});
 		});
 
@@ -114,29 +117,29 @@ describe('useScroll', () => {
 				document.documentElement.scrollLeft = 0;
 			});
 
-			it('resets isScrolling after debounce', async () => {
+			it("resets isScrolling after debounce", async () => {
 				const wrapper = render(UseScrollPlayground);
 
 				document.documentElement.scrollTop = 100;
 				document.documentElement.scrollLeft = 50;
 
-				window.dispatchEvent(new Event('scroll', { bubbles: true }));
+				window.dispatchEvent(new Event("scroll", { bubbles: true }));
 				await tick();
 
-				expect(wrapper.getByText("isScrolling: true"))
+				expect(wrapper.getByText("isScrolling: true"));
 
 				vi.advanceTimersByTime(200);
-				await tick()
+				await tick();
 
-				expect(wrapper.getByText("isScrolling: false"))
+				expect(wrapper.getByText("isScrolling: false"));
 			});
 
-			it('scroll to bottom and top', async () => {
+			it("scroll to bottom and top", async () => {
 				const wrapper = render(UseScrollPlayground);
 
 				document.documentElement.scrollTop = 1000;
 
-				window.dispatchEvent(new Event('scroll', { bubbles: true }));
+				window.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -148,7 +151,7 @@ describe('useScroll', () => {
 				expect(wrapper.getByText("coordenades: 0 - 1000"));
 
 				vi.advanceTimersByTime(200);
-				await tick()
+				await tick();
 
 				expect(wrapper.getByText("direction top: false"));
 				expect(wrapper.getByText("direction bottom: true"));
@@ -159,7 +162,7 @@ describe('useScroll', () => {
 
 				document.documentElement.scrollTop = 500;
 
-				window.dispatchEvent(new Event('scroll', { bubbles: true }));
+				window.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -181,12 +184,12 @@ describe('useScroll', () => {
 				expect(wrapper.getByText("coordenades: 0 - 500"));
 			});
 
-			it('scroll to right and left', async () => {
+			it("scroll to right and left", async () => {
 				const wrapper = render(UseScrollPlayground);
 
 				document.documentElement.scrollLeft = 1000;
 
-				window.dispatchEvent(new Event('scroll', { bubbles: true }));
+				window.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -198,7 +201,7 @@ describe('useScroll', () => {
 				expect(wrapper.getByText("coordenades: 1000 - 0"));
 
 				vi.advanceTimersByTime(200);
-				await tick()
+				await tick();
 
 				expect(wrapper.getByText("direction top: false"));
 				expect(wrapper.getByText("direction bottom: false"));
@@ -209,7 +212,7 @@ describe('useScroll', () => {
 
 				document.documentElement.scrollLeft = 500;
 
-				window.dispatchEvent(new Event('scroll', { bubbles: true }));
+				window.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -240,8 +243,8 @@ describe('useScroll', () => {
 				vi.resetModules();
 			});
 
-			it('calls scrollTo with x, y coordinates', () => {
-				const container = document.createElement('div');
+			it("calls scrollTo with x, y coordinates", () => {
+				const container = document.createElement("div");
 				const scrollToSpy = vi.fn();
 				container.scrollTo = scrollToSpy;
 
@@ -252,8 +255,8 @@ describe('useScroll', () => {
 				expect(scrollToSpy).toHaveBeenCalledWith(300, 400);
 			});
 
-			it('calls scrollTo with x, y coordinates', () => {
-				const container = document.createElement('div');
+			it("calls scrollTo with x, y coordinates", () => {
+				const container = document.createElement("div");
 				const scrollToSpy = vi.fn();
 				container.scrollTo = scrollToSpy;
 
@@ -264,18 +267,17 @@ describe('useScroll', () => {
 				expect(scrollToSpy).toHaveBeenCalledWith(300, 400);
 			});
 
-			it('calls scrollTo with options object', () => {
-				const container = document.createElement('div');
+			it("calls scrollTo with options object", () => {
+				const container = document.createElement("div");
 				const scrollToSpy = vi.fn();
 				container.scrollTo = scrollToSpy;
 
 				const { scrollTo, trackScroll } = useScroll();
 				trackScroll(container);
-				scrollTo({ top: 200, left: 100, behavior: 'smooth' });
+				scrollTo({ top: 200, left: 100, behavior: "smooth" });
 
-				expect(scrollToSpy).toHaveBeenCalledWith({ top: 200, left: 100, behavior: 'smooth' });
+				expect(scrollToSpy).toHaveBeenCalledWith({ top: 200, left: 100, behavior: "smooth" });
 			});
-
 		});
 
 		describe("with playground component", () => {
@@ -286,7 +288,7 @@ describe('useScroll', () => {
 				vi.runAllTicks();
 			});
 
-			it('is scrolling and stop after debounce', async () => {
+			it("is scrolling and stop after debounce", async () => {
 				const wrapper = render(UseScrollTrackElementPlayground);
 
 				const elmContainer = wrapper.getByTestId("container");
@@ -294,26 +296,26 @@ describe('useScroll', () => {
 				elmContainer.scrollTop = 100;
 				elmContainer.scrollLeft = 50;
 
-				elmContainer.dispatchEvent(new Event('scroll', { bubbles: true }));
+				elmContainer.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
-				expect(wrapper.getByText("isScrolling: true"))
+				expect(wrapper.getByText("isScrolling: true"));
 
 				vi.advanceTimersByTime(200);
-				await tick()
+				await tick();
 
-				expect(wrapper.getByText("isScrolling: false"))
+				expect(wrapper.getByText("isScrolling: false"));
 			});
 
-			it('scroll to bottom and top', async () => {
+			it("scroll to bottom and top", async () => {
 				const wrapper = render(UseScrollTrackElementPlayground);
 
 				const elmContainer = wrapper.getByTestId("container");
 
 				elmContainer.scrollTop = 1000;
 
-				elmContainer.dispatchEvent(new Event('scroll', { bubbles: true }));
+				elmContainer.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -325,7 +327,7 @@ describe('useScroll', () => {
 				expect(wrapper.getByText("coordenades: 0 - 1000"));
 
 				vi.advanceTimersByTime(200);
-				await tick()
+				await tick();
 
 				expect(wrapper.getByText("direction top: false"));
 				expect(wrapper.getByText("direction bottom: true"));
@@ -336,7 +338,7 @@ describe('useScroll', () => {
 
 				elmContainer.scrollTop = 500;
 
-				elmContainer.dispatchEvent(new Event('scroll', { bubbles: true }));
+				elmContainer.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -359,14 +361,14 @@ describe('useScroll', () => {
 			});
 
 			// TODO: over timeout :(
-			it.skip('scroll to right and left', async () => {
+			it.skip("scroll to right and left", async () => {
 				const wrapper = render(UseScrollTrackElementPlayground);
 
 				const elmContainer = wrapper.getByTestId("container");
 
 				elmContainer.scrollLeft = 500;
 
-				elmContainer.dispatchEvent(new Event('scroll', { bubbles: true }));
+				elmContainer.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -389,7 +391,7 @@ describe('useScroll', () => {
 
 				elmContainer.scrollLeft = 100;
 
-				elmContainer.dispatchEvent(new Event('scroll', { bubbles: true }));
+				elmContainer.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -411,7 +413,7 @@ describe('useScroll', () => {
 				expect(wrapper.getByText("coordenades: 100 - 0"));
 			});
 
-			it('scroll to bottom - right', async () => {
+			it("scroll to bottom - right", async () => {
 				const wrapper = render(UseScrollTrackElementPlayground);
 
 				const elmContainer = wrapper.getByTestId("container");
@@ -419,7 +421,7 @@ describe('useScroll', () => {
 				elmContainer.scrollTop = 100;
 				elmContainer.scrollLeft = 50;
 
-				elmContainer.dispatchEvent(new Event('scroll', { bubbles: true }));
+				elmContainer.dispatchEvent(new Event("scroll", { bubbles: true }));
 
 				await tick();
 
@@ -431,7 +433,7 @@ describe('useScroll', () => {
 				expect(wrapper.getByText("coordenades: 50 - 100"));
 
 				vi.advanceTimersByTime(200);
-				await tick()
+				await tick();
 
 				expect(wrapper.getByText("direction top: false"));
 				expect(wrapper.getByText("direction bottom: true"));

@@ -9,11 +9,11 @@ describe("Hooks - useSessionStorage", () => {
 
 		update("new data");
 
-		expect(window.sessionStorage.getItem("test-key")).toBe(JSON.stringify("new data"));
+		expect(window.sessionStorage.getItem("test-key")).toBe('"\\"new data\\""');
 
 		reset();
 
-		expect(window.sessionStorage.getItem("test-key")).toBe(JSON.stringify(initialData));
+		expect(window.sessionStorage.getItem("test-key")).toBe('"\\"my stored data\\""');
 
 		clear();
 

@@ -6,16 +6,16 @@
 
 	// example
 	const {
-    action: intersectionObserver,
-    isIntersecting,
-    entry
-  } = useIntersectionObserver({
-    threshold: 0.5,
-    rootMargin: '0px',
-    // freezeOnceVisible: true,
-    // initialIsIntersecting: false,
-    onChange: (intersecting, entry) => {
-      console.log('Changed:', intersecting, entry.target.textContent);
+		action: intersectionObserver,
+		isIntersecting,
+		entry,
+	} = useIntersectionObserver({
+		threshold: 0.5,
+		rootMargin: "0px",
+		// freezeOnceVisible: true,
+		// initialIsIntersecting: false,
+		onChange: (intersecting, entry) => {
+			console.log("Changed:", intersecting, entry.target.textContent);
 			if (intersecting) {
 				entry.target.classList.remove("bg-red-300");
 				entry.target.classList.add("bg-green-300");
@@ -23,15 +23,18 @@
 				entry.target.classList.remove("bg-green-300");
 				entry.target.classList.add("bg-red-300");
 			}
-    }
-  });
+		},
+	});
 
 	const sections = Array.from({ length: 5 }, (_, i) => `${i + 1}`);
 </script>
 
 <DocTpl title="useIntersectionObserver">
 	<div slot="description">
-		<p>Custom hook that tracks the intersection of a DOM element with its containing element or the viewport using the <code>Intersection Observer API</code>.</p>
+		<p>
+			Custom hook that tracks the intersection of a DOM element with its containing element or the
+			viewport using the <code>Intersection Observer API</code>.
+		</p>
 
 		<h3 class="text-lg">Inspired on:</h3>
 		<ul class="list-disc pl-6">
@@ -59,7 +62,11 @@
 		<Browser body="p-4 bg-gray-950/50 h-[400px] overflow-scroll">
 			<div>
 				{#each sections as title (title)}
-					<section class="h-[400px] flex items-center justify-center text-black text-4xl" title={title} use:intersectionObserver>
+					<section
+						class="h-[400px] flex items-center justify-center text-black text-4xl"
+						{title}
+						use:intersectionObserver
+					>
 						intersecting block {title}
 					</section>
 				{/each}

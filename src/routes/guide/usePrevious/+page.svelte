@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { writable } from 'svelte/store';
+	import { writable } from "svelte/store";
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { usePrevious } from "@/hooks";
 
 	// example
-  const count = writable(0);
-  const prevCount = usePrevious(count);
+	const count = writable(0);
+	const prevCount = usePrevious(count);
 
-  function increment() {
-    count.update(n => n + 1);
-  }
+	function increment() {
+		count.update((n) => n + 1);
+	}
 </script>
 
 <DocTpl title="usePrevious">

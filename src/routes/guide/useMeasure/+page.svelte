@@ -9,9 +9,7 @@
 
 <DocTpl title="useMeasure">
 	<div slot="description">
-		<p>
-			Effortlessly measure and track your component’s dimensions with useMeasure.
-		</p>
+		<p>Effortlessly measure and track your component’s dimensions with useMeasure.</p>
 
 		<h3 class="text-lg">Inspired on:</h3>
 		<ul class="list-disc pl-6">
@@ -28,10 +26,7 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<div class="p-4">
-				<div
-					use:element
-					class="resize border-2 border-amber-600 p-4 overflow-auto"
-				>
+				<div use:element class="resize border-2 border-amber-600 p-4 overflow-auto">
 					{JSON.stringify($dimensions, null, 2)}
 				</div>
 			</div>

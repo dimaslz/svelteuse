@@ -10,7 +10,7 @@ declare global {
 }
 
 type TFn<T> = (f: T) => T;
-type TNewState<T> = TFn<T> | T;
+type TNewState<T = null> = TFn<T> | T;
 type UseStateOutput<T> = {
 	store: SvelteStore<T>;
 	update: TsetValue<T>;
@@ -18,9 +18,8 @@ type UseStateOutput<T> = {
 	clear: () => void;
 };
 
-export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput<T> {
+export function useLocalStorage<T = null>(key: string, initialValue: T): UseStateOutput<T> {
 	const readValue = (): T => {
-		// Prevent build error "window is undefined" but keeps working
 		if (typeof window === "undefined") {
 			return initialValue;
 		}
@@ -64,6 +63,7 @@ export function useLocalStorage<T>(key: string, initialValue: T): UseStateOutput
 	};
 
 	const clear = () => {
+		setStoredValue(null as T);
 		window.localStorage.removeItem(key);
 	};
 

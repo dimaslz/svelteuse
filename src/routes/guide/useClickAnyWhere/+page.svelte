@@ -46,7 +46,7 @@
 		<H2>Visual example</H2>
 
 		<Browser body="p-4 bg-gray-950/50">
-			<div class="h-24"></div>
+			<div class="h-24">check the console in DevTools</div>
 		</Browser>
 	</div>
 

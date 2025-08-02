@@ -1,86 +1,87 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { get } from 'svelte/store';
-import { useOrientation } from './useOrientation';
+import { get } from "svelte/store";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-describe('Hooks - useOrientation', () => {
-  let originalScreen: typeof window.screen;
-  let originalOrientation: any;
+import { useOrientation } from "./useOrientation";
 
-  beforeEach(() => {
-    originalScreen = window.screen;
-    originalOrientation = (window as any).orientation;
+describe("Hooks - useOrientation", () => {
+	let originalScreen: typeof window.screen;
+	let originalOrientation: any;
 
-    // Mock modern screen.orientation API
-    window.screen = {
-      orientation: {
-        angle: 90,
-        type: 'landscape-primary',
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn()
-      }
-    } as any;
-  });
+	beforeEach(() => {
+		originalScreen = window.screen;
+		originalOrientation = (window as Window).orientation;
 
-  afterEach(() => {
-    window.screen = originalScreen;
-    (window as any).orientation = originalOrientation;
-    vi.restoreAllMocks();
-  });
+		// Mock modern screen.orientation API
+		window.screen = {
+			orientation: {
+				angle: 90,
+				type: "landscape-primary",
+				addEventListener: vi.fn(),
+				removeEventListener: vi.fn(),
+			},
+		} as unknown as Screen;
+	});
 
-  it('should return initial orientation from screen.orientation', () => {
-    const orientation = useOrientation();
-    const state = get(orientation);
+	afterEach(() => {
+		window.screen = originalScreen;
+		(window as any).orientation = originalOrientation;
+		vi.restoreAllMocks();
+	});
 
-    expect(state.angle).toBe(90);
-    expect(state.type).toBe('landscape-primary');
-  });
+	it("should return initial orientation from screen.orientation", () => {
+		const orientation = useOrientation();
+		const state = get(orientation);
 
-  it('should respond to screen.orientation change event', () => {
-    const listeners: Record<string, Function> = {};
-    window.screen.orientation.addEventListener = vi.fn((event, cb) => {
-      listeners[event] = cb;
-    });
+		expect(state.angle).toBe(90);
+		expect(state.type).toBe("landscape-primary");
+	});
 
-    const orientation = useOrientation();
+	it("should respond to screen.orientation change event", () => {
+		const listeners: Record<string, Function> = {};
+		window.screen.orientation.addEventListener = vi.fn((event, cb) => {
+			listeners[event] = cb;
+		});
 
-    // Simulate a change
-    window.screen.orientation.angle = 180;
-    window.screen.orientation.type = 'portrait-secondary';
+		const orientation = useOrientation();
 
-    listeners['change']?.();
+		// Simulate a change
+		window.screen.orientation.angle = 180;
+		window.screen.orientation.type = "portrait-secondary";
 
-    const state = get(orientation);
-    expect(state.angle).toBe(180);
-    expect(state.type).toBe('portrait-secondary');
-  });
+		listeners["change"]?.();
 
-  it('should fallback to window.orientation if screen.orientation is not supported', () => {
-    delete (window as any).screen.orientation;
-    (window as any).orientation = 270;
+		const state = get(orientation);
+		expect(state.angle).toBe(180);
+		expect(state.type).toBe("portrait-secondary");
+	});
 
-    const orientation = useOrientation();
-    const state = get(orientation);
+	it("should fallback to window.orientation if screen.orientation is not supported", () => {
+		delete (window as any).screen.orientation;
+		(window as any).orientation = 270;
 
-    expect(state.angle).toBe(270);
-    expect(state.type).toBe('UNKNOWN');
-  });
+		const orientation = useOrientation();
+		const state = get(orientation);
 
-  it('should respond to orientationchange in fallback mode', () => {
-    delete (window as any).screen.orientation;
-    (window as any).orientation = 0;
+		expect(state.angle).toBe(270);
+		expect(state.type).toBe("UNKNOWN");
+	});
 
-    const listeners: Record<string, Function> = {};
-    window.addEventListener = vi.fn((event, cb) => {
-      listeners[event] = cb;
-    });
+	it("should respond to orientationchange in fallback mode", () => {
+		delete (window as any).screen.orientation;
+		(window as any).orientation = 0;
 
-    const orientation = useOrientation();
+		const listeners: Record<string, Function> = {};
+		window.addEventListener = vi.fn((event, cb) => {
+			listeners[event] = cb;
+		});
 
-    (window as any).orientation = 180;
-    listeners['orientationchange']?.();
+		const orientation = useOrientation();
 
-    const state = get(orientation);
-    expect(state.angle).toBe(180);
-    expect(state.type).toBe('UNKNOWN');
-  });
+		(window as any).orientation = 180;
+		listeners["orientationchange"]?.();
+
+		const state = get(orientation);
+		expect(state.angle).toBe(180);
+		expect(state.type).toBe("UNKNOWN");
+	});
 });

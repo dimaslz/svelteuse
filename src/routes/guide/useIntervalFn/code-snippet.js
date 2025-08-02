@@ -27,7 +27,7 @@ export const exampleCode = `
 `;
 
 export const sourceCode = `
-import { BROWSER } from "esm-env";
+import { isClient } from "@/utils/is-client";
 
 import { useState } from "@dimaslz/svelteuse"
 
@@ -81,7 +81,7 @@ export function useIntervalFn(
 		timer = setInterval(callback, intervalValue);
 	}
 
-	if (immediate && BROWSER) {
+	if (immediate && isClient()) {
 		resume();
 	}
 

@@ -5,7 +5,7 @@
 	import { useWindowFocus } from "@/hooks";
 
 	// example
-  const isFocused = useWindowFocus();
+	const isFocused = useWindowFocus();
 </script>
 
 <DocTpl title="useWindowFocus">
@@ -27,7 +27,7 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<div>
-				<p>Window focused? {$isFocused ? 'Yes' : 'No'}</p>
+				<p>Window focused? {$isFocused ? "Yes" : "No"}</p>
 			</div>
 		</Browser>
 	</div>

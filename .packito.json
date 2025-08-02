@@ -8,8 +8,8 @@
 		"commitlint": true
 	},
 	"replace": {
-		"main": "index.js",
-		"module": "index.mjs"
+		"main": "dist/index.js",
+		"module": "dist/index.js"
 	},
 	"copy": ["README.md", "LICENSE"],
 	"publisher": "npm",

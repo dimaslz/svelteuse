@@ -10,6 +10,9 @@ const config: UserConfig = {
 			"~": path.resolve(__dirname),
 		},
 	},
+	build: {
+    ssr: false
+	}
 };
 
 export default config;

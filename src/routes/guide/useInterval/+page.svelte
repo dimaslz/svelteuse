@@ -6,10 +6,7 @@
 
 	// example
 	const counter = useInterval(200);
-	const { isActive, state: counter2, reset, pause, resume } = useInterval(
-	  200,
-		{ controls: true }
-	);
+	const { isActive, state: counter2, reset, pause, resume } = useInterval(200, { controls: true });
 </script>
 
 <DocTpl title="useInterval">

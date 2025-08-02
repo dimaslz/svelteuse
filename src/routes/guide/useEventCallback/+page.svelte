@@ -5,9 +5,9 @@
 	import { useEventCallback } from "@/hooks";
 
 	// example
-	const handleClick = useEventCallback(event => {
-    console.log('Clicked', event)
-  })
+	const handleClick = useEventCallback((event) => {
+		console.log("Clicked", event);
+	});
 </script>
 
 <DocTpl title="useEventCallback">

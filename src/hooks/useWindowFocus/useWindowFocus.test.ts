@@ -1,79 +1,79 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { get } from 'svelte/store';
+import { get } from "svelte/store";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useWindowFocus } from './useWindowFocus';
+import { useWindowFocus } from "./useWindowFocus";
 
-describe('useWindowFocus', () => {
-  let mockWindow: Window & {
-    events: Record<string, Function[]>;
-    trigger: (event: 'focus' | 'blur') => void;
-  };
+describe("useWindowFocus", () => {
+	let mockWindow: Window & {
+		events: Record<string, Function[]>;
+		trigger: (event: "focus" | "blur") => void;
+	};
 
-  beforeEach(() => {
-    mockWindow = {
-      document: {
-        hasFocus: vi.fn(() => true),
-      },
-      events: {
-        focus: [],
-        blur: [],
-      },
-      addEventListener: vi.fn((event, cb) => {
-        mockWindow.events[event]?.push(cb);
-      }),
-      removeEventListener: vi.fn((event, cb) => {
-        mockWindow.events[event] = mockWindow.events[event].filter(fn => fn !== cb);
-      }),
-      trigger(event: 'focus' | 'blur') {
-        mockWindow.events[event].forEach(fn => fn());
-      },
-    } as any;
-  });
+	beforeEach(() => {
+		mockWindow = {
+			document: {
+				hasFocus: vi.fn(() => true),
+			},
+			events: {
+				focus: [],
+				blur: [],
+			},
+			addEventListener: vi.fn((event, cb) => {
+				mockWindow.events[event]?.push(cb);
+			}),
+			removeEventListener: vi.fn((event, cb) => {
+				mockWindow.events[event] = mockWindow.events[event].filter((fn) => fn !== cb);
+			}),
+			trigger(event: "focus" | "blur") {
+				mockWindow.events[event].forEach((fn) => fn());
+			},
+		} as unknown as Window;
+	});
 
-  afterEach(() => {
-    vi.restoreAllMocks();
-  });
+	afterEach(() => {
+		vi.restoreAllMocks();
+	});
 
-  it('should initialize with hasFocus true', () => {
-    const store = useWindowFocus({ window: mockWindow });
-    expect(get(store)).toBe(true);
-  });
+	it("should initialize with hasFocus true", () => {
+		const store = useWindowFocus({ window: mockWindow });
+		expect(get(store)).toBe(true);
+	});
 
-  it('should update to false on blur event', () => {
-    const store = useWindowFocus({ window: mockWindow });
+	it("should update to false on blur event", () => {
+		const store = useWindowFocus({ window: mockWindow });
 
-    let result = true;
-    const unsubscribe = store.subscribe(val => result = val);
+		let result = true;
+		const unsubscribe = store.subscribe((val) => (result = val));
 
-    mockWindow.trigger('blur');
-    expect(result).toBe(false);
+		mockWindow.trigger("blur");
+		expect(result).toBe(false);
 
-    unsubscribe();
-  });
+		unsubscribe();
+	});
 
-  it('should update back to true on focus event', () => {
-    const store = useWindowFocus({ window: mockWindow });
+	it("should update back to true on focus event", () => {
+		const store = useWindowFocus({ window: mockWindow });
 
-    let result = true;
-    const unsubscribe = store.subscribe(val => result = val);
+		let result = true;
+		const unsubscribe = store.subscribe((val) => (result = val));
 
-    mockWindow.trigger('blur');
-    expect(result).toBe(false);
+		mockWindow.trigger("blur");
+		expect(result).toBe(false);
 
-    mockWindow.trigger('focus');
-    expect(result).toBe(true);
+		mockWindow.trigger("focus");
+		expect(result).toBe(true);
 
-    unsubscribe();
-  });
+		unsubscribe();
+	});
 
-  it('should be false in SSR', () => {
-    const originalWindow = globalThis.window;
-    // @ts-ignore
-    delete globalThis.window;
+	it("should be false in SSR", () => {
+		const originalWindow = globalThis.window;
+		// @ts-ignore
+		delete globalThis.window;
 
-    const store = useWindowFocus(); // no window
-    expect(get(store)).toBe(false);
+		const store = useWindowFocus(); // no window
+		expect(get(store)).toBe(false);
 
-    globalThis.window = originalWindow;
-  });
+		globalThis.window = originalWindow;
+	});
 });

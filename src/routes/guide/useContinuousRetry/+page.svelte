@@ -5,12 +5,12 @@
 	import { useContinuousRetry } from "@/hooks";
 
 	// example
-  let attemptCount = 0;
+	let attemptCount = 0;
 
-  const hasResolved = useContinuousRetry(() => {
-    attemptCount += 1;
-    return attemptCount >= 5; // will resolve on 5th attempt
-  }, 200);
+	const hasResolved = useContinuousRetry(() => {
+		attemptCount += 1;
+		return attemptCount >= 5; // will resolve on 5th attempt
+	}, 200);
 </script>
 
 <DocTpl title="useContinuousRetry">
@@ -32,7 +32,7 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<div>
-				<p>Resolved? {$hasResolved ? 'Yes' : 'No'}</p>
+				<p>Resolved? {$hasResolved ? "Yes" : "No"}</p>
 			</div>
 		</Browser>
 	</div>

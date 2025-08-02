@@ -5,7 +5,7 @@
 	import { useVisibilityChange } from "@/hooks";
 
 	// example
-  const isVisible = useVisibilityChange();
+	const isVisible = useVisibilityChange();
 </script>
 
 <DocTpl title="useVisibilityChange">
@@ -32,7 +32,7 @@
 
 		<Browser body="p-4 bg-gray-950/50">
 			<div>
-				<p>Tab visible? {$isVisible ? 'Yes' : 'No'}</p>
+				<p>Tab visible? {$isVisible ? "Yes" : "No"}</p>
 			</div>
 		</Browser>
 	</div>

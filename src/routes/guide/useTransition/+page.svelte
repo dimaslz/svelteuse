@@ -1,22 +1,22 @@
 <script lang="ts">
-  import { writable } from 'svelte/store';
+	import { writable } from "svelte/store";
 
 	import { Browser, Button, DocTpl, H2, Highlight, Link } from "@/components";
 	import { exampleCode, sourceCode } from "./code-snippet";
 	import { useTransition } from "@/hooks";
 
 	// example
-  const value = writable(0);
-  const animated = useTransition(value, {
-    duration: 800,
-    easing: [0.42, 0, 0.58, 1], // ease-in-out
-    onStarted: () => console.log('Started'),
-    onFinished: () => console.log('Finished')
-  });
+	const value = writable(0);
+	const animated = useTransition(value, {
+		duration: 800,
+		easing: [0.42, 0, 0.58, 1], // ease-in-out
+		onStarted: () => console.log("Started"),
+		onFinished: () => console.log("Finished"),
+	});
 
-  function increment() {
-    value.update(v => v + 100);
-  }
+	function increment() {
+		value.update((v) => v + 100);
+	}
 </script>
 
 <DocTpl title="useTransition">

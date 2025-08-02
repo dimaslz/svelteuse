@@ -6,14 +6,11 @@
 
 	// example
 	const [step, { goToNextStep, goToPrevStep, canGoToNextStep, canGoToPrevStep }] = useStep(5);
-
 </script>
 
 <DocTpl title="useStep">
 	<div slot="description">
-		<p>
-			A Svelte hook for controlling and navigating step-based workflows or wizards.
-		</p>
+		<p>A Svelte hook for controlling and navigating step-based workflows or wizards.</p>
 	</div>
 
 	<h3 class="text-lg">Inspired on:</h3>

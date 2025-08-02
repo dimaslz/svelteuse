@@ -18,7 +18,9 @@
 			<h3 class="text-lg">Inspired on:</h3>
 			<ul class="list-disc pl-6">
 				<li>
-					<Link href="https://vueuse.org/core/useThrottledRefHistory">https://vueuse.org/core/useThrottledRefHistory</Link>
+					<Link href="https://vueuse.org/core/useThrottledRefHistory"
+						>https://vueuse.org/core/useThrottledRefHistory</Link
+					>
 				</li>
 			</ul>
 		</div>
@@ -28,13 +30,13 @@
 		<H2>Visual example</H2>
 
 		<Browser body="p-4 bg-gray-950/50 h-96">
-  		<iframe
-  			src="/demos/use-throttled-history"
-  			frameborder="0"
-  			width="100%"
-  			height="100%"
-  			title="useThrottledHistory Demo"
-  		/>
+			<iframe
+				src="/demos/use-throttled-history"
+				frameborder="0"
+				width="100%"
+				height="100%"
+				title="useThrottledHistory Demo"
+			/>
 		</Browser>
 	</div>
 

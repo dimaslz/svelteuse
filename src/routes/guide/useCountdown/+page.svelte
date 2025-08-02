@@ -3,22 +3,20 @@
 
 	import { exampleCode, sourceCode } from "./code-snippet";
 
-	import { useCountdown } from '@/hooks';
+	import { useCountdown } from "@/hooks";
 
 	// example
-  const [count, { start, stop, reset }] = useCountdown({
-    countStart: 10,
-    countStop: 5,
-    intervalMs: 1000,
-    isIncrement: false
-  });
+	const [count, { start, stop, reset }] = useCountdown({
+		countStart: 10,
+		countStop: 5,
+		intervalMs: 1000,
+		isIncrement: false,
+	});
 </script>
 
 <DocTpl title="useCountdown">
 	<div slot="description" class="space-y-2">
-		<p>
-			Custom hook that manages countdown.
-		</p>
+		<p>Custom hook that manages countdown.</p>
 
 		<h3 class="text-lg">Related hooks</h3>
 		<ul class="list-disc pl-6">
@@ -35,9 +33,7 @@
 				>
 			</li>
 			<li>
-				<Link href="https://usehooks.com/usecountdown"
-					>https://usehooks.com/usecountdown</Link
-				>
+				<Link href="https://usehooks.com/usecountdown">https://usehooks.com/usecountdown</Link>
 			</li>
 		</ul>
 	</div>

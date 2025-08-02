@@ -1,20 +1,21 @@
-import { isClient } from '@/utils/is-client';
-import { readable } from 'svelte/store';
+import { readable } from "svelte/store";
+
+import { isClient } from "@/utils/is-client";
 
 interface RetryOptions {
-  maxRetries?: number;
-  immediate?: boolean;
+	maxRetries?: number;
+	immediate?: boolean;
 }
 
 export function useContinuousRetry(
-  callback: () => boolean,
-  interval = 100,
-  options: RetryOptions = {}
+	callback: () => boolean,
+	interval = 100,
+	options: RetryOptions = {},
 ) {
-  const { immediate = true, maxRetries = Infinity } = options;
+	const { immediate = true, maxRetries = Infinity } = options;
 
-  return readable<boolean>(false, (set) => {
-    if (!isClient()) return;
+	return readable<boolean>(false, (set) => {
+		if (!isClient()) return;
 
 		let retries = 0;
 		if (immediate) {
@@ -27,18 +28,18 @@ export function useContinuousRetry(
 		}
 
 		const id = setInterval(() => {
-      if (callback()) {
-        set(true);
-        clearInterval(id);
-      } else if (retries >= maxRetries) {
-        clearInterval(id);
-      } else {
-        retries += 1;
-      }
-    }, interval);
+			if (callback()) {
+				set(true);
+				clearInterval(id);
+			} else if (retries >= maxRetries) {
+				clearInterval(id);
+			} else {
+				retries += 1;
+			}
+		}, interval);
 
-    return () => {
-      clearInterval(id);
-    };
-  });
+		return () => {
+			clearInterval(id);
+		};
+	});
 }

@@ -1,155 +1,156 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { get } from 'svelte/store';
-import { useThrottledHistory } from './useThrottledHistory';
+import { get } from "svelte/store";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-describe('Hooks - useThrottledHistory', () => {
-  vi.useFakeTimers();
-  let now = 0;
+import { useThrottledHistory } from "./useThrottledHistory";
 
-  beforeEach(() => {
-    now = 1000000;
-    vi.setSystemTime(now);
-  });
+describe("Hooks - useThrottledHistory", () => {
+	vi.useFakeTimers();
+	let now = 0;
 
-  it.only('should create an initial snapshot immediately', () => {
-    const store = useThrottledHistory('start', { throttle: 1000 });
-    const history = get(store.history);
+	beforeEach(() => {
+		now = 1000000;
+		vi.setSystemTime(now);
+	});
 
-    expect(history.length).toBe(1);
-    expect(history[0].snapshot).toBe('start');
-  });
+	it.only("should create an initial snapshot immediately", () => {
+		const store = useThrottledHistory("start", { throttle: 1000 });
+		const history = get(store.history);
 
-  it.only('should throttle snapshots', () => {
-    const store = useThrottledHistory(1, { throttle: 1000 });
+		expect(history.length).toBe(1);
+		expect(history[0].snapshot).toBe("start");
+	});
 
-    store.set(2);
-    store.set(3);
-    store.set(4);
+	it.only("should throttle snapshots", () => {
+		const store = useThrottledHistory(1, { throttle: 1000 });
 
-    // nothing should be added yet due to throttle
-    expect(get(store.history).length).toBe(1);
+		store.set(2);
+		store.set(3);
+		store.set(4);
 
-    // fast-forward 1 second
-    vi.advanceTimersByTime(1000);
+		// nothing should be added yet due to throttle
+		expect(get(store.history).length).toBe(1);
 
-    expect(get(store.history).length).toBe(2);
-    expect(get(store.history)[0].snapshot).toBe(4);
-  });
+		// fast-forward 1 second
+		vi.advanceTimersByTime(1000);
 
-  it.only('should reset throttle and delay subsequent records', () => {
-    const store = useThrottledHistory(1, { throttle: 500 });
+		expect(get(store.history).length).toBe(2);
+		expect(get(store.history)[0].snapshot).toBe(4);
+	});
 
-    store.set(2);
-    vi.advanceTimersByTime(250); // halfway through throttle
-    store.set(3); // should not reset the throttle
+	it.only("should reset throttle and delay subsequent records", () => {
+		const store = useThrottledHistory(1, { throttle: 500 });
 
-    vi.advanceTimersByTime(250); // 500 total
+		store.set(2);
+		vi.advanceTimersByTime(250); // halfway through throttle
+		store.set(3); // should not reset the throttle
 
-    expect(get(store.history).length).toBe(2);
-    expect(get(store.history)[0].snapshot).toBe(3);
-  });
+		vi.advanceTimersByTime(250); // 500 total
 
-  it.only('should undo and redo correctly', () => {
-    const store = useThrottledHistory('a', { throttle: 300 });
+		expect(get(store.history).length).toBe(2);
+		expect(get(store.history)[0].snapshot).toBe(3);
+	});
 
-    store.set('b');
-    vi.advanceTimersByTime(300);
-    store.set('c');
-    vi.advanceTimersByTime(300);
+	it.only("should undo and redo correctly", () => {
+		const store = useThrottledHistory("a", { throttle: 300 });
 
-    let currentVal = '';
-    store.subscribe(v => (currentVal = v));
+		store.set("b");
+		vi.advanceTimersByTime(300);
+		store.set("c");
+		vi.advanceTimersByTime(300);
 
-    expect(get(store.history).map(h => h.snapshot)).toEqual(['c', 'b', 'a']);
+		let currentVal = "";
+		store.subscribe((v) => (currentVal = v));
 
-    store.undo();
-    expect(currentVal).toBe('b');
+		expect(get(store.history).map((h) => h.snapshot)).toEqual(["c", "b", "a"]);
 
-    store.undo();
-    expect(currentVal).toBe('a');
+		store.undo();
+		expect(currentVal).toBe("b");
 
-    store.redo();
-    expect(currentVal).toBe('b');
+		store.undo();
+		expect(currentVal).toBe("a");
 
-    store.redo();
-    expect(currentVal).toBe('c');
-  });
+		store.redo();
+		expect(currentVal).toBe("b");
 
-  it.only('should not undo past the initial state', () => {
-    const store = useThrottledHistory(10, { throttle: 500 });
+		store.redo();
+		expect(currentVal).toBe("c");
+	});
 
-    store.set(11);
-    vi.advanceTimersByTime(500);
+	it.only("should not undo past the initial state", () => {
+		const store = useThrottledHistory(10, { throttle: 500 });
 
-    store.undo();
-    store.undo(); // should be ignored
+		store.set(11);
+		vi.advanceTimersByTime(500);
 
-    let current;
-    store.subscribe(v => (current = v))();
-    expect(current).toBe(10);
-  });
+		store.undo();
+		store.undo(); // should be ignored
 
-  it.only('should clear undo/redo stacks and history', () => {
-    const store = useThrottledHistory(1, { throttle: 500 });
+		let current;
+		store.subscribe((v) => (current = v))();
+		expect(current).toBe(10);
+	});
 
-    store.set(2);
-    store.set(3);
+	it.only("should clear undo/redo stacks and history", () => {
+		const store = useThrottledHistory(1, { throttle: 500 });
 
-    vi.advanceTimersByTime(500);
+		store.set(2);
+		store.set(3);
 
-    store.clear();
+		vi.advanceTimersByTime(500);
 
-    expect(get(store.history)).toEqual([]);
+		store.clear();
 
-    let current;
-    store.subscribe(v => (current = v))();
+		expect(get(store.history)).toEqual([]);
 
-    expect(current).toBe(3);
-  });
+		let current;
+		store.subscribe((v) => (current = v))();
 
-  it.only('should respect capacity limits', () => {
-    const store = useThrottledHistory(0, { throttle: 100, capacity: 3 });
+		expect(current).toBe(3);
+	});
 
-    store.set(1);
-    vi.advanceTimersByTime(100);
+	it.only("should respect capacity limits", () => {
+		const store = useThrottledHistory(0, { throttle: 100, capacity: 3 });
 
-    store.set(2);
-    vi.advanceTimersByTime(100);
+		store.set(1);
+		vi.advanceTimersByTime(100);
 
-    store.set(3);
-    vi.advanceTimersByTime(100);
+		store.set(2);
+		vi.advanceTimersByTime(100);
 
-    store.set(4);
-    vi.advanceTimersByTime(100);
+		store.set(3);
+		vi.advanceTimersByTime(100);
 
-    const hist = get(store.history);
-    expect(hist.map(h => h.snapshot)).toEqual([4, 3, 2]); // 1 was dropped
-  });
+		store.set(4);
+		vi.advanceTimersByTime(100);
 
-  it.only('should deeply clone objects if deep option is enabled', () => {
-    const obj = { count: 1 };
-    const store = useThrottledHistory(obj, { throttle: 500, deep: true });
+		const hist = get(store.history);
+		expect(hist.map((h) => h.snapshot)).toEqual([4, 3, 2]); // 1 was dropped
+	});
 
-    const newObj = { count: 2 };
-    store.set(newObj);
-    vi.advanceTimersByTime(500);
+	it.only("should deeply clone objects if deep option is enabled", () => {
+		const obj = { count: 1 };
+		const store = useThrottledHistory(obj, { throttle: 500, deep: true });
 
-    newObj.count = 999;
+		const newObj = { count: 2 };
+		store.set(newObj);
+		vi.advanceTimersByTime(500);
 
-    const lastSnap = get(store.history)[0].snapshot;
-    expect(lastSnap).toEqual({ count: 2 });
-  });
+		newObj.count = 999;
 
-  it.only('should not clone deeply if deep is false', () => {
-    const obj = { name: 'svelte' };
-    const store = useThrottledHistory(obj, { throttle: 500, deep: false });
+		const lastSnap = get(store.history)[0].snapshot;
+		expect(lastSnap).toEqual({ count: 2 });
+	});
 
-    store.set(obj);
-    vi.advanceTimersByTime(500);
+	it.only("should not clone deeply if deep is false", () => {
+		const obj = { name: "svelte" };
+		const store = useThrottledHistory(obj, { throttle: 500, deep: false });
 
-    obj.name = 'changed';
+		store.set(obj);
+		vi.advanceTimersByTime(500);
 
-    const lastSnap = get(store.history)[0].snapshot;
-    expect(lastSnap).toEqual({ name: 'changed' }); // reference, not cloned
-  });
+		obj.name = "changed";
+
+		const lastSnap = get(store.history)[0].snapshot;
+		expect(lastSnap).toEqual({ name: "changed" }); // reference, not cloned
+	});
 });

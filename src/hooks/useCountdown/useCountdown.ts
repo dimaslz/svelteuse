@@ -1,6 +1,6 @@
-import { get } from 'svelte/store';
+import { get } from "svelte/store";
 
-import { useCounter, useBoolean, useIntervalFn } from '@/hooks';
+import { useBoolean, useCounter, useIntervalFn } from "@/hooks";
 
 type CountdownOptions = {
 	countStart: number;
@@ -16,11 +16,7 @@ export function useCountdown({
 	isIncrement = false,
 }: CountdownOptions) {
 	const { count, increment, decrement, reset: resetCounter } = useCounter(countStart);
-	const {
-		value: isCountdownRunning,
-		setTrue: start,
-		setFalse: stop
-	} = useBoolean(false);
+	const { value: isCountdownRunning, setTrue: start, setFalse: stop } = useBoolean(false);
 
 	function reset() {
 		stop();
@@ -43,7 +39,10 @@ export function useCountdown({
 		}
 	}
 
-	const { pause, resume } = useIntervalFn(countdownCallback, isCountdownRunning ? intervalMs : null);
+	const { pause, resume } = useIntervalFn(
+		countdownCallback,
+		isCountdownRunning ? intervalMs : null,
+	);
 
 	return [
 		count,

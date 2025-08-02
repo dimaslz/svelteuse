@@ -1,66 +1,73 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { get } from 'svelte/store';
-import { useAsyncState } from './useAsyncState';
+import { get } from "svelte/store";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-describe('Hooks - useAsyncState', () => {
-  beforeEach(() => {
-    vi.useRealTimers();
-  });
+import { useAsyncState } from "./useAsyncState";
 
-  it('initializes with default values', () => {
-    const store = useAsyncState(async () => 1, 0, { immediate: false });
+describe("Hooks - useAsyncState", () => {
+	beforeEach(() => {
+		vi.useRealTimers();
+	});
 
-    expect(get(store.state)).toBe(0);
-    expect(get(store.isLoading)).toBe(false);
-    expect(get(store.isReady)).toBe(false);
-    expect(get(store.error)).toBe(null);
-  });
+	it("initializes with default values", () => {
+		const store = useAsyncState(async () => 1, 0, { immediate: false });
 
-  it('executes async function and updates state flags', async () => {
-    const fn = vi.fn(async () => {
-      await new Promise(r => setTimeout(r, 10));
-      return 42;
-    });
-    const store = useAsyncState(fn, 0, { immediate: false });
+		expect(get(store.state)).toBe(0);
+		expect(get(store.isLoading)).toBe(false);
+		expect(get(store.isReady)).toBe(false);
+		expect(get(store.error)).toBe(null);
+	});
 
-    const promise = store.execute();
+	it("executes async function and updates state flags", async () => {
+		const fn = vi.fn(async () => {
+			await new Promise((r) => setTimeout(r, 10));
+			return 42;
+		});
+		const store = useAsyncState(fn, 0, { immediate: false });
 
-    expect(get(store.isLoading)).toBe(true);
+		const promise = store.execute();
 
-    await promise;
+		expect(get(store.isLoading)).toBe(true);
 
-    expect(fn).toHaveBeenCalled();
-    expect(get(store.state)).toBe(42);
-    expect(get(store.isReady)).toBe(true);
-    expect(get(store.isLoading)).toBe(false);
-    expect(get(store.error)).toBeNull();
-  });
+		await promise;
 
-  it('captures errors correctly', async () => {
-    const err = new Error('fail');
-    const store = useAsyncState(async () => { throw err; }, 0, { immediate: false });
+		expect(fn).toHaveBeenCalled();
+		expect(get(store.state)).toBe(42);
+		expect(get(store.isReady)).toBe(true);
+		expect(get(store.isLoading)).toBe(false);
+		expect(get(store.error)).toBeNull();
+	});
 
-    await expect(store.execute()).rejects.toThrow('fail');
-    expect(get(store.isLoading)).toBe(false);
-    expect(get(store.error)).toBe(err);
-    expect(get(store.isReady)).toBe(false);
-  });
+	it("captures errors correctly", async () => {
+		const err = new Error("fail");
+		const store = useAsyncState(
+			async () => {
+				throw err;
+			},
+			0,
+			{ immediate: false },
+		);
 
-  it('resets state before execute if resetOnExecute is true', async () => {
-    const store = useAsyncState(async () => 99, 5, { immediate: false });
-    await store.execute();
-    store.execute();
+		await expect(store.execute()).rejects.toThrow("fail");
+		expect(get(store.isLoading)).toBe(false);
+		expect(get(store.error)).toBe(err);
+		expect(get(store.isReady)).toBe(false);
+	});
 
-    expect(get(store.state)).toBe(5);
-  });
+	it("resets state before execute if resetOnExecute is true", async () => {
+		const store = useAsyncState(async () => 99, 5, { immediate: false });
+		await store.execute();
+		store.execute();
 
-  it('supports delay option', async () => {
-    vi.useFakeTimers();
-    const store = useAsyncState(async () => 100, 0, { immediate: false, delay: 100 });
-    const exec = store.execute();
-    vi.advanceTimersByTime(100);
-    await exec;
+		expect(get(store.state)).toBe(5);
+	});
 
-    expect(get(store.state)).toBe(100);
-  });
+	it("supports delay option", async () => {
+		vi.useFakeTimers();
+		const store = useAsyncState(async () => 100, 0, { immediate: false, delay: 100 });
+		const exec = store.execute();
+		vi.advanceTimersByTime(100);
+		await exec;
+
+		expect(get(store.state)).toBe(100);
+	});
 });

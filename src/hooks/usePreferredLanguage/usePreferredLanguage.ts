@@ -1,18 +1,19 @@
-import { isClient } from '@/utils/is-client';
-import { readable } from 'svelte/store';
+import { readable } from "svelte/store";
+
+import { isClient } from "@/utils/is-client";
 
 export function usePreferredLanguage() {
-  return readable<string>('en', (set) => {
-    if (!isClient()) return;
+	return readable<string>("en", (set) => {
+		if (!isClient()) return;
 
-    const update = () => set(navigator.language || 'en');
+		const update = () => set(navigator.language || "en");
 
-    update(); // initialize immediately
+		update(); // initialize immediately
 
-    window.addEventListener('languagechange', update);
+		window.addEventListener("languagechange", update);
 
-    return () => {
-      window.removeEventListener('languagechange', update);
-    };
-  });
+		return () => {
+			window.removeEventListener("languagechange", update);
+		};
+	});
 }

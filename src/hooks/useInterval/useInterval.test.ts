@@ -2,15 +2,6 @@ import { get } from "svelte/store";
 
 import { useInterval } from "@/hooks";
 
-vi.mock("esm-env", async (importOriginal) => {
-	const actual: any = await importOriginal();
-
-	return {
-		...actual,
-		BROWSER: true,
-	};
-});
-
 vi.useFakeTimers();
 
 describe("Hooks - useInterval", () => {

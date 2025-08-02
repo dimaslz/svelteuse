@@ -8,7 +8,7 @@
 	const idle = useIdle(5000);
 
 	let isTracking = true;
-	idle.isTracking.subscribe((v) => isTracking = v)
+	idle.isTracking.subscribe((v) => (isTracking = v));
 </script>
 
 <DocTpl title="useIdle">
@@ -19,14 +19,10 @@
 			<h3 class="text-lg">Inspired on:</h3>
 			<ul class="list-disc pl-6">
 				<li>
-					<Link href="https://usehooks.com/useidle">
-					  https://usehooks.com/useidle
-					</Link>
+					<Link href="https://usehooks.com/useidle">https://usehooks.com/useidle</Link>
 				</li>
 				<li>
-					<Link href="https://vueuse.org/core/useIdle">
-			  https://vueuse.org/core/useIdle
-					</Link>
+					<Link href="https://vueuse.org/core/useIdle">https://vueuse.org/core/useIdle</Link>
 				</li>
 			</ul>
 		</div>
@@ -36,11 +32,11 @@
 		<H2>Visual example</H2>
 
 		<Browser body="p-4 bg-gray-950/50">
-  		<p>isTracking: {isTracking}</p>
-  		<p>User is { $idle ? 'idle 😴' : 'active 👍' }</p>
+			<p>isTracking: {isTracking}</p>
+			<p>User is {$idle ? "idle 😴" : "active 👍"}</p>
 
-      <Button on:click={idle.start}>Start tracking</Button>
-      <Button on:click={idle.stop}>Stop tracking</Button>
+			<Button on:click={idle.start}>Start tracking</Button>
+			<Button on:click={idle.stop}>Stop tracking</Button>
 		</Browser>
 	</div>
 

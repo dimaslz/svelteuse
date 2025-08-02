@@ -12,17 +12,21 @@
 			<h3 class="text-lg">Related hooks:</h3>
 			<ul class="list-disc pl-6">
 				<li>
-				  <Link href="/guide/useThrottledHistory">useThrottledHistory</Link>
+					<Link href="/guide/useThrottledHistory">useThrottledHistory</Link>
 				</li>
 			</ul>
 
 			<h3 class="text-lg">Inspired on:</h3>
 			<ul class="list-disc pl-6">
 				<li>
-					<Link href="https://usehooks.com/usehistorystate">https://usehooks.com/usehistorystate</Link>
+					<Link href="https://usehooks.com/usehistorystate"
+						>https://usehooks.com/usehistorystate</Link
+					>
 				</li>
 				<li>
-					<Link href="https://vueuse.org/core/useRefHistory">https://vueuse.org/core/useRefHistory</Link>
+					<Link href="https://vueuse.org/core/useRefHistory"
+						>https://vueuse.org/core/useRefHistory</Link
+					>
 				</li>
 			</ul>
 		</div>
@@ -32,13 +36,13 @@
 		<H2>Visual example</H2>
 
 		<Browser body="p-4 bg-gray-950/50 h-96">
-  		<iframe
-  			src="/demos/use-history"
-  			frameborder="0"
-  			width="100%"
-  			height="100%"
-  			title="useHistory Demo"
-  		/>
+			<iframe
+				src="/demos/use-history"
+				frameborder="0"
+				width="100%"
+				height="100%"
+				title="useHistory Demo"
+			/>
 		</Browser>
 	</div>
 

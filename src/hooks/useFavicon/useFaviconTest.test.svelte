@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { useFavicon } from './useFavicon';
-  export let url: string;
+	import { useFavicon } from "./useFavicon";
+	export let url: string;
 
-  useFavicon(url);
+	useFavicon(url);
 </script>

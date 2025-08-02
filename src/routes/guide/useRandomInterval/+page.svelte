@@ -8,16 +8,19 @@
 	// example
 	let count = 0;
 
-  onMount(() => {
-    const clear = useRandomInterval(() => {
-      count += 1;
-    }, { minDelay: 300, maxDelay: 1000 });
+	onMount(() => {
+		const clear = useRandomInterval(
+			() => {
+				count += 1;
+			},
+			{ minDelay: 300, maxDelay: 1000 },
+		);
 
-    // Optional: cancel after some time
-    setTimeout(() => {
-      clear();
-    }, 5000);
-  });
+		// Optional: cancel after some time
+		setTimeout(() => {
+			clear();
+		}, 5000);
+	});
 </script>
 
 <DocTpl title="useRandomInterval">

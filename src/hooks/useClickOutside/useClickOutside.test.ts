@@ -3,15 +3,6 @@ import userEvent from "@testing-library/user-event";
 
 import UseClickOutside from "@/hooks/useClickOutside/useClickOutside.svelte";
 
-vi.mock("esm-env", async (importOriginal) => {
-	const actual: any = await importOriginal();
-
-	return {
-		...actual,
-		BROWSER: true,
-	};
-});
-
 describe("Hooks - useClickOutside", () => {
 	test("should work on click outside the element", async () => {
 		const clickMockFn = vi.fn();

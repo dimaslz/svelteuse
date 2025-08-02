@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 export function useList<T>(defaultList: T[] = []) {
 	const list = writable<T[]>(defaultList);
@@ -8,19 +8,19 @@ export function useList<T>(defaultList: T[] = []) {
 	}
 
 	function push(element: T) {
-		list.update(l => [...l, element]);
+		list.update((l) => [...l, element]);
 	}
 
 	function removeAt(index: number) {
-		list.update(l => [...l.slice(0, index), ...l.slice(index + 1)]);
+		list.update((l) => [...l.slice(0, index), ...l.slice(index + 1)]);
 	}
 
 	function insertAt(index: number, element: T) {
-		list.update(l => [...l.slice(0, index), element, ...l.slice(index)]);
+		list.update((l) => [...l.slice(0, index), element, ...l.slice(index)]);
 	}
 
 	function updateAt(index: number, element: T) {
-		list.update(l => l.map((e, i) => (i === index ? element : e)));
+		list.update((l) => l.map((e, i) => (i === index ? element : e)));
 	}
 
 	function clear() {

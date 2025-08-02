@@ -36,7 +36,7 @@
 					use:mouseTracker
 					class={[
 						"size-56 border p-4 text-black",
-						$mouse.isOutside ? "bg-red-200" : 'bg-green-200'
+						$mouse.isOutside ? "bg-red-200" : "bg-green-200",
 					].join(" ")}
 				>
 					<p>Mouse X: {$mouse.x}</p>

@@ -12,7 +12,7 @@
 
 		$location.hash = value;
 		history.pushState($location.href, "", `#${value}`);
-		window.dispatchEvent(new HashChangeEvent("hashchange"))
+		window.dispatchEvent(new HashChangeEvent("hashchange"));
 	};
 </script>
 
@@ -41,7 +41,8 @@
 		<Browser body="p-4 bg-gray-950/50">
 			<div class="text-xs">
 				<InputText
-					value={$location.hash?.replace("#", "")} on:input={onInput}
+					value={$location.hash?.replace("#", "")}
+					on:input={onInput}
 					placeholder="write some #hash value..."
 				/>
 

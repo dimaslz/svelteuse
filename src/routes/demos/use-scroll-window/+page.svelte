@@ -2,11 +2,11 @@
 	import { useScroll } from "@/hooks/useScroll/useScroll";
 	import { onMount } from "svelte";
 
-	const {scroll, scrollTo} = useScroll();
+	const { scroll, scrollTo } = useScroll();
 
 	onMount(() => {
 		// scrollTo({ top: 2200, left: 1800 })
-	})
+	});
 </script>
 
 <div class="min-w-[5000px] min-h-[5000px] flex items-center justify-center relative">

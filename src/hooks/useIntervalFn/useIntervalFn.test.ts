@@ -4,11 +4,11 @@ import { useIntervalFn } from "@/hooks";
 
 describe("Hooks - useIntervalFn", () => {
 	beforeEach(() => {
-    vi.useFakeTimers();
-  });
+		vi.useFakeTimers();
+	});
 
-  afterEach(() => {
-    vi.useRealTimers();
+	afterEach(() => {
+		vi.useRealTimers();
 	});
 
 	test("should interval every 100ms using controls", () => {

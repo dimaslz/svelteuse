@@ -1,7 +1,6 @@
 import { useState } from "@/hooks";
 import { isClient } from "@/utils/is-client";
 
-
 type Options = {
 	immediate?: boolean;
 	immediateCallback?: boolean;

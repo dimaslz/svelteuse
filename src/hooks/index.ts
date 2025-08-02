@@ -57,6 +57,6 @@ export * from "./useTimeoutFn";
 export * from "./useToggle";
 export * from "./useTransition";
 export * from "./useUrlSearchParams";
-export * from "./useWindowSize";
 export * from "./useVisibilityChange";
 export * from "./useWindowFocus";
+export * from "./useWindowSize";

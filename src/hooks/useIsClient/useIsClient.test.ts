@@ -1,4 +1,4 @@
-import { useIsClient } from "@/hooks"
+import { useIsClient } from "@/hooks";
 
 describe("Hooks - useIsClient", () => {
 	it("should show that is client", async () => {

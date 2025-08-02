@@ -4,14 +4,17 @@
 	import { useList } from "@/hooks";
 
 	// example
-	let input = '';
+	let input = "";
 
 	const { list: todos, push, removeAt, clear } = useList<string>([]);
 </script>
 
 <DocTpl title="useList">
 	<div slot="description">
-		<p>Easily handle array-based content with the useList hook for adding, updating, and removing items.</p>
+		<p>
+			Easily handle array-based content with the useList hook for adding, updating, and removing
+			items.
+		</p>
 
 		<h3 class="text-lg">Inspired on:</h3>
 		<ul class="list-disc pl-6">
@@ -28,7 +31,14 @@
 			<div>
 				<div class="flex w-96 h-12">
 					<InputText bind:value={input} placeholder="Add todo" />
-					<Button on:click={() => { if (input) { push(input); input = ''; } }}>
+					<Button
+						on:click={() => {
+							if (input) {
+								push(input);
+								input = "";
+							}
+						}}
+					>
 						Add
 					</Button>
 					<Button on:click={clear}>Clear All</Button>

@@ -39,7 +39,6 @@
 			</Browser>
 		</div>
 
-
 		<div>
 			<H2>Visual example (scroll window)</H2>
 

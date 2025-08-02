@@ -5,22 +5,13 @@
 	import { useStepper } from "@/hooks";
 
 	// example
-	const steps = ['Account', 'Details', 'Confirm'];
-	const {
-		current,
-		goToNext,
-		goToPrevious,
-		isFirst,
-		isLast,
-	} = useStepper(steps);
-
+	const steps = ["Account", "Details", "Confirm"];
+	const { current, goToNext, goToPrevious, isFirst, isLast } = useStepper(steps);
 </script>
 
 <DocTpl title="useStepper">
 	<div slot="description">
-		<p>
-			Offers utilities to control and navigate multi-step workflows.
-		</p>
+		<p>Offers utilities to control and navigate multi-step workflows.</p>
 	</div>
 
 	<h3 class="text-lg">Inspired on:</h3>
@@ -38,9 +29,9 @@
 		<Browser body="p-4 bg-gray-950/50">
 			<h2>Step: {$current}</h2>
 
-			{#if $current === 'Account'}
+			{#if $current === "Account"}
 				<p>Account setup step</p>
-			{:else if $current === 'Details'}
+			{:else if $current === "Details"}
 				<p>Enter personal details</p>
 			{:else}
 				<p>Confirm and submit</p>

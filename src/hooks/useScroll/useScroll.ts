@@ -32,15 +32,18 @@ function getScrollContainer(element: Writable<Window | Document | Element>): Ele
 		return window?.document?.documentElement;
 	}
 
-	return (get(element) as Window)?.document?.documentElement
-		|| (get(element) as Document)?.documentElement
-		|| (get(element) as Element)
+	return (
+		(get(element) as Window)?.document?.documentElement ||
+		(get(element) as Document)?.documentElement ||
+		(get(element) as Element)
+	);
 }
 
 function getData(scrollContainer: Element) {
 	const x = scrollContainer?.scrollLeft ?? 0;
 	const y = scrollContainer?.scrollTop ?? 0;
-	const bottomArrived = scrollContainer?.scrollHeight - scrollContainer?.clientHeight === scrollContainer?.scrollTop;
+	const bottomArrived =
+		scrollContainer?.scrollHeight - scrollContainer?.clientHeight === scrollContainer?.scrollTop;
 	const topArrived = scrollContainer?.scrollTop === 0;
 	const leftArrived = scrollContainer?.scrollLeft === 0;
 	const rightArrived = scrollContainer?.clientWidth === scrollContainer?.scrollLeft;
@@ -52,7 +55,7 @@ function getData(scrollContainer: Element) {
 		topArrived,
 		leftArrived,
 		rightArrived,
-	}
+	};
 }
 
 export function useScroll(): {
@@ -132,8 +135,7 @@ export function useScroll(): {
 				bottomArrived?: boolean;
 				leftArrived?: boolean;
 				rightArrived?: boolean;
-				} = {}
-			) => {
+			} = {}) => {
 				set({
 					x,
 					y,
@@ -154,7 +156,7 @@ export function useScroll(): {
 					...get(store),
 					directions: get(store).directions,
 					isScrolling: false,
-					...data
+					...data,
 				});
 			};
 

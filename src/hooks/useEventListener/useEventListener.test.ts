@@ -2,18 +2,8 @@ import { fireEvent, render } from "@testing-library/svelte";
 
 import UseEventListenerComponent from "./useEventListener.svelte";
 
-vi.mock("esm-env", async (importOriginal) => {
-	const actual: any = await importOriginal();
-
-	return {
-		...actual,
-		BROWSER: true,
-	};
-});
-
 describe("Hooks - useEventListener", () => {
 	describe("default", () => {
-
 		test.each([
 			["click", new MouseEvent("")],
 			["change", new Event("")],
@@ -48,7 +38,7 @@ describe("Hooks - useEventListener", () => {
 
 			expect(callbackMock).not.nthCalledWith(2);
 		});
-	})
+	});
 
 	describe("throttle", () => {
 		test.each([
@@ -73,7 +63,7 @@ describe("Hooks - useEventListener", () => {
 					eventType: eventName.toLowerCase(),
 					callbackListener: callbackMock,
 					element: window,
-					throttle: 200
+					throttle: 200,
 				},
 			});
 
@@ -90,5 +80,5 @@ describe("Hooks - useEventListener", () => {
 
 			expect(callbackMock).not.nthCalledWith(2);
 		});
-	})
+	});
 });

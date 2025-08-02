@@ -59,7 +59,11 @@
 				</code>
 			</div>
 
-			<a class="text-red-600 hover:text-red-400 text-xs mt-2 p-1" href="https://www.npmjs.com/package/@dimaslz/svelteuse">https://www.npmjs.com/package/@dimaslz/svelteuse</a>
+			<a
+				class="text-red-600 hover:text-red-400 text-xs mt-2 p-1"
+				href="https://www.npmjs.com/package/@dimaslz/svelteuse"
+				>https://www.npmjs.com/package/@dimaslz/svelteuse</a
+			>
 
 			<p class="mt-12">
 				This project has been inspired on <Link href="https://usehooks.com" target="_blank"

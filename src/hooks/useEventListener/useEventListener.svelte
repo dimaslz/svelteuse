@@ -13,7 +13,7 @@
 		callbackListener,
 		element,
 		true,
-		throttle
+		throttle,
 	);
 
 	onMount(() => {

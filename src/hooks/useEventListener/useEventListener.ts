@@ -1,4 +1,4 @@
-import { BROWSER } from "esm-env";
+import { isClient } from "@/utils/is-client";
 
 const eventListeners = new Map();
 
@@ -16,9 +16,9 @@ function throttleFn(func: (...args: any) => void, timeFrame: number) {
 export function useEventListener<E extends Event = Event>(
 	eventName: string,
 	handler: (event: E) => void,
-	element: Element | Window | null = BROWSER ? window : null,
+	element: Element | Window | null = isClient() ? window : null,
 	options: boolean | AddEventListenerOptions = true,
-	throttle: number = 0
+	throttle: number = 0,
 ): () => void {
 	if (!element) {
 		return () => {};
@@ -36,18 +36,14 @@ export function useEventListener<E extends Event = Event>(
 
 	element.addEventListener(
 		eventName,
-		throttle
-			? throttleFn(listener as EventListener, throttle)
-			: listener as EventListener,
-		options
+		throttle ? throttleFn(listener as EventListener, throttle) : (listener as EventListener),
+		options,
 	);
 
 	return (): void => {
 		element.removeEventListener(
 			eventName,
-			throttle
-				? throttleFn(listener as EventListener, throttle)
-				: listener as EventListener,
+			throttle ? throttleFn(listener as EventListener, throttle) : (listener as EventListener),
 			options,
 		);
 		eventListeners.delete(id);

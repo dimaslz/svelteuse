@@ -5,8 +5,8 @@
 	const { scroll, scrollTo, trackScroll } = useScroll();
 
 	onMount(() => {
-		scrollTo({ top: 250, left: 250 })
-	})
+		scrollTo({ top: 250, left: 250 });
+	});
 </script>
 
 <div class="flex bg-gray-950">

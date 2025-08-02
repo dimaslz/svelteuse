@@ -5,7 +5,7 @@
 	import { usePreferredLanguage } from "@/hooks";
 
 	// example
-  const language = usePreferredLanguage();
+	const language = usePreferredLanguage();
 </script>
 
 <DocTpl title="usePreferredLanguage">

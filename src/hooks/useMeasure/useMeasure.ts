@@ -1,4 +1,4 @@
-import { writable, type Writable } from "svelte/store";
+import { type Writable, writable } from "svelte/store";
 
 type Dimensions = {
 	width: number | null;
@@ -23,8 +23,8 @@ export function useMeasure(): {
 			observer = new ResizeObserver(([entry]) => {
 				if (entry && entry.borderBoxSize) {
 					const size = Array.isArray(entry.borderBoxSize)
-					? entry.borderBoxSize[0]
-					: entry.borderBoxSize;
+						? entry.borderBoxSize[0]
+						: entry.borderBoxSize;
 
 					const { inlineSize: width, blockSize: height } = size;
 					dimensions.set({ width, height });

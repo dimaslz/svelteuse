@@ -1,3 +1,3 @@
 export interface ConfigurableWindow {
-  window?: Window;
+	window?: Window;
 }
