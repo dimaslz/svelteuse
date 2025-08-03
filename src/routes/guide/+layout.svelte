@@ -25,6 +25,14 @@
 		showSearch = false;
 	};
 
+	const handleTriggerSearch = () => {
+		showSearch = true;
+		setTimeout(() => {
+			const elm = document.getElementById("search-modal");
+			elm?.querySelector("input")?.focus();
+		}, 0);
+	};
+
 	onMount(() => {
 		const pageSubscription = page.subscribe(({ route }) => {
 			const linkIndex = data.links.findIndex(({ link }) => link === route.id);
@@ -56,11 +64,12 @@
 	});
 </script>
 
-<Header fixed />
+<Header fixed search onSearch={handleTriggerSearch} />
 
 <div class="flex w-full h-auto">
 	{#if showSearch}
 		<div
+			role="dialog"
 			class="fixed inset-0 bg-gray-900/50 z-10 size-full flex justify-center items-center"
 			id="search-modal"
 		>
@@ -76,7 +85,9 @@
 						<XOutlineIcon class="size-8" />
 					</button>
 				</div>
-				<InputText class="w-full" placeholder="search..." on:input={handleOnSearch} />
+				<div>
+					<InputText class="w-full" placeholder="search..." on:input={handleOnSearch} />
+				</div>
 
 				<div class="h-full overflow-y-scroll mt-4 w-full">
 					{#if searchResults.length === 0}

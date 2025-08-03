@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Link from "@/components/link/Link.svelte";
+	import InputText from "../input-text/InputText.svelte";
 
 	export let fixed: boolean = false;
+	export let search: boolean = false;
+	export let onSearch: undefined | (() => void) = undefined;
 
 	const classes = [
 		"w-full min-h-[64px] flex",
@@ -9,6 +12,12 @@
 	].join(" ");
 
 	delete $$restProps.class;
+
+	const handleOnClickSearch = () => {
+		if (onSearch) {
+			onSearch();
+		}
+	};
 </script>
 
 <header class={classes} {...$$restProps}>
@@ -26,8 +35,22 @@
 		</div>
 	</div>
 	<nav class="w-full flex items-center justify-end py-2 px-4 text-sm text-gray-400">
-		<ul class="flex divide-x">
-			<li><Link href="/about" class="px-4 py-2 hover:text-[#ff3e00]">about</Link></li>
+		<ul class="flex items-center h-full">
+			{#if search}
+				<li class="px-4 w-[250px]">
+					<InputText
+						size="md"
+						placeholder="type CMD + K to search"
+						class="text-xs"
+						on:focus={handleOnClickSearch}
+					/>
+				</li>
+				<li class="w-px bg-white h-5" />
+			{/if}
+			<li>
+				<Link href="/about" class="px-4 py-2 hover:text-[#ff3e00]">about</Link>
+			</li>
+			<li class="w-px bg-white h-5" role="none" />
 			<li>
 				<Link href="https://github.com/dimaslz/svelteuse" class="px-4 py-2 hover:text-[#ff3e00]"
 					>github</Link
