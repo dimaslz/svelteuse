@@ -52,8 +52,10 @@
 			</li>
 			<li class="w-px bg-white h-5" role="none" />
 			<li>
-				<Link href="https://github.com/dimaslz/svelteuse" class="px-4 py-2 hover:text-[#ff3e00]"
-					>github</Link
+				<Link
+					href="https://github.com/dimaslz/svelteuse"
+					target="_blank"
+					class="px-4 py-2 hover:text-[#ff3e00]">github</Link
 				>
 			</li>
 		</ul>
