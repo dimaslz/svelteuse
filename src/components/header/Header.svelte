@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Link from "@/components/link/Link.svelte";
-	import InputText from "../input-text/InputText.svelte";
+	import InputText from "@/components/input-text/InputText.svelte";
 
 	export let fixed: boolean = false;
 	export let search: boolean = false;
@@ -26,18 +26,22 @@
 		id="logo"
 	>
 		<div
-			class={["w-full flex h-full items-center", fixed ? "border-b border-gray-700" : ""].join(" ")}
+			class={[
+				"w-full flex h-full items-center relative",
+				fixed ? "border-b border-gray-700" : "",
+			].join(" ")}
 		>
-			<a href="/" class="relative z-1 h-full flex items-center cursor-pointer">SvelteUse</a><Link
-				href="https://github.com/dimaslz"
-				class="text-xs ml-2 font-normal  text-white">by dimaslz</Link
+			<a href="/" class="relative z-1 h-full flex items-center cursor-pointer">SvelteUse</a>
+			<span class="text-[0.7rem] text-slate-500 ml-1">v0.0.2</span>
+			<Link href="https://github.com/dimaslz" class="text-xs ml-2 font-normal  text-white"
+				>by dimaslz</Link
 			>
 		</div>
 	</div>
 	<nav class="w-full flex items-center justify-end py-2 px-4 text-sm text-gray-400">
 		<ul class="flex items-center h-full">
 			{#if search}
-				<li class="px-4 w-[250px]">
+				<li class="px-4 w-62.5">
 					<InputText
 						size="md"
 						placeholder="type CMD + K to search"

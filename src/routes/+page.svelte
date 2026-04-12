@@ -7,10 +7,20 @@
 
 	let copied = false;
 
-	const copyCommand = ($event: Event) => {
-		const value: string = ($event.target as HTMLButtonElement).textContent || "";
+	type PackageManager = "npm" | "yarn" | "pnpm" | "bun";
+	let selectedPm: PackageManager = "npm";
 
-		copyClipboard(value?.replace("$ ", ""));
+	const packageManagers: PackageManager[] = ["npm", "yarn", "pnpm", "bun"];
+
+	const pmCommands: Record<PackageManager, string> = {
+		npm: "npm add @dimaslz/svelteuse",
+		yarn: "yarn add @dimaslz/svelteuse",
+		pnpm: "pnpm add @dimaslz/svelteuse",
+		bun: "bun add @dimaslz/svelteuse",
+	};
+
+	const copyCommand = () => {
+		copyClipboard(pmCommands[selectedPm]);
 
 		copied = true;
 		setTimeout(() => {
@@ -24,15 +34,33 @@
 
 	<main class="h-full w-full">
 		<div class="flex h-full flex-1 grow-0 w-full justify-center items-center flex-col">
-			<h1 class="md:text-8xl text-7xl text-[#ff3e00]">SvelteUse</h1>
-			<h2 class="text-sm md:text-center text-left">
-				Svelte hooks library like React and Vue style
-			</h2>
+			<div class="relative">
+				<h1 class="md:text-8xl text-7xl text-[#ff3e00]">SvelteUse</h1>
+				<span class="absolute right-0 top-0 text-lg">v0.0.2</span>
+				<h2 class="text-sm md:text-center text-left">
+					Svelte hooks library like React and Vue style
+				</h2>
+			</div>
 
 			<div class="mt-12">
+				<div class="flex gap-0 mb-0">
+					{#each packageManagers as pm}
+						<button
+							on:click={() => (selectedPm = pm)}
+							class={[
+								"px-4 py-1 text-xs font-mono rounded-t-sm border-b-0 transition-colors cursor-pointer",
+								selectedPm === pm
+									? "bg-gray-900 text-gray-200 dark:bg-gray-200 dark:text-gray-900"
+									: "bg-gray-700 text-gray-400 hover:bg-gray-800 dark:bg-gray-300 dark:text-gray-600 dark:hover:bg-gray-250",
+							].join(" ")}
+						>
+							{pm}
+						</button>
+					{/each}
+				</div>
 				<code
 					class={[
-						"cursor-pointer relative flex rounded-sm text-sm text-gray-400 shadow-inner dark:text-gray-900 px-6 group z-10",
+						"cursor-pointer relative flex rounded-sm rounded-tl-none text-sm text-gray-400 shadow-inner dark:text-gray-900 px-6 group z-10",
 						!copied ? "bg-gray-900 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100" : "",
 					].join(" ")}
 				>
@@ -44,12 +72,14 @@
 						</div>
 					{/if}
 
-					<button
-						on:click={copyCommand}
-						class="z-0 flex h-full w-full items-center justify-center rounded-sm p-4 font-mono cursor-pointer"
-					>
-						$ npm add @dimaslz/svelteuse
-					</button>
+					<div>
+						<button
+							on:click={copyCommand}
+							class="z-0 flex h-full w-full items-center justify-center rounded-sm p-4 font-mono cursor-pointer"
+						>
+							$ {pmCommands[selectedPm]}
+						</button>
+					</div>
 
 					<div
 						class="h-full w-8 items-center absolute right-0 top-0 bottom-0 hidden group-hover:flex"
