@@ -12,7 +12,7 @@ describe("Hooks - useThrottledHistory", () => {
 		vi.setSystemTime(now);
 	});
 
-	it.only("should create an initial snapshot immediately", () => {
+	it("should create an initial snapshot immediately", () => {
 		const store = useThrottledHistory("start", { throttle: 1000 });
 		const history = get(store.history);
 
@@ -20,7 +20,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(history[0].snapshot).toBe("start");
 	});
 
-	it.only("should throttle snapshots", () => {
+	it("should throttle snapshots", () => {
 		const store = useThrottledHistory(1, { throttle: 1000 });
 
 		store.set(2);
@@ -37,7 +37,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(get(store.history)[0].snapshot).toBe(4);
 	});
 
-	it.only("should reset throttle and delay subsequent records", () => {
+	it("should reset throttle and delay subsequent records", () => {
 		const store = useThrottledHistory(1, { throttle: 500 });
 
 		store.set(2);
@@ -50,7 +50,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(get(store.history)[0].snapshot).toBe(3);
 	});
 
-	it.only("should undo and redo correctly", () => {
+	it("should undo and redo correctly", () => {
 		const store = useThrottledHistory("a", { throttle: 300 });
 
 		store.set("b");
@@ -76,7 +76,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(currentVal).toBe("c");
 	});
 
-	it.only("should not undo past the initial state", () => {
+	it("should not undo past the initial state", () => {
 		const store = useThrottledHistory(10, { throttle: 500 });
 
 		store.set(11);
@@ -90,7 +90,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(current).toBe(10);
 	});
 
-	it.only("should clear undo/redo stacks and history", () => {
+	it("should clear undo/redo stacks and history", () => {
 		const store = useThrottledHistory(1, { throttle: 500 });
 
 		store.set(2);
@@ -108,7 +108,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(current).toBe(3);
 	});
 
-	it.only("should respect capacity limits", () => {
+	it("should respect capacity limits", () => {
 		const store = useThrottledHistory(0, { throttle: 100, capacity: 3 });
 
 		store.set(1);
@@ -127,7 +127,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(hist.map((h) => h.snapshot)).toEqual([4, 3, 2]); // 1 was dropped
 	});
 
-	it.only("should deeply clone objects if deep option is enabled", () => {
+	it("should deeply clone objects if deep option is enabled", () => {
 		const obj = { count: 1 };
 		const store = useThrottledHistory(obj, { throttle: 500, deep: true });
 
@@ -141,7 +141,7 @@ describe("Hooks - useThrottledHistory", () => {
 		expect(lastSnap).toEqual({ count: 2 });
 	});
 
-	it.only("should not clone deeply if deep is false", () => {
+	it("should not clone deeply if deep is false", () => {
 		const obj = { name: "svelte" };
 		const store = useThrottledHistory(obj, { throttle: 500, deep: false });
 
