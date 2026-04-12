@@ -32,9 +32,6 @@
           with: 
             node-version: "22.6"
         - 
-          name: "Install yarn"
-          run: "npm install -g yarn"
-        - 
           name: "Install dependencies"
           run: "yarn install"
         - 
@@ -61,7 +58,6 @@
             key: "${{ github.sha }}-cache"
         - 
           name: "Run tests"
-          run: "yarn test"
     build-application: 
       name: "build application"
       runs-on: "ubuntu-latest"
@@ -85,7 +81,7 @@
           name: "Cache"
           uses: "actions/cache@v4"
           with: 
-            path: "./*\nbuild\nnode_modules\npackage.json\nstatic"
+            path: "./*\nbuild\npackage.json\nyarn.lock\nnode_modules"
             key: "${{ github.sha }}-cache"
     create-and-push-docker-image: 
       name: "create and push docker image"
@@ -96,11 +92,11 @@
           name: "Cache"
           uses: "actions/cache@v4"
           with: 
-            path: "./*\nbuild\nnode_modules\npackage.json\nstatic"
+            path: "./*\nbuild\npackage.json\nyarn.lock\nnode_modules"
             key: "${{ github.sha }}-cache"
         - 
           name: "Build docker image"
-          run: "wget https://statics.dimaslz.dev/fito/docker/dockerfile-standard.docker.tmpl -O Dockerfile.tmpl\n    export FROM=\"node:22.6-alpine\"\n    export ARGS=\"\"\n    export SOURCE=\"build\"\n    export FILES=\"COPY node_modules /app/node_modules\nCOPY package.json /app/package.json\nCOPY static /app/static\"\n    export PORT=\"3000\"\n    export RUN_COMMAND=\"\\\"yarn\\\", \\\"start\\\"\"\n    envsubst < Dockerfile.tmpl > Dockerfile\n    docker build .  -t ${{ env.ATTEMPTS }}_${{ github.sha }}_svelteuse.dimaslz.dev_production_image"
+          run: "wget https://statics.dimaslz.dev/fito/docker/dockerfile-standard.docker.tmpl -O Dockerfile.tmpl\n    export FROM=\"node:22.6-alpine\"\n    export ARGS=\"\"\n    export SOURCE=\"build\"\n    export FILES=\"COPY package.json /app/package.json\nCOPY yarn.lock /app/yarn.lock\nCOPY node_modules /app/node_modules\"\n    export PORT=\"3000\"\n    export RUN_COMMAND=\"\\\"yarn\\\", \\\"start\\\"\"\n    envsubst < Dockerfile.tmpl > Dockerfile\n    docker build .  -t ${{ env.ATTEMPTS }}_${{ github.sha }}_svelteuse.dimaslz.dev_production_image"
         - 
           name: "prepare connection"
           run: "mkdir -p ~/.ssh/\necho \"$SSH_KEY\" > ~/.ssh/prod.key\nchmod 600 ~/.ssh/prod.key\ncat >>~/.ssh/config <<END\nHost prod\n  HostName $SSH_HOST\n  User $SSH_USER\n  IdentityFile ~/.ssh/prod.key\n  StrictHostKeyChecking no\nEND"
@@ -108,7 +104,7 @@
           name: "Cache"
           uses: "actions/cache@v4"
           with: 
-            path: "./*\nbuild\nnode_modules\npackage.json\nstatic"
+            path: "./*\nbuild\npackage.json\nyarn.lock\nnode_modules"
             key: "${{ github.sha }}-cache"
         - 
           name: "Push image"
@@ -125,7 +121,7 @@
           name: "Cache"
           uses: "actions/cache@v4"
           with: 
-            path: "./*\nbuild\nnode_modules\npackage.json\nstatic"
+            path: "./*\nbuild\npackage.json\nyarn.lock\nnode_modules"
             key: "${{ github.sha }}-cache"
         - 
           name: "prepare connection"
