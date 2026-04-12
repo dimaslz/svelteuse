@@ -58,7 +58,7 @@
             key: "${{ github.sha }}-cache"
         - 
           name: "Run tests"
-          run: ""
+          run: "yarn test"
     build-application: 
       name: "build application"
       runs-on: "ubuntu-latest"
