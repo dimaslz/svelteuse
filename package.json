@@ -69,7 +69,8 @@
 		"useAsyncState",
 		"useScrollLock",
 		"useStorage",
-		"useTextSelection"
+		"useTextSelection",
+		"useUrlSearchParams"
 	],
 	"bugs": "https://github.com/dimaslz/svelteuse/issues",
 	"repository": {
@@ -386,6 +387,10 @@
 		"./useTextSelection": {
 			"types": "./dist/useTextSelection/useTextSelection.d.ts",
 			"svelte": "./dist/useTextSelection/useTextSelection.js"
+		},
+		"./useUrlSearchParams": {
+			"types": "./dist/useUrlSearchParams/useUrlSearchParams.d.ts",
+			"svelte": "./dist/useUrlSearchParams/useUrlSearchParams.js"
 		}
 	}
 }
