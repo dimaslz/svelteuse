@@ -2,11 +2,30 @@
 
 List of hooks inspired on [https://usehooks.com](https://usehooks.com), [https://usehooks-ts.com](https://usehooks-ts.com) and [https://vueuse.org](https://vueuse.org).
 
+Current version: [**v0.0.2**](https://www.npmjs.com/package/@dimaslz/svelteuse)
+
+> [!NOTE]
+> Hey!! Do you like this library? Do you find it useful? Are you using it for a personal project or at your company?
+> Please let me know. This project started out as a learning exercise, but if you find it useful, please give it a star to keep me motivated to release future updates.
+>
+> Thanks! 🙋‍♂️
+
+## Table of versions
+
+| svelteuse version | based on |
+| ---- | ---- |
+| 0.0.1 | >4.2 |
+| 0.0.2 (latest) | >4.2 |
+
 ## Installation
 
 ### npm
 
 `npm install @dimaslz/svelteuse`
+
+### pnpm
+
+`pnpm add @dimaslz/svelteuse`
 
 ### yarn
 
@@ -16,7 +35,7 @@ List of hooks inspired on [https://usehooks.com](https://usehooks.com), [https:/
 
 `bun add @dimaslz/svelteuse`
 
-## TODO
+## TODO (hooks)
 
 This list is orientative, let's try to get all 👨‍💻.
 
@@ -151,12 +170,19 @@ This list is orientative, let's try to get all 👨‍💻.
 - [ ] useUserMedia (https://vueuse.org/core/useUserMedia/)
 - [ ] useWebSocket (https://vueuse.org/core/useWebSocket/)
 
+## TOOD (project)
+
+- [ ] Generate version from CI
+- [ ] Changelog
+- [ ] Release
+- [ ] Documentation by version
+
 ## Author
 
 ```json
 {
 	"name": "Dimas López Zurita",
-	"role": "Senior Software Engineer",
+	"role": "Software Engineer",
 	"alias": "dimaslz",
 	"linkedin": "https://www.linkedin.com/in/dimaslopezzurita",
 	"github": "https://github.com/dimaslz",
